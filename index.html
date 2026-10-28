@@ -3,9 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Intermarché Gedinne : promo du jour, folder de la semaine, réservations en ligne, horaires 8 h – 19 h tous les jours.">
 <title>Intermarché Gedinne</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Figtree:wght@400;500;700&display=swap">
+<style>
+@font-face{font-family:"Fraunces";font-weight:600;font-display:swap;src:url(fonts/fraunces-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Fraunces";font-weight:800;font-display:swap;src:url(fonts/fraunces-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Figtree";font-weight:400;font-display:swap;src:url(fonts/figtree-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Figtree";font-weight:500;font-display:swap;src:url(fonts/figtree-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Figtree";font-weight:700;font-display:swap;src:url(fonts/figtree-latin-700-normal.woff2) format("woff2")}
+</style>
 <style>
 /* Layout : bandeau d'accueil + "ardoise du marché" de la semaine (7 jours), folder, promos du moment, rayons frais, colis, infos pratiques. Bilingue FR/NL. */
 :root{
@@ -116,7 +122,9 @@ tr.today td{font-weight:700;color:var(--ink)}
 .contact dt{font-weight:700}
 .contact dd{margin:0;color:var(--muted)}
 footer{border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
-footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer .wrap{padding-block:22px;display:grid;gap:6px}
+footer p{margin:0;max-width:90ch}
+footer a{color:var(--ink)}
 
 @media (max-width:760px){
   .hero .wrap,.colis,.infos{grid-template-columns:1fr}
@@ -128,7 +136,6 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 <style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)} body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
 </head>
 <body>
-
 <header class="top">
   <div class="wrap">
     <div class="brand">Intermarché <span>Gedinne</span></div>
@@ -274,9 +281,10 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 </section>
 
 <footer>
-  <div class="wrap">
-    <span>Intermarché Gedinne · SA LOISECO</span>
-    <span data-t="footNote">Promotions valables dans la limite des stocks disponibles.</span>
+  <div class="wrap legal">
+    <p><strong data-t="legalName">SA Loïseco</strong> · <span data-t="legalSeat">Siège social</span> : Rue de Charleville 48, 5575 Gedinne · <span data-t="legalBce">N° d'entreprise et TVA</span> : BE 0826.587.082 · <span data-t="legalRpr">RPR Liège, division Dinant</span> · <span data-t="dtTel">Téléphone</span> : 061 61 45 75</p>
+    <p data-t="legalBrand">Intermarché est une marque du Groupement Les Mousquetaires. Ce magasin est exploité par SA Loïseco, commerçant indépendant.</p>
+    <p><span data-t="footNote">Promotions valables dans la limite des stocks disponibles.</span> · <a id="privLink" href="https://intergedinne.github.io/intermarche-gedinne/vie-privee.html" data-t="privacy">Vie privée</a></p>
   </div>
 </footer>
 
@@ -297,7 +305,7 @@ colisEyebrow:"Le samedi, sur réservation",colisTitle:"Le colis repas pour 4",co
 colisBtn:"Réserver en ligne",copyBtn:"Copier le numéro",copyMsg:"Numéro copié",
 hoursEyebrow:"Horaires",hoursTitle:"Quand passer ?",hoursNote:"Ouvert tous les jours, jours fériés compris.",
 infoEyebrow:"Nous trouver",infoTitle:"Infos pratiques",dtAddr:"Adresse",dtTel:"Téléphone",ddPark:"Gratuit, devant le magasin",dtRoute:"Itinéraire",ddRoute:"Ouvrir la carte",
-footNote:"Promotions valables dans la limite des stocks disponibles.",im:"https://www.intermarche.be/produits/",
+footNote:"Promotions valables dans la limite des stocks disponibles.",legalName:"SA Loïseco",legalSeat:"Siège social",legalBce:"N° d'entreprise et TVA",legalRpr:"RPR Liège, division Dinant",legalBrand:"Intermarché est une marque du Groupement Les Mousquetaires. Ce magasin est exploité par SA Loïseco, commerçant indépendant.",privacy:"Vie privée",im:"https://www.intermarche.be/produits/",
 days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],
 promos:[
  {r:1,t:"Hachis 1+1 offert",p:"Au rayon boucherie."},
@@ -321,7 +329,7 @@ colisEyebrow:"Op zaterdag, op reservatie",colisTitle:"Het maaltijdpakket voor 4"
 colisBtn:"Online reserveren",copyBtn:"Nummer kopiëren",copyMsg:"Nummer gekopieerd",
 hoursEyebrow:"Openingsuren",hoursTitle:"Wanneer langskomen?",hoursNote:"Elke dag open, ook op feestdagen.",
 infoEyebrow:"Ligging",infoTitle:"Praktische info",dtAddr:"Adres",dtTel:"Telefoon",ddPark:"Gratis, voor de winkel",dtRoute:"Route",ddRoute:"Kaart openen",
-footNote:"Promoties geldig zolang de voorraad strekt.",im:"https://www.intermarche.be/nl/",
+footNote:"Promoties geldig zolang de voorraad strekt.",legalName:"NV Loïseco",legalSeat:"Maatschappelijke zetel",legalBce:"Ondernemings- en btw-nummer",legalRpr:"RPR Luik, afdeling Dinant",legalBrand:"Intermarché is een merk van de Groupement Les Mousquetaires. Deze winkel wordt uitgebaat door NV Loïseco, zelfstandig handelaar.",privacy:"Privacy",im:"https://www.intermarche.be/nl/",
 days:["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"],
 promos:[
  {r:1,t:"Gehakt 1+1 gratis",p:"Aan de slagerijtoonbank."},
@@ -380,6 +388,7 @@ function render(lang){
     box.appendChild(el);
   });
   $("imLink").href=L.im;
+  $("privLink").href="https://intergedinne.github.io/intermarche-gedinne/vie-privee.html"+(lang==="nl"?"?lang=nl":"");
   // horaires
   const tb=document.querySelector("#hours tbody");tb.innerHTML="";
   L.days.forEach((d,i)=>{const tr=document.createElement("tr");if(i===idx)tr.className="today";tr.innerHTML=`<td>${d}</td><td>08:00 – 19:00</td>`;tb.appendChild(tr);});
@@ -402,5 +411,6 @@ $("copyBtn").addEventListener("click",()=>{
   try{navigator.clipboard.writeText("061614575").then(show).catch(sel)}catch(e){sel()}
 });
 </script>
+
 </body>
 </html>
