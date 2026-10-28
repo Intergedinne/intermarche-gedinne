@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Intermarché Gedinne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Figtree:wght@400;500;700&display=swap">
+<style>
+/* Layout : bandeau d'accueil + "ardoise du marché" de la semaine (7 jours), puis rayons frais et infos pratiques */
+:root{
+  --bg:#f7f6f2; --surface:#ffffff; --ink:#1c2420; --muted:#5d6862;
+  --red:#d0202a; --forest:#1f4d3a; --line:#dfe1da; --chalk:#26302b; --chalk-ink:#f2f1ea; --sun:#f3b23a;
+  --display:"Fraunces",Georgia,serif; --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141a17; --surface:#1c2420; --ink:#ecefe9; --muted:#a3ada7;
+  --red:#ff5a5f; --forest:#7cc4a3; --line:#2f3934; --chalk:#0e1311; --chalk-ink:#f2f1ea; --sun:#f3b23a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a17; --surface:#1c2420; --ink:#ecefe9; --muted:#a3ada7;
+  --red:#ff5a5f; --forest:#7cc4a3; --line:#2f3934; --chalk:#0e1311; --chalk-ink:#f2f1ea; --sun:#f3b23a; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+a{color:inherit}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+
+header.top{border-bottom:1px solid var(--line);background:var(--surface)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.brand span{color:var(--red)}
+nav{display:flex;gap:18px;flex-wrap:wrap;font-weight:500;font-size:.95rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover,nav a:focus-visible{color:var(--ink)}
+
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;padding-block:56px 40px;align-items:end}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--forest)}
+.hero p{color:var(--muted);max-width:48ch;font-size:1.08rem;margin:16px 0 0}
+.status{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:6px}
+.status .now{display:flex;align-items:center;gap:10px;font-weight:700}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--forest)}
+.status .addr{color:var(--muted);font-size:.95rem}
+
+/* Ardoise */
+#promos{padding-block:24px 56px}
+.board{background:var(--chalk);color:var(--chalk-ink);border-radius:18px;padding:28px clamp(18px,4vw,36px)}
+.board-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.board h2{font-size:clamp(1.6rem,3.5vw,2.3rem);color:var(--chalk-ink)}
+.board-head p{margin:0;opacity:.75;font-size:.9rem}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.day{border:1px dashed rgba(242,241,234,.28);border-radius:12px;padding:16px;display:grid;gap:6px;align-content:start;min-width:0}
+.day .d{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;font-weight:700}
+.day h3{font-size:1.15rem;color:var(--chalk-ink)}
+.day p{margin:0;font-size:.92rem;opacity:.82}
+.day.today{border:2px solid var(--sun);background:rgba(243,178,58,.08)}
+.day.today .d{color:var(--sun);opacity:1}
+.day.today .d::after{content:" · aujourd'hui"}
+
+/* Folder */
+#folder{padding-block:0 56px}
+.folder{border:2px solid var(--red);border-radius:18px;padding:24px clamp(18px,4vw,36px);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.folder h2{font-size:clamp(1.4rem,3vw,1.9rem);margin-top:6px}
+.folder p{margin:6px 0 0;color:var(--muted);font-variant-numeric:tabular-nums}
+.folder-links{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:999px;padding:10px 18px;background:var(--red);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+
+/* Promos du moment */
+#moment{padding-block:0 56px}
+.offers{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.offer{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:6px;align-content:start;min-width:0}
+.offer .meca{justify-self:start;background:var(--red);color:#fff;font-weight:700;font-size:.85rem;padding:4px 10px;border-radius:6px;font-variant-numeric:tabular-nums}
+.offer h3{font-size:1.2rem;margin-top:4px}
+.offer p{margin:0;color:var(--muted);font-size:.92rem}
+.offer .prix{font-variant-numeric:tabular-nums;font-size:.85rem}
+#moment .note a{color:var(--ink)}
+
+/* Rayons */
+#rayons{padding-block:16px 56px}
+.sec-head{display:grid;gap:8px;margin-bottom:24px}
+.sec-head h2{font-size:clamp(1.6rem,3.5vw,2.3rem)}
+.sec-head p{color:var(--muted);margin:0;max-width:60ch}
+.rayons{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.rayon{display:grid;gap:8px;padding-top:16px;border-top:3px solid var(--forest);min-width:0}
+.rayon h3{font-size:1.3rem}
+.rayon p{margin:0;color:var(--muted)}
+
+/* Colis */
+.colis{background:var(--surface);border:1px solid var(--line);border-radius:18px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;padding:28px clamp(18px,4vw,36px);align-items:center}
+.colis h2{font-size:clamp(1.5rem,3vw,2rem)}
+.colis p{color:var(--muted);margin:10px 0 0;max-width:52ch}
+.callbox{display:grid;gap:10px;justify-items:start}
+.phone{font-family:var(--display);font-size:1.8rem;font-weight:800;font-variant-numeric:tabular-nums;user-select:all}
+button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:10px 18px;background:var(--red);color:#fff;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+
+/* Infos */
+#infos{padding-block:56px}
+.infos{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+td{padding:9px 0;border-bottom:1px solid var(--line)}
+td:last-child{text-align:right;color:var(--muted)}
+tr.today td{font-weight:700;color:var(--ink)}
+.note{font-size:.85rem;color:var(--muted);margin-top:10px}
+.contact dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:0}
+.contact dt{font-weight:700}
+.contact dd{margin:0;color:var(--muted)}
+footer{border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:760px){
+  .hero .wrap,.colis,.infos{grid-template-columns:1fr}
+  .rayons{grid-template-columns:1fr}
+  .hero .wrap{padding-block:36px 28px}
+}
+@media (prefers-reduced-motion:no-preference){ .day.today{transition:transform .2s} .day.today:hover{transform:translateY(-2px)} }
+</style>
+<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)} body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Intermarché <span>Gedinne</span></div>
+    <nav aria-label="Navigation principale">
+      <a href="#promos">Promos</a><a href="#folder">Folder</a><a href="#moment">Promos du moment</a><a href="#rayons">Rayons frais</a><a href="#colis">Colis repas</a><a href="#infos">Horaires & accès</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Votre supermarché au cœur de Gedinne</div>
+      <h1>Une bonne affaire <em>chaque jour</em> de la semaine.</h1>
+      <p>Boucherie, boulangerie, fruits et légumes : les rayons frais qu'on soigne, et une promo différente du lundi au dimanche. Ouvert aussi le dimanche jusqu'à 19 h.</p>
+    </div>
+    <aside class="status" aria-live="polite">
+      <div class="now"><span class="dot"></span><span id="todayLabel">La promo du jour</span></div>
+      <div id="todayPromo" style="font-family:var(--display);font-size:1.4rem;font-weight:600">Hachis 1 acheté = 1 offert</div>
+      <div class="addr">Rue de Charleville 48 · 5575 Gedinne</div>
+    </aside>
+  </div>
+</section>
+
+<section id="promos">
+  <div class="wrap">
+    <div class="board">
+      <div class="board-head">
+        <h2>L'ardoise de la semaine</h2>
+        <p>Nouvelles promos annoncées chaque lundi</p>
+      </div>
+      <div class="days" id="days"></div>
+    </div>
+  </div>
+</section>
+
+<section id="folder">
+  <div class="wrap">
+    <div class="folder">
+      <div>
+        <div class="eyebrow">Le folder Intermarché</div>
+        <h2 id="folderTitle">Découvrez notre folder du 27/10</h2>
+        <p id="folderDates">Valable du 27/10 au 01/11/2026</p>
+      </div>
+      <div class="folder-links">
+        <a class="btn" id="folderFr" href="https://www.intermarche.be/folders/decouvrez-notre-folder-du-27-10-26/">Feuilleter le folder</a>
+        <a class="btn ghost" id="folderNl" href="https://www.intermarche.be/nl/folders/ontdek-onze-folder-van-27-10-26/">Folder in het Nederlands</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="moment">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Les promos du moment</div>
+      <h2>À ne pas manquer cette semaine</h2>
+      <p id="momentNote">Offres mises en avant par Intermarché, du 27/10 au 01/11/2026.</p>
+    </div>
+    <div class="offers" id="offers"></div>
+    <p class="note">Offres valables dans la limite des stocks disponibles. Photos et détails sur <a href="https://www.intermarche.be/produits/">intermarche.be</a>.</p>
+  </div>
+</section>
+<!-- DONNEES PROMOS : mises à jour chaque semaine. Garder le format JSON. -->
+<script id="promoData" type="application/json">
+[
+  {"meca":"1 kg + 1 kg gratuits","nom":"Haché de campagne","detail":"Origine Belgique","prix":"Prix habituel 8,49 €/kg"},
+  {"meca":"5 kg + 5 kg gratuits","nom":"Colis boucherie ±5 kg","detail":"Deux compositions de viandes au choix","prix":""},
+  {"meca":"250 g + 500 g gratuits","nom":"Jambon à l'os","detail":"","prix":""},
+  {"meca":"2 + 2 gratuits","nom":"De Cecco","detail":"Pâtes ou gnocchi di patate, 500 g, au choix","prix":"Prix habituel 1,95 à 4,79 € la pièce"},
+  {"meca":"1 + 1 gratuit","nom":"Carapelli Il Frantolio","detail":"Huile d'olive extra vierge, 2 × 750 ml","prix":""},
+  {"meca":"2 + 3 gratuits","nom":"Ariel+","detail":"Liquide ou pods, au choix","prix":"Prix habituel 16,99 à 22,99 € le pack"}
+]
+</script>
+
+<section id="rayons">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Le frais</div>
+      <h2>Les rayons qui font la différence</h2>
+    </div>
+    <div class="rayons">
+      <div class="rayon"><h3>Boucherie</h3><p>Hachis, rôtis, volailles et grillades pour toute la famille, avec une offre spéciale presque chaque jour.</p></div>
+      <div class="rayon"><h3>Boulangerie</h3><p>Pain cuit sur place tout au long de la journée. Le lundi, 2 baguettes pour 1 €.</p></div>
+      <div class="rayon"><h3>Fruits & légumes</h3><p>Les produits de saison au meilleur prix, avec un prix choc chaque mardi.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="colis">
+  <div class="wrap">
+    <div class="colis">
+      <div>
+        <div class="eyebrow">Le samedi, sur réservation</div>
+        <h2>Le colis repas pour 4</h2>
+        <p>Tout ce qu'il faut pour un repas complet en famille, préparé par nos équipes. Réservez par téléphone ou à l'accueil, et passez le retirer le samedi.</p>
+      </div>
+      <div class="callbox">
+        <div class="phone" id="phone">061 61 45 75</div>
+        <button type="button" id="copyBtn">Copier le numéro</button>
+        <span id="copyMsg" class="note" hidden>Numéro copié</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="infos">
+  <div class="wrap infos">
+    <div>
+      <div class="eyebrow">Horaires</div>
+      <h2 style="font-size:1.8rem;margin:6px 0 14px">Quand passer ?</h2>
+      <table id="hours"><tbody></tbody></table>
+      <p class="note">Horaires indicatifs, à confirmer. Jours fériés : renseignez-vous en magasin.</p>
+    </div>
+    <div class="contact">
+      <div class="eyebrow">Nous trouver</div>
+      <h2 style="font-size:1.8rem;margin:6px 0 14px">Infos pratiques</h2>
+      <dl>
+        <dt>Adresse</dt><dd>Rue de Charleville 48<br>5575 Gedinne</dd>
+        <dt>Téléphone</dt><dd>061 61 45 75</dd>
+        <dt>Parking</dt><dd>Gratuit, devant le magasin</dd>
+        <dt>Itinéraire</dt><dd><a href="https://www.openstreetmap.org/search?query=Rue%20de%20Charleville%2048%205575%20Gedinne">Ouvrir la carte</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Intermarché Gedinne · SA LOISECO</span>
+    <span>Promotions valables dans la limite des stocks disponibles.</span>
+  </div>
+</footer>
+
+<script>
+const promos=[
+  {d:"Lundi",t:"Hachis 1+1 offert",p:"Et 2 baguettes pour 1 € à la boulangerie."},
+  {d:"Mardi",t:"Prix choc fruits & légumes",p:"Un produit de saison à prix cassé."},
+  {d:"Mercredi",t:"Formule lunch",p:"Sandwich maison + boisson + dessert."},
+  {d:"Jeudi",t:"Cabas fruits & légumes",p:"Un cabas garni, avec nos saucisses en promo."},
+  {d:"Vendredi",t:"Rôti & volaille",p:"Le rôti ou la volaille du week-end en offre spéciale."},
+  {d:"Samedi",t:"Colis repas pour 4",p:"Sur réservation, à retirer en magasin."},
+  {d:"Dimanche",t:"Poulet rôti, frites & compote",p:"Le repas du dimanche prêt à emporter, environ 8 €."}
+];
+const hours=[["Lundi","à compléter"],["Mardi","à compléter"],["Mercredi","à compléter"],["Jeudi","à compléter"],["Vendredi","à compléter"],["Samedi","à compléter"],["Dimanche","… – 19:00"]];
+const idx=(new Date().getDay()+6)%7;
+const days=document.getElementById("days");
+promos.forEach((x,i)=>{
+  const el=document.createElement("div");
+  el.className="day"+(i===idx?" today":"");
+  el.innerHTML=`<span class="d">${x.d}</span><h3>${x.t}</h3><p>${x.p}</p>`;
+  days.appendChild(el);
+});
+document.getElementById("todayLabel").textContent="La promo de ce "+promos[idx].d.toLowerCase();
+document.getElementById("todayPromo").textContent=promos[idx].t;
+try{
+  const offers=JSON.parse(document.getElementById("promoData").textContent);
+  const box=document.getElementById("offers");
+  offers.forEach(o=>{
+    const el=document.createElement("article");el.className="offer";
+    const add=(tag,cls,txt)=>{if(!txt)return;const n=document.createElement(tag);if(cls)n.className=cls;n.textContent=txt;el.appendChild(n);};
+    add("span","meca",o.meca);add("h3","",o.nom);add("p","",o.detail);add("p","prix",o.prix);
+    box.appendChild(el);
+  });
+  if(!offers.length)document.getElementById("moment").hidden=true;
+}catch(e){document.getElementById("moment").hidden=true;}
+const tb=document.querySelector("#hours tbody");
+hours.forEach((h,i)=>{const tr=document.createElement("tr");if(i===idx)tr.className="today";tr.innerHTML=`<td>${h[0]}</td><td>${h[1]}</td>`;tb.appendChild(tr);});
+document.getElementById("copyBtn").addEventListener("click",()=>{
+  const msg=document.getElementById("copyMsg");
+  const show=()=>{msg.hidden=false;setTimeout(()=>msg.hidden=true,2000)};
+  try{navigator.clipboard.writeText("061614575").then(show).catch(sel)}catch(e){sel()}
+  function sel(){const r=document.createRange();r.selectNodeContents(document.getElementById("phone"));const s=getSelection();s.removeAllRanges();s.addRange(r);}
+});
+</script>
+</body>
+</html>
