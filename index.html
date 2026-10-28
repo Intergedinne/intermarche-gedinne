@@ -76,6 +76,9 @@ nav a:hover,nav a:focus-visible{color:var(--ink)}
 .offer .prix{font-variant-numeric:tabular-nums;font-size:.85rem}
 #moment .note a{color:var(--ink)}
 
+.ghostbtn{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.day .resa{justify-self:start;margin-top:4px;font-size:.85rem;font-weight:700;color:var(--sun)}
+
 /* Rayons */
 #rayons{padding-block:16px 56px}
 .sec-head{display:grid;gap:8px;margin-bottom:24px}
@@ -124,7 +127,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
   <div class="wrap">
     <div class="brand">Intermarché <span>Gedinne</span></div>
     <nav aria-label="Navigation principale">
-      <a href="#promos">Promos</a><a href="#folder">Folder</a><a href="#moment">Promos du moment</a><a href="#rayons">Rayons frais</a><a href="#colis">Colis repas</a><a href="#infos">Horaires & accès</a>
+      <a href="#promos">Promos</a><a href="https://tally.so/r/EqqgoN">Réserver</a><a href="#folder">Folder</a><a href="#moment">Promos du moment</a><a href="#rayons">Rayons frais</a><a href="#colis">Colis repas</a><a href="#infos">Horaires & accès</a>
     </nav>
   </div>
 </header>
@@ -148,8 +151,8 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
   <div class="wrap">
     <div class="board">
       <div class="board-head">
-        <h2>L'ardoise de la semaine</h2>
-        <p>Nouvelles promos annoncées chaque lundi</p>
+        <div><h2>L'ardoise de la semaine</h2><p style="margin:6px 0 0">Nouvelles promos annoncées chaque lundi</p></div>
+        <a class="btn" href="https://tally.so/r/EqqgoN">Réserver une offre</a>
       </div>
       <div class="days" id="days"></div>
     </div>
@@ -180,7 +183,7 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
       <p id="momentNote">Offres mises en avant par Intermarché, du 27/10 au 01/11/2026.</p>
     </div>
     <div class="offers" id="offers"></div>
-    <p class="note">Offres valables dans la limite des stocks disponibles. Photos et détails sur <a href="https://www.intermarche.be/produits/">intermarche.be</a>.</p>
+    <p class="note">Offres valables dans la limite des stocks disponibles. Promos boucherie réservables <a href="https://tally.so/r/EqqgoN">en ligne</a>. Photos et détails sur <a href="https://www.intermarche.be/produits/">intermarche.be</a>.</p>
   </div>
 </section>
 <!-- DONNEES PROMOS : mises à jour chaque semaine. Garder le format JSON. -->
@@ -215,11 +218,12 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
       <div>
         <div class="eyebrow">Le samedi, sur réservation</div>
         <h2>Le colis repas pour 4</h2>
-        <p>Tout ce qu'il faut pour un repas complet en famille, préparé par nos équipes. Réservez par téléphone ou à l'accueil, et passez le retirer le samedi.</p>
+        <p>Tout ce qu'il faut pour un repas complet en famille, préparé par nos équipes. Réservez en ligne jusqu'au jeudi 18 h, ou par téléphone, et retirez-le le samedi au comptoir boucherie dès 10 h.</p>
       </div>
       <div class="callbox">
         <div class="phone" id="phone">061 61 45 75</div>
-        <button type="button" id="copyBtn">Copier le numéro</button>
+        <a class="btn" href="https://tally.so/r/EqqgoN">Réserver en ligne</a>
+        <button type="button" id="copyBtn" class="ghostbtn">Copier le numéro</button>
         <span id="copyMsg" class="note" hidden>Numéro copié</span>
       </div>
     </div>
@@ -256,13 +260,13 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 
 <script>
 const promos=[
-  {d:"Lundi",t:"Hachis 1+1 offert",p:"Et 2 baguettes pour 1 € à la boulangerie."},
+  {r:1,d:"Lundi",t:"Hachis 1+1 offert",p:"Et 2 baguettes pour 1 € à la boulangerie."},
   {d:"Mardi",t:"Prix choc fruits & légumes",p:"Un produit de saison à prix cassé."},
   {d:"Mercredi",t:"Formule lunch",p:"Sandwich maison + boisson + dessert."},
-  {d:"Jeudi",t:"Cabas fruits & légumes",p:"Un cabas garni, avec nos saucisses en promo."},
-  {d:"Vendredi",t:"Rôti & volaille",p:"Le rôti ou la volaille du week-end en offre spéciale."},
-  {d:"Samedi",t:"Colis repas pour 4",p:"Sur réservation, à retirer en magasin."},
-  {d:"Dimanche",t:"Poulet rôti, frites & compote",p:"Le repas du dimanche prêt à emporter, environ 8 €."}
+  {r:1,d:"Jeudi",t:"Cabas fruits & légumes",p:"Un cabas garni, avec nos saucisses en promo."},
+  {r:1,d:"Vendredi",t:"Rôti & volaille",p:"Le rôti ou la volaille du week-end en offre spéciale."},
+  {r:1,d:"Samedi",t:"Colis repas pour 4",p:"Sur réservation, à retirer en magasin."},
+  {r:1,d:"Dimanche",t:"Poulet rôti, frites & compote",p:"Le repas du dimanche prêt à emporter, environ 8 €."}
 ];
 const hours=[["Lundi","à compléter"],["Mardi","à compléter"],["Mercredi","à compléter"],["Jeudi","à compléter"],["Vendredi","à compléter"],["Samedi","à compléter"],["Dimanche","… – 19:00"]];
 const idx=(new Date().getDay()+6)%7;
@@ -270,7 +274,7 @@ const days=document.getElementById("days");
 promos.forEach((x,i)=>{
   const el=document.createElement("div");
   el.className="day"+(i===idx?" today":"");
-  el.innerHTML=`<span class="d">${x.d}</span><h3>${x.t}</h3><p>${x.p}</p>`;
+  el.innerHTML=`<span class="d">${x.d}</span><h3>${x.t}</h3><p>${x.p}</p>`+(x.r?`<a class="resa" href="https://tally.so/r/EqqgoN">Réserver →</a>`:"");
   days.appendChild(el);
 });
 document.getElementById("todayLabel").textContent="La promo de ce "+promos[idx].d.toLowerCase();
