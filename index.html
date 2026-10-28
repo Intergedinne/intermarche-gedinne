@@ -7,18 +7,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Figtree:wght@400;500;700&display=swap">
 <style>
-/* Layout : bandeau d'accueil + "ardoise du marché" de la semaine (7 jours), puis rayons frais et infos pratiques */
+/* Layout : bandeau d'accueil + "ardoise du marché" de la semaine (7 jours), folder, promos du moment, rayons frais, colis, infos pratiques. Bilingue FR/NL. */
 :root{
   --bg:#f7f6f2; --surface:#ffffff; --ink:#1c2420; --muted:#5d6862;
-  --red:#d0202a; --forest:#1f4d3a; --line:#dfe1da; --chalk:#26302b; --chalk-ink:#f2f1ea; --sun:#f3b23a;
+  --red:#d0202a; --forest:#1f4d3a; --line:#dfe1da; --chalk:#26302b; --chalk-ink:#f2f1ea; --sun:#f3b23a; --closed:#b5473a;
   --display:"Fraunces",Georgia,serif; --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#141a17; --surface:#1c2420; --ink:#ecefe9; --muted:#a3ada7;
-  --red:#ff5a5f; --forest:#7cc4a3; --line:#2f3934; --chalk:#0e1311; --chalk-ink:#f2f1ea; --sun:#f3b23a; color-scheme:dark}}
+  --red:#ff5a5f; --forest:#7cc4a3; --line:#2f3934; --chalk:#0e1311; --chalk-ink:#f2f1ea; --sun:#f3b23a; --closed:#ff8a7a; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#141a17; --surface:#1c2420; --ink:#ecefe9; --muted:#a3ada7;
-  --red:#ff5a5f; --forest:#7cc4a3; --line:#2f3934; --chalk:#0e1311; --chalk-ink:#f2f1ea; --sun:#f3b23a; color-scheme:dark}
+  --red:#ff5a5f; --forest:#7cc4a3; --line:#2f3934; --chalk:#0e1311; --chalk-ink:#f2f1ea; --sun:#f3b23a; --closed:#ff8a7a; color-scheme:dark}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.55}
 .wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
@@ -29,9 +29,13 @@ header.top{border-bottom:1px solid var(--line);background:var(--surface)}
 header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
 .brand{font-family:var(--display);font-weight:800;font-size:1.35rem}
 .brand span{color:var(--red)}
+.navrow{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 nav{display:flex;gap:18px;flex-wrap:wrap;font-weight:500;font-size:.95rem}
 nav a{text-decoration:none;color:var(--muted)}
 nav a:hover,nav a:focus-visible{color:var(--ink)}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{background:transparent;color:var(--muted);border:0;border-radius:0;padding:6px 12px;font-size:.85rem}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 
 .hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;padding-block:56px 40px;align-items:end}
 .hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800}
@@ -40,14 +44,17 @@ nav a:hover,nav a:focus-visible{color:var(--ink)}
 .status{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:6px}
 .status .now{display:flex;align-items:center;gap:10px;font-weight:700}
 .dot{width:10px;height:10px;border-radius:50%;background:var(--forest)}
+.dot.closed{background:var(--closed)}
+.status .label{color:var(--muted);font-size:.85rem;margin-top:6px}
+.status .promo{font-family:var(--display);font-size:1.4rem;font-weight:600}
 .status .addr{color:var(--muted);font-size:.95rem}
 
 /* Ardoise */
 #promos{padding-block:24px 56px}
 .board{background:var(--chalk);color:var(--chalk-ink);border-radius:18px;padding:28px clamp(18px,4vw,36px)}
-.board-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.board-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px}
 .board h2{font-size:clamp(1.6rem,3.5vw,2.3rem);color:var(--chalk-ink)}
-.board-head p{margin:0;opacity:.75;font-size:.9rem}
+.board-head p{margin:6px 0 0;opacity:.75;font-size:.9rem}
 .days{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
 .day{border:1px dashed rgba(242,241,234,.28);border-radius:12px;padding:16px;display:grid;gap:6px;align-content:start;min-width:0}
 .day .d{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;font-weight:700}
@@ -55,7 +62,7 @@ nav a:hover,nav a:focus-visible{color:var(--ink)}
 .day p{margin:0;font-size:.92rem;opacity:.82}
 .day.today{border:2px solid var(--sun);background:rgba(243,178,58,.08)}
 .day.today .d{color:var(--sun);opacity:1}
-.day.today .d::after{content:" · aujourd'hui"}
+.day .resa{justify-self:start;margin-top:4px;font-size:.85rem;font-weight:700;color:var(--sun)}
 
 /* Folder */
 #folder{padding-block:0 56px}
@@ -76,9 +83,6 @@ nav a:hover,nav a:focus-visible{color:var(--ink)}
 .offer .prix{font-variant-numeric:tabular-nums;font-size:.85rem}
 #moment .note a{color:var(--ink)}
 
-.ghostbtn{background:transparent;color:var(--ink);border:1px solid var(--line)}
-.day .resa{justify-self:start;margin-top:4px;font-size:.85rem;font-weight:700;color:var(--sun)}
-
 /* Rayons */
 #rayons{padding-block:16px 56px}
 .sec-head{display:grid;gap:8px;margin-bottom:24px}
@@ -96,11 +100,13 @@ nav a:hover,nav a:focus-visible{color:var(--ink)}
 .callbox{display:grid;gap:10px;justify-items:start}
 .phone{font-family:var(--display);font-size:1.8rem;font-weight:800;font-variant-numeric:tabular-nums;user-select:all}
 button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:10px 18px;background:var(--red);color:#fff;cursor:pointer}
+.ghostbtn{background:transparent;color:var(--ink);border:1px solid var(--line)}
 button:focus-visible,a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
 
 /* Infos */
 #infos{padding-block:56px}
 .infos{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.infos h2{font-size:1.8rem;margin:6px 0 14px}
 table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
 td{padding:9px 0;border-bottom:1px solid var(--line)}
 td:last-child{text-align:right;color:var(--muted)}
@@ -126,22 +132,33 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 <header class="top">
   <div class="wrap">
     <div class="brand">Intermarché <span>Gedinne</span></div>
-    <nav aria-label="Navigation principale">
-      <a href="#promos">Promos</a><a href="https://tally.so/r/EqqgoN">Réserver</a><a href="#folder">Folder</a><a href="#moment">Promos du moment</a><a href="#rayons">Rayons frais</a><a href="#colis">Colis repas</a><a href="#infos">Horaires & accès</a>
-    </nav>
+    <div class="navrow">
+      <nav aria-label="Navigation">
+        <a href="#promos" data-t="navPromos">Promos</a>
+        <a class="resa-link" href="https://tally.so/r/EqqgoN" data-t="navResa">Réserver</a>
+        <a href="#folder">Folder</a>
+        <a href="#moment" data-t="navMoment">Promos du moment</a>
+        <a href="#infos" data-t="navInfos">Horaires & accès</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Langue / Taal">
+        <button type="button" id="langFr" aria-pressed="true">FR</button>
+        <button type="button" id="langNl" aria-pressed="false">NL</button>
+      </div>
+    </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="eyebrow">Votre supermarché au cœur de Gedinne</div>
-      <h1>Une bonne affaire <em>chaque jour</em> de la semaine.</h1>
-      <p>Boucherie, boulangerie, fruits et légumes : les rayons frais qu'on soigne, et une promo différente du lundi au dimanche. Ouvert aussi le dimanche jusqu'à 19 h.</p>
+      <div class="eyebrow" data-t="heroEyebrow">Votre supermarché au cœur de Gedinne</div>
+      <h1 data-th="heroTitle">Une bonne affaire <em>chaque jour</em> de la semaine.</h1>
+      <p data-t="heroText">Boucherie, boulangerie, fruits et légumes : les rayons frais qu'on soigne, et une promo différente chaque jour. Ouvert 7 jours sur 7 de 8 h à 19 h, jours fériés compris.</p>
     </div>
     <aside class="status" aria-live="polite">
-      <div class="now"><span class="dot"></span><span id="todayLabel">La promo du jour</span></div>
-      <div id="todayPromo" style="font-family:var(--display);font-size:1.4rem;font-weight:600">Hachis 1 acheté = 1 offert</div>
+      <div class="now"><span class="dot" id="openDot"></span><span id="openLabel">Ouvert</span></div>
+      <div class="label" id="todayLabel">Aujourd'hui</div>
+      <div class="promo" id="todayPromo"></div>
       <div class="addr">Rue de Charleville 48 · 5575 Gedinne</div>
     </aside>
   </div>
@@ -151,8 +168,8 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
   <div class="wrap">
     <div class="board">
       <div class="board-head">
-        <div><h2>L'ardoise de la semaine</h2><p style="margin:6px 0 0">Nouvelles promos annoncées chaque lundi</p></div>
-        <a class="btn" href="https://tally.so/r/EqqgoN">Réserver une offre</a>
+        <div><h2 data-t="boardTitle">L'ardoise de la semaine</h2><p data-t="boardSub">Nouvelles promos annoncées chaque lundi</p></div>
+        <a class="btn resa-link" href="https://tally.so/r/EqqgoN" data-t="boardBtn">Réserver une offre</a>
       </div>
       <div class="days" id="days"></div>
     </div>
@@ -163,13 +180,13 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
   <div class="wrap">
     <div class="folder">
       <div>
-        <div class="eyebrow">Le folder Intermarché</div>
-        <h2 id="folderTitle">Découvrez notre folder du 27/10</h2>
-        <p id="folderDates">Valable du 27/10 au 01/11/2026</p>
+        <div class="eyebrow" data-t="folderEyebrow">Le folder Intermarché</div>
+        <h2 id="folderTitle"></h2>
+        <p id="folderDates"></p>
       </div>
       <div class="folder-links">
-        <a class="btn" id="folderFr" href="https://www.intermarche.be/folders/decouvrez-notre-folder-du-27-10-26/">Feuilleter le folder</a>
-        <a class="btn ghost" id="folderNl" href="https://www.intermarche.be/nl/folders/ontdek-onze-folder-van-27-10-26/">Folder in het Nederlands</a>
+        <a class="btn" id="folderMain" href="#" data-t="folderBtn">Feuilleter le folder</a>
+        <a class="btn ghost" id="folderOther" href="#" data-t="folderOther">Folder in het Nederlands</a>
       </div>
     </div>
   </div>
@@ -178,36 +195,41 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 <section id="moment">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Les promos du moment</div>
-      <h2>À ne pas manquer cette semaine</h2>
-      <p id="momentNote">Offres mises en avant par Intermarché, du 27/10 au 01/11/2026.</p>
+      <div class="eyebrow" data-t="momentEyebrow">Les promos du moment</div>
+      <h2 data-t="momentTitle">À ne pas manquer cette semaine</h2>
+      <p id="momentNote"></p>
     </div>
     <div class="offers" id="offers"></div>
-    <p class="note">Offres valables dans la limite des stocks disponibles. Promos boucherie réservables <a href="https://tally.so/r/EqqgoN">en ligne</a>. Photos et détails sur <a href="https://www.intermarche.be/produits/">intermarche.be</a>.</p>
+    <p class="note"><span data-t="momentStock">Offres valables dans la limite des stocks disponibles.</span> <a class="resa-link" href="https://tally.so/r/EqqgoN" data-t="momentResa">Réserver une promo boucherie</a> · <a id="imLink" href="https://www.intermarche.be/produits/">intermarche.be</a></p>
   </div>
 </section>
-<!-- DONNEES PROMOS : mises à jour chaque semaine. Garder le format JSON. -->
+
+<!-- DONNEES FOLDER : mises à jour chaque semaine. Garder le format JSON. -->
+<script id="folderData" type="application/json">
+{"debut":"27/10","fin":"01/11/2026","fr":"https://www.intermarche.be/folders/decouvrez-notre-folder-du-27-10-26/","nl":"https://www.intermarche.be/nl/folders/ontdek-onze-folder-van-27-10-26/"}
+</script>
+<!-- DONNEES PROMOS : mises à jour chaque semaine. Garder le format JSON (clés FR + clés _nl). -->
 <script id="promoData" type="application/json">
 [
-  {"meca":"1 kg + 1 kg gratuits","nom":"Haché de campagne","detail":"Origine Belgique","prix":"Prix habituel 8,49 €/kg"},
-  {"meca":"5 kg + 5 kg gratuits","nom":"Colis boucherie ±5 kg","detail":"Deux compositions de viandes au choix","prix":""},
-  {"meca":"250 g + 500 g gratuits","nom":"Jambon à l'os","detail":"","prix":""},
-  {"meca":"2 + 2 gratuits","nom":"De Cecco","detail":"Pâtes ou gnocchi di patate, 500 g, au choix","prix":"Prix habituel 1,95 à 4,79 € la pièce"},
-  {"meca":"1 + 1 gratuit","nom":"Carapelli Il Frantolio","detail":"Huile d'olive extra vierge, 2 × 750 ml","prix":""},
-  {"meca":"2 + 3 gratuits","nom":"Ariel+","detail":"Liquide ou pods, au choix","prix":"Prix habituel 16,99 à 22,99 € le pack"}
+  {"meca":"1 kg + 1 kg gratuits","nom":"Haché de campagne","detail":"Origine Belgique","prix":"Prix habituel 8,49 €/kg","meca_nl":"1 kg + 1 kg gratis","nom_nl":"Boerengehakt","detail_nl":"Belgische oorsprong","prix_nl":"Normale prijs € 8,49/kg"},
+  {"meca":"5 kg + 5 kg gratuits","nom":"Colis boucherie ±5 kg","detail":"Deux compositions de viandes au choix","prix":"","meca_nl":"5 kg + 5 kg gratis","nom_nl":"Vleespakket ±5 kg","detail_nl":"Twee samenstellingen naar keuze","prix_nl":""},
+  {"meca":"250 g + 500 g gratuits","nom":"Jambon à l'os","detail":"","prix":"","meca_nl":"250 g + 500 g gratis","nom_nl":"Beenham","detail_nl":"","prix_nl":""},
+  {"meca":"2 + 2 gratuits","nom":"De Cecco","detail":"Pâtes ou gnocchi di patate, 500 g, au choix","prix":"Prix habituel 1,95 à 4,79 € la pièce","meca_nl":"2 + 2 gratis","nom_nl":"De Cecco","detail_nl":"Pasta of gnocchi di patate, 500 g, naar keuze","prix_nl":"Normale prijs € 1,95 tot € 4,79 per stuk"},
+  {"meca":"1 + 1 gratuit","nom":"Carapelli Il Frantolio","detail":"Huile d'olive extra vierge, 2 × 750 ml","prix":"","meca_nl":"1 + 1 gratis","nom_nl":"Carapelli Il Frantolio","detail_nl":"Extra vierge olijfolie, 2 × 750 ml","prix_nl":""},
+  {"meca":"2 + 3 gratuits","nom":"Ariel+","detail":"Liquide ou pods, au choix","prix":"Prix habituel 16,99 à 22,99 € le pack","meca_nl":"2 + 3 gratis","nom_nl":"Ariel+","detail_nl":"Vloeibaar of pods, naar keuze","prix_nl":"Normale prijs € 16,99 tot € 22,99 per pak"}
 ]
 </script>
 
 <section id="rayons">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Le frais</div>
-      <h2>Les rayons qui font la différence</h2>
+      <div class="eyebrow" data-t="rayEyebrow">Le frais</div>
+      <h2 data-t="rayTitle">Les rayons qui font la différence</h2>
     </div>
     <div class="rayons">
-      <div class="rayon"><h3>Boucherie</h3><p>Hachis, rôtis, volailles et grillades pour toute la famille, avec une offre spéciale presque chaque jour.</p></div>
-      <div class="rayon"><h3>Boulangerie</h3><p>Pain cuit sur place tout au long de la journée. Le lundi, 2 baguettes pour 1 €.</p></div>
-      <div class="rayon"><h3>Fruits & légumes</h3><p>Les produits de saison au meilleur prix, avec un prix choc chaque mardi.</p></div>
+      <div class="rayon"><h3 data-t="ray1t">Boucherie</h3><p data-t="ray1p">Hachis, rôtis, volailles et grillades pour toute la famille, avec une offre spéciale presque chaque jour.</p></div>
+      <div class="rayon"><h3 data-t="ray2t">Boulangerie</h3><p data-t="ray2p">Pain cuit sur place tout au long de la journée. Le mardi, le pain carré de 800 g à 1,99 €.</p></div>
+      <div class="rayon"><h3 data-t="ray3t">Fruits & légumes</h3><p data-t="ray3p">Les produits de saison au meilleur prix.</p></div>
     </div>
   </div>
 </section>
@@ -216,15 +238,15 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
   <div class="wrap">
     <div class="colis">
       <div>
-        <div class="eyebrow">Le samedi, sur réservation</div>
-        <h2>Le colis repas pour 4</h2>
-        <p>Tout ce qu'il faut pour un repas complet en famille, préparé par nos équipes. Réservez en ligne jusqu'au jeudi 18 h, ou par téléphone, et retirez-le le samedi au comptoir boucherie dès 10 h.</p>
+        <div class="eyebrow" data-t="colisEyebrow">Le samedi, sur réservation</div>
+        <h2 data-t="colisTitle">Le colis repas pour 4</h2>
+        <p data-t="colisText">Tout ce qu'il faut pour un repas complet en famille, préparé par nos équipes. Réservez en ligne jusqu'au jeudi 18 h, ou par téléphone, et retirez-le le samedi au comptoir boucherie dès 10 h.</p>
       </div>
       <div class="callbox">
         <div class="phone" id="phone">061 61 45 75</div>
-        <a class="btn" href="https://tally.so/r/EqqgoN">Réserver en ligne</a>
-        <button type="button" id="copyBtn" class="ghostbtn">Copier le numéro</button>
-        <span id="copyMsg" class="note" hidden>Numéro copié</span>
+        <a class="btn resa-link" href="https://tally.so/r/EqqgoN" data-t="colisBtn">Réserver en ligne</a>
+        <button type="button" id="copyBtn" class="ghostbtn" data-t="copyBtn">Copier le numéro</button>
+        <span id="copyMsg" class="note" hidden data-t="copyMsg">Numéro copié</span>
       </div>
     </div>
   </div>
@@ -233,19 +255,19 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 <section id="infos">
   <div class="wrap infos">
     <div>
-      <div class="eyebrow">Horaires</div>
-      <h2 style="font-size:1.8rem;margin:6px 0 14px">Quand passer ?</h2>
+      <div class="eyebrow" data-t="hoursEyebrow">Horaires</div>
+      <h2 data-t="hoursTitle">Quand passer ?</h2>
       <table id="hours"><tbody></tbody></table>
-      <p class="note">Horaires indicatifs, à confirmer. Jours fériés : renseignez-vous en magasin.</p>
+      <p class="note" data-t="hoursNote">Ouvert tous les jours, jours fériés compris.</p>
     </div>
     <div class="contact">
-      <div class="eyebrow">Nous trouver</div>
-      <h2 style="font-size:1.8rem;margin:6px 0 14px">Infos pratiques</h2>
+      <div class="eyebrow" data-t="infoEyebrow">Nous trouver</div>
+      <h2 data-t="infoTitle">Infos pratiques</h2>
       <dl>
-        <dt>Adresse</dt><dd>Rue de Charleville 48<br>5575 Gedinne</dd>
-        <dt>Téléphone</dt><dd>061 61 45 75</dd>
-        <dt>Parking</dt><dd>Gratuit, devant le magasin</dd>
-        <dt>Itinéraire</dt><dd><a href="https://www.openstreetmap.org/search?query=Rue%20de%20Charleville%2048%205575%20Gedinne">Ouvrir la carte</a></dd>
+        <dt data-t="dtAddr">Adresse</dt><dd>Rue de Charleville 48<br>5575 Gedinne</dd>
+        <dt data-t="dtTel">Téléphone</dt><dd>061 61 45 75</dd>
+        <dt>Parking</dt><dd data-t="ddPark">Gratuit, devant le magasin</dd>
+        <dt data-t="dtRoute">Itinéraire</dt><dd><a href="https://www.openstreetmap.org/search?query=Rue%20de%20Charleville%2048%205575%20Gedinne" data-t="ddRoute">Ouvrir la carte</a></dd>
       </dl>
     </div>
   </div>
@@ -254,49 +276,130 @@ footer .wrap{padding-block:22px;display:flex;justify-content:space-between;gap:1
 <footer>
   <div class="wrap">
     <span>Intermarché Gedinne · SA LOISECO</span>
-    <span>Promotions valables dans la limite des stocks disponibles.</span>
+    <span data-t="footNote">Promotions valables dans la limite des stocks disponibles.</span>
   </div>
 </footer>
 
 <script>
-const promos=[
-  {r:1,d:"Lundi",t:"Hachis 1+1 offert",p:"Et 2 baguettes pour 1 € à la boulangerie."},
-  {d:"Mardi",t:"Prix choc fruits & légumes",p:"Un produit de saison à prix cassé."},
-  {d:"Mercredi",t:"Formule lunch",p:"Sandwich maison + boisson + dessert."},
-  {r:1,d:"Jeudi",t:"Cabas fruits & légumes",p:"Un cabas garni, avec nos saucisses en promo."},
-  {r:1,d:"Vendredi",t:"Rôti & volaille",p:"Le rôti ou la volaille du week-end en offre spéciale."},
-  {r:1,d:"Samedi",t:"Colis repas pour 4",p:"Sur réservation, à retirer en magasin."},
-  {r:1,d:"Dimanche",t:"Poulet rôti, frites & compote",p:"Le repas du dimanche prêt à emporter, environ 8 €."}
-];
-const hours=[["Lundi","à compléter"],["Mardi","à compléter"],["Mercredi","à compléter"],["Jeudi","à compléter"],["Vendredi","à compléter"],["Samedi","à compléter"],["Dimanche","… – 19:00"]];
+const RESA={fr:"https://tally.so/r/EqqgoN",nl:"https://tally.so/r/Nqqgkb"};
+const T={
+fr:{navPromos:"Promos",navResa:"Réserver",navMoment:"Promos du moment",navInfos:"Horaires & accès",
+heroEyebrow:"Votre supermarché au cœur de Gedinne",heroTitle:"Une bonne affaire <em>chaque jour</em> de la semaine.",
+heroText:"Boucherie, boulangerie, fruits et légumes : les rayons frais qu'on soigne, et une promo différente chaque jour. Ouvert 7 jours sur 7 de 8 h à 19 h, jours fériés compris.",
+open:"Ouvert maintenant · jusqu'à 19 h",closedMorning:"Fermé · ouvre à 8 h",closedEvening:"Fermé · ouvre demain à 8 h",today:"Aujourd'hui",
+boardTitle:"L'ardoise de la semaine",boardSub:"Nouvelles promos annoncées chaque lundi",boardBtn:"Réserver une offre",todayTag:" · aujourd'hui",resa:"Réserver →",
+folderEyebrow:"Le folder Intermarché",folderTitle:d=>`Découvrez notre folder du ${d}`,folderDates:(a,b)=>`Valable du ${a} au ${b}`,folderBtn:"Feuilleter le folder",folderOther:"Folder in het Nederlands",
+momentEyebrow:"Les promos du moment",momentTitle:"À ne pas manquer cette semaine",momentNote:(a,b)=>`Offres mises en avant par Intermarché, du ${a} au ${b}.`,
+momentStock:"Offres valables dans la limite des stocks disponibles.",momentResa:"Réserver une promo boucherie",
+rayEyebrow:"Le frais",rayTitle:"Les rayons qui font la différence",ray1t:"Boucherie",ray1p:"Hachis, rôtis, volailles et grillades pour toute la famille, avec une offre spéciale presque chaque jour.",
+ray2t:"Boulangerie",ray2p:"Pain cuit sur place tout au long de la journée. Le mardi, le pain carré de 800 g à 1,99 €.",ray3t:"Fruits & légumes",ray3p:"Les produits de saison au meilleur prix.",
+colisEyebrow:"Le samedi, sur réservation",colisTitle:"Le colis repas pour 4",colisText:"Tout ce qu'il faut pour un repas complet en famille, préparé par nos équipes. Réservez en ligne jusqu'au jeudi 18 h, ou par téléphone, et retirez-le le samedi au comptoir boucherie dès 10 h.",
+colisBtn:"Réserver en ligne",copyBtn:"Copier le numéro",copyMsg:"Numéro copié",
+hoursEyebrow:"Horaires",hoursTitle:"Quand passer ?",hoursNote:"Ouvert tous les jours, jours fériés compris.",
+infoEyebrow:"Nous trouver",infoTitle:"Infos pratiques",dtAddr:"Adresse",dtTel:"Téléphone",ddPark:"Gratuit, devant le magasin",dtRoute:"Itinéraire",ddRoute:"Ouvrir la carte",
+footNote:"Promotions valables dans la limite des stocks disponibles.",im:"https://www.intermarche.be/produits/",
+days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],
+promos:[
+ {r:1,t:"Hachis 1+1 offert",p:"Au rayon boucherie."},
+ {t:"Pain carré 800 g à 1,99 €",p:"À la boulangerie, toute la journée."},
+ {t:"Formule lunch",p:"Sandwich maison + boisson + dessert."},
+ {r:1,t:"Rôti spécial à 9,99 €/kg",p:"À la boucherie."},
+ {r:1,t:"Rôti & volaille",p:"Le rôti ou la volaille du week-end en offre spéciale."},
+ {r:1,t:"Colis repas pour 4",p:"Sur réservation, à retirer en magasin."},
+ {r:1,t:"Poulet rôti, frites & compote",p:"Le repas du dimanche prêt à emporter, 8,49 €."}]},
+nl:{navPromos:"Promoties",navResa:"Reserveren",navMoment:"Actuele promoties",navInfos:"Openingsuren & ligging",
+heroEyebrow:"Uw supermarkt in het hart van Gedinne",heroTitle:"Elke dag <em>een koopje</em>, de hele week lang.",
+heroText:"Slagerij, bakkerij, groenten en fruit: verse afdelingen waar we zorg voor dragen, en elke dag een andere promotie. Alle dagen open van 8 tot 19 uur, ook op feestdagen.",
+open:"Nu open · tot 19 uur",closedMorning:"Gesloten · opent om 8 uur",closedEvening:"Gesloten · opent morgen om 8 uur",today:"Vandaag",
+boardTitle:"Onze promoties van de week",boardSub:"Elke maandag nieuwe promoties",boardBtn:"Een aanbieding reserveren",todayTag:" · vandaag",resa:"Reserveren →",
+folderEyebrow:"De Intermarché-folder",folderTitle:d=>`Ontdek onze folder van ${d}`,folderDates:(a,b)=>`Geldig van ${a} tot ${b}`,folderBtn:"Folder bekijken",folderOther:"Folder en français",
+momentEyebrow:"Actuele promoties",momentTitle:"Niet te missen deze week",momentNote:(a,b)=>`In de kijker bij Intermarché, van ${a} tot ${b}.`,
+momentStock:"Zolang de voorraad strekt.",momentResa:"Een slagerijpromotie reserveren",
+rayEyebrow:"Vers",rayTitle:"De afdelingen die het verschil maken",ray1t:"Slagerij",ray1p:"Gehakt, gebraad, gevogelte en grillvlees voor het hele gezin, met bijna elke dag een speciale aanbieding.",
+ray2t:"Bakkerij",ray2p:"De hele dag door vers gebakken brood. Op dinsdag vierkant brood van 800 g aan € 1,99.",ray3t:"Groenten & fruit",ray3p:"Seizoensproducten aan de beste prijs.",
+colisEyebrow:"Op zaterdag, op reservatie",colisTitle:"Het maaltijdpakket voor 4",colisText:"Alles voor een volledige maaltijd met het gezin, klaargemaakt door ons team. Reserveer online tot donderdag 18 uur of telefonisch, en haal het zaterdag vanaf 10 uur af aan de slagerijtoonbank.",
+colisBtn:"Online reserveren",copyBtn:"Nummer kopiëren",copyMsg:"Nummer gekopieerd",
+hoursEyebrow:"Openingsuren",hoursTitle:"Wanneer langskomen?",hoursNote:"Elke dag open, ook op feestdagen.",
+infoEyebrow:"Ligging",infoTitle:"Praktische info",dtAddr:"Adres",dtTel:"Telefoon",ddPark:"Gratis, voor de winkel",dtRoute:"Route",ddRoute:"Kaart openen",
+footNote:"Promoties geldig zolang de voorraad strekt.",im:"https://www.intermarche.be/nl/",
+days:["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"],
+promos:[
+ {r:1,t:"Gehakt 1+1 gratis",p:"Aan de slagerijtoonbank."},
+ {t:"Vierkant brood 800 g aan € 1,99",p:"In de bakkerij, de hele dag."},
+ {t:"Lunchformule",p:"Huisgemaakte sandwich + drankje + dessert."},
+ {r:1,t:"Speciaal gebraad aan € 9,99/kg",p:"Aan de slagerij."},
+ {r:1,t:"Gebraad & gevogelte",p:"Gebraad of gevogelte voor het weekend in promotie."},
+ {r:1,t:"Maaltijdpakket voor 4",p:"Op reservatie, af te halen in de winkel."},
+ {r:1,t:"Gebraden kip, frietjes & appelmoes",p:"De zondagsmaaltijd om mee te nemen, € 8,49."}]}
+};
+let folder={},offers=[];
+try{folder=JSON.parse(document.getElementById("folderData").textContent)}catch(e){document.getElementById("folder").hidden=true}
+try{offers=JSON.parse(document.getElementById("promoData").textContent)}catch(e){}
+if(!offers.length)document.getElementById("moment").hidden=true;
 const idx=(new Date().getDay()+6)%7;
-const days=document.getElementById("days");
-promos.forEach((x,i)=>{
-  const el=document.createElement("div");
-  el.className="day"+(i===idx?" today":"");
-  el.innerHTML=`<span class="d">${x.d}</span><h3>${x.t}</h3><p>${x.p}</p>`+(x.r?`<a class="resa" href="https://tally.so/r/EqqgoN">Réserver →</a>`:"");
-  days.appendChild(el);
-});
-document.getElementById("todayLabel").textContent="La promo de ce "+promos[idx].d.toLowerCase();
-document.getElementById("todayPromo").textContent=promos[idx].t;
-try{
-  const offers=JSON.parse(document.getElementById("promoData").textContent);
-  const box=document.getElementById("offers");
+const $=id=>document.getElementById(id);
+
+function render(lang){
+  const L=T[lang];
+  document.documentElement.lang=lang;
+  $("langFr").setAttribute("aria-pressed",lang==="fr");$("langNl").setAttribute("aria-pressed",lang==="nl");
+  document.querySelectorAll("[data-t]").forEach(el=>{const v=L[el.dataset.t];if(typeof v==="string")el.textContent=v;});
+  document.querySelectorAll("[data-th]").forEach(el=>{el.innerHTML=L[el.dataset.th];});
+  document.querySelectorAll(".resa-link").forEach(a=>a.href=RESA[lang]);
+  // statut ouverture
+  const h=new Date().getHours(),open=h>=8&&h<19;
+  $("openDot").classList.toggle("closed",!open);
+  $("openLabel").textContent=open?L.open:(h<8?L.closedMorning:L.closedEvening);
+  $("todayLabel").textContent=L.today+" ("+L.days[idx].toLowerCase()+")";
+  $("todayPromo").textContent=L.promos[idx].t;
+  // ardoise
+  const days=$("days");days.innerHTML="";
+  L.promos.forEach((x,i)=>{
+    const el=document.createElement("div");el.className="day"+(i===idx?" today":"");
+    const d=document.createElement("span");d.className="d";d.textContent=L.days[i]+(i===idx?L.todayTag:"");el.appendChild(d);
+    const h3=document.createElement("h3");h3.textContent=x.t;el.appendChild(h3);
+    const p=document.createElement("p");p.textContent=x.p;el.appendChild(p);
+    if(x.r){const a=document.createElement("a");a.className="resa";a.href=RESA[lang];a.textContent=L.resa;el.appendChild(a);}
+    days.appendChild(el);
+  });
+  // folder
+  if(folder.debut){
+    $("folderTitle").textContent=L.folderTitle(folder.debut);
+    $("folderDates").textContent=L.folderDates(folder.debut,folder.fin);
+    $("folderMain").href=lang==="nl"?folder.nl:folder.fr;
+    $("folderOther").href=lang==="nl"?folder.fr:folder.nl;
+    $("momentNote").textContent=L.momentNote(folder.debut,folder.fin);
+  }
+  // promos du moment
+  const box=$("offers");box.innerHTML="";
   offers.forEach(o=>{
+    const g=k=>lang==="nl"?(o[k+"_nl"]||o[k]):o[k];
     const el=document.createElement("article");el.className="offer";
     const add=(tag,cls,txt)=>{if(!txt)return;const n=document.createElement(tag);if(cls)n.className=cls;n.textContent=txt;el.appendChild(n);};
-    add("span","meca",o.meca);add("h3","",o.nom);add("p","",o.detail);add("p","prix",o.prix);
+    add("span","meca",g("meca"));add("h3","",g("nom"));add("p","",g("detail"));add("p","prix",g("prix"));
     box.appendChild(el);
   });
-  if(!offers.length)document.getElementById("moment").hidden=true;
-}catch(e){document.getElementById("moment").hidden=true;}
-const tb=document.querySelector("#hours tbody");
-hours.forEach((h,i)=>{const tr=document.createElement("tr");if(i===idx)tr.className="today";tr.innerHTML=`<td>${h[0]}</td><td>${h[1]}</td>`;tb.appendChild(tr);});
-document.getElementById("copyBtn").addEventListener("click",()=>{
-  const msg=document.getElementById("copyMsg");
+  $("imLink").href=L.im;
+  // horaires
+  const tb=document.querySelector("#hours tbody");tb.innerHTML="";
+  L.days.forEach((d,i)=>{const tr=document.createElement("tr");if(i===idx)tr.className="today";tr.innerHTML=`<td>${d}</td><td>08:00 – 19:00</td>`;tb.appendChild(tr);});
+}
+
+function pickLang(){
+  try{const q=new URLSearchParams(location.search).get("lang");if(q==="nl"||q==="fr")return q;}catch(e){}
+  try{const s=localStorage.getItem("lang");if(s==="nl"||s==="fr")return s;}catch(e){}
+  return (navigator.language||"").toLowerCase().startsWith("nl")?"nl":"fr";
+}
+function setLang(l){render(l);try{localStorage.setItem("lang",l)}catch(e){}}
+$("langFr").addEventListener("click",()=>setLang("fr"));
+$("langNl").addEventListener("click",()=>setLang("nl"));
+render(pickLang());
+
+$("copyBtn").addEventListener("click",()=>{
+  const msg=$("copyMsg");
   const show=()=>{msg.hidden=false;setTimeout(()=>msg.hidden=true,2000)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents($("phone"));const s=getSelection();s.removeAllRanges();s.addRange(r);};
   try{navigator.clipboard.writeText("061614575").then(show).catch(sel)}catch(e){sel()}
-  function sel(){const r=document.createRange();r.selectNodeContents(document.getElementById("phone"));const s=getSelection();s.removeAllRanges();s.addRange(r);}
 });
 </script>
 </body>
