@@ -33,7 +33,7 @@
 :root{
   --bg:#f7f6f2; --surface:#ffffff; --ink:#1c2420; --muted:#5d6862;
   --red:#d0202a; --forest:#1f4d3a; --line:#dfe1da; --chalk:#26302b; --chalk-ink:#f2f1ea; --sun:#f3b23a; --closed:#b5473a;
-  --wood:#7a5232; --wood-dark:#4e3320; --dusk:#232a35;
+  --banner:#b3121c; --wood:#7a5232; --wood-dark:#4e3320; --dusk:#232a35;
   --display:"Fraunces",Georgia,serif; --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif; --hand:"Caveat","Segoe Print","Bradley Hand",cursive;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -108,24 +108,40 @@ nav a:hover,nav a:focus-visible{color:var(--ink)}
 .facts strong{font-family:var(--display);font-size:1.15rem}
 .facts span{color:var(--muted)}
 
-/* Folder */
-#folder{padding-block:0 56px}
-.folder{border:2px solid var(--red);border-radius:18px;padding:24px clamp(18px,4vw,36px);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.folder h2{font-size:clamp(1.4rem,3vw,1.9rem);margin-top:6px}
-.folder p{margin:6px 0 0;color:var(--muted);font-variant-numeric:tabular-nums}
+/* Folder de la semaine */
+#folder{padding-block:8px 56px}
+.folder-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.folder-head h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-top:8px;font-variant-numeric:tabular-nums}
+.folder-head p{margin:8px 0 0;color:var(--muted);max-width:60ch}
 .folder-links{display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:999px;padding:10px 18px;background:var(--red);color:#fff}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
-
-/* Promos du moment */
-#moment{padding-block:0 56px}
-.offers{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.temps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:26px}
+.temps article{background:var(--banner);color:#fff;border-radius:12px;padding:16px 18px;display:grid;gap:4px;align-content:start}
+.temps h3{font-family:var(--display);font-size:1.15rem;color:#fff}
+.temps p{margin:0;font-size:.9rem;color:#ffe9e6}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:.9rem;font-weight:600}
+.chip .n{opacity:.65;font-weight:500;margin-left:4px;font-variant-numeric:tabular-nums}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip.mine{border-color:var(--forest);color:var(--forest)}
+.chip.mine[aria-pressed="true"]{background:var(--forest);color:var(--bg);border-color:var(--forest)}
+.offers{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .offer{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:6px;align-content:start;min-width:0}
-.offer .meca{justify-self:start;background:var(--red);color:#fff;font-weight:700;font-size:.85rem;padding:4px 10px;border-radius:6px;font-variant-numeric:tabular-nums}
-.offer h3{font-size:1.2rem;margin-top:4px}
-.offer p{margin:0;color:var(--muted);font-size:.92rem}
-.offer .prix{font-variant-numeric:tabular-nums;font-size:.85rem}
-#moment .note a{color:var(--ink)}
+.offer.inlist{border-color:var(--forest);box-shadow:inset 0 0 0 1px var(--forest)}
+.offer .top{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.offer .meca{background:var(--banner);color:#fff;font-weight:700;font-size:.85rem;padding:4px 10px;border-radius:6px;font-variant-numeric:tabular-nums}
+.offer .tag{font-size:.75rem;font-weight:700;color:var(--forest);border:1px solid var(--forest);border-radius:6px;padding:2px 8px}
+.offer h3{font-size:1.15rem;margin-top:4px}
+.offer p{margin:0;color:var(--muted);font-size:.9rem}
+.offer .price{font-family:var(--display);font-size:1.35rem;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;margin-top:2px}
+.offer .x{font-size:.8rem;color:var(--muted)}
+.offer .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;align-items:center}
+.offer .add{background:transparent;color:var(--ink);border:1px solid var(--line);padding:7px 12px;font-size:.85rem}
+.offer .add[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:var(--bg)}
+.offer .book{font-size:.85rem;font-weight:700;color:var(--red)}
+.empty{color:var(--muted)}
+#folder .note{max-width:80ch}
 
 /* Rayons */
 #rayons{padding-block:16px 56px}
@@ -184,8 +200,7 @@ footer a{color:var(--ink)}
         <a href="#promos" data-t="navPromos">Promos</a>
         <a class="resa-link" href="https://tally.so/r/EqqgoN" data-t="navResa">Réserver</a>
         <a href="#folder">Folder</a>
-        <a href="#moment" data-t="navMoment">Promos du moment</a>
-        <a href="#infos" data-t="navInfos">Horaires & accès</a>
+                <a href="#infos" data-t="navInfos">Horaires & accès</a>
       </nav>
       <div class="lang" role="group" aria-label="Langue / Taal">
         <button type="button" id="langFr" aria-pressed="true">FR</button>
@@ -247,46 +262,589 @@ footer a{color:var(--ink)}
 
 <section id="folder">
   <div class="wrap">
-    <div class="folder">
+    <div class="folder-head">
       <div>
-        <div class="eyebrow" data-t="folderEyebrow">Le folder Intermarché</div>
+        <div class="eyebrow" data-t="folderEyebrow">Le folder de la semaine</div>
         <h2 id="folderTitle"></h2>
-        <p id="folderDates"></p>
+        <p data-t="folderSub">Toutes les offres de la semaine, rayon par rayon. Ajoutez-les à votre liste pour ne rien oublier en magasin.</p>
       </div>
-      <div class="folder-links">
-        <a class="btn" id="folderMain" href="#" data-t="folderBtn">Feuilleter le folder</a>
-        <a class="btn ghost" id="folderOther" href="#" data-t="folderOther">Folder in het Nederlands</a>
-      </div>
+      <div class="folder-links"><a class="btn ghost" id="folderMain" href="#" data-t="folderBtn">Voir le folder en images</a></div>
     </div>
-  </div>
-</section>
-
-<section id="moment">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow" data-t="momentEyebrow">Les promos du moment</div>
-      <h2 data-t="momentTitle">À ne pas manquer cette semaine</h2>
-      <p id="momentNote"></p>
-    </div>
+    <div class="temps" id="temps"></div>
+    <div class="toolbar" id="chips" role="group" aria-label="Rayons"></div>
     <div class="offers" id="offers"></div>
-    <p class="note"><span data-t="momentStock">Offres valables dans la limite des stocks disponibles.</span> <a class="resa-link" href="https://tally.so/r/EqqgoN" data-t="momentResa">Réserver une promo boucherie</a> · <a id="imLink" href="https://www.intermarche.be/produits/">intermarche.be</a></p>
+    <p class="empty" id="emptyList" hidden data-t="emptyList">Votre liste est vide.</p>
+    <div class="toolbar" id="listActions" hidden><button type="button" class="chip" id="clearList" data-t="clearList">Vider ma liste</button></div>
+    <p class="note" data-t="folderNote">Offres valables dans la limite des stocks disponibles. Certaines sont limitées à 3 par semaine et par client. Les offres « avec la carte » demandent la carte Intermarché. Conditions complètes dans le folder.</p>
   </div>
 </section>
 
-<!-- DONNEES FOLDER : mises à jour chaque semaine. Garder le format JSON. -->
+<!-- DONNEES DU FOLDER : mises à jour chaque lundi. Garder le format JSON (voir MISE-A-JOUR.md). -->
 <script id="folderData" type="application/json">
-{"debut":"27/10","fin":"01/11/2026","fr":"https://www.intermarche.be/folders/decouvrez-notre-folder-du-27-10-26/","nl":"https://www.intermarche.be/nl/folders/ontdek-onze-folder-van-27-10-26/"}
-</script>
-<!-- DONNEES PROMOS : mises à jour chaque semaine. Garder le format JSON (clés FR + clés _nl). -->
-<script id="promoData" type="application/json">
-[
-  {"meca":"1 kg + 1 kg gratuits","nom":"Haché de campagne","detail":"Origine Belgique","prix":"Prix habituel 8,49 €/kg","meca_nl":"1 kg + 1 kg gratis","nom_nl":"Boerengehakt","detail_nl":"Belgische oorsprong","prix_nl":"Normale prijs € 8,49/kg"},
-  {"meca":"5 kg + 5 kg gratuits","nom":"Colis boucherie ±5 kg","detail":"Deux compositions de viandes au choix","prix":"","meca_nl":"5 kg + 5 kg gratis","nom_nl":"Vleespakket ±5 kg","detail_nl":"Twee samenstellingen naar keuze","prix_nl":""},
-  {"meca":"250 g + 500 g gratuits","nom":"Jambon à l'os","detail":"","prix":"","meca_nl":"250 g + 500 g gratis","nom_nl":"Beenham","detail_nl":"","prix_nl":""},
-  {"meca":"2 + 2 gratuits","nom":"De Cecco","detail":"Pâtes ou gnocchi di patate, 500 g, au choix","prix":"Prix habituel 1,95 à 4,79 € la pièce","meca_nl":"2 + 2 gratis","nom_nl":"De Cecco","detail_nl":"Pasta of gnocchi di patate, 500 g, naar keuze","prix_nl":"Normale prijs € 1,95 tot € 4,79 per stuk"},
-  {"meca":"1 + 1 gratuit","nom":"Carapelli Il Frantolio","detail":"Huile d'olive extra vierge, 2 × 750 ml","prix":"","meca_nl":"1 + 1 gratis","nom_nl":"Carapelli Il Frantolio","detail_nl":"Extra vierge olijfolie, 2 × 750 ml","prix_nl":""},
-  {"meca":"2 + 3 gratuits","nom":"Ariel+","detail":"Liquide ou pods, au choix","prix":"Prix habituel 16,99 à 22,99 € le pack","meca_nl":"2 + 3 gratis","nom_nl":"Ariel+","detail_nl":"Vloeibaar of pods, naar keuze","prix_nl":"Normale prijs € 16,99 tot € 22,99 per pak"}
+{
+"debut": "27/10",
+"fin": "01/11/2026",
+"fr": "https://www.intermarche.be/folders/decouvrez-notre-folder-du-27-10-26/",
+"nl": "https://www.intermarche.be/nl/folders/ontdek-onze-folder-van-27-10-26/",
+"temps": [
+{
+"t": "Ouvert le dimanche de la Toussaint",
+"p": "Dimanche 1er novembre, de 8 h à 19 h, comme tous les jours.",
+"tn": "Open op Allerheiligen",
+"pn": "Zondag 1 november, van 8 tot 19 uur, zoals elke dag."
+},
+{
+"t": "Un calendrier 2027 offert",
+"p": "Le dimanche 1er novembre : un calendrier par passage en caisse et par famille, dans la limite des stocks.",
+"tn": "Een gratis kalender 2027",
+"pn": "Op zondag 1 november: één kalender per kassabezoek en per gezin, zolang de voorraad strekt."
+},
+{
+"t": "5 € offerts dès 50 € d'achat",
+"p": "Samedi 31/10 et dimanche 1/11, avec votre carte Intermarché et le bon du folder papier. Hors tabac, alcool, vidanges, sacs poubelles et services.",
+"tn": "€ 5 cadeau vanaf € 50 aankoop",
+"pn": "Zaterdag 31/10 en zondag 1/11, met uw Intermarché-kaart en de bon uit de papieren folder. Behalve tabak, alcohol, leeggoed, vuilniszakken en diensten."
+}
+],
+"offres": [
+{
+"r": "boucherie",
+"resa": 1,
+"m": "5 kg + 5 kg gratis",
+"n": "Colis boucherie ±5 kg",
+"d": "Porc et bœuf, 10 kg au total · Belgique · Réservez 24 h à l'avance",
+"p": "54,99 € le colis",
+"x": "Soit 5,49 €/kg",
+"nn": "Vleespakket ±5 kg",
+"dn": "Varken en rund, 10 kg in totaal · België · Reserveer 24 uur op voorhand",
+"pn": "€ 54,99 per pakket",
+"xn": "Of € 5,49/kg"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "1 kg + 1 kg gratis",
+"n": "Haché de campagne",
+"d": "Belgique · Au lieu de 8,49 €/kg",
+"p": "4,19 €/kg",
+"x": "Prix promo au kilo",
+"nn": "Boerengehakt",
+"dn": "België · In plaats van € 8,49/kg",
+"pn": "€ 4,19/kg",
+"xn": "Promoprijs per kilo"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "3 + 3 gratis",
+"n": "Saucisses de campagne pur porc",
+"d": "Belgique · Au lieu de 10,09 €/kg",
+"p": "4,99 €/kg",
+"x": "Prix promo au kilo",
+"nn": "Boerenworsten zuiver varken",
+"dn": "België · In plaats van € 10,09/kg",
+"pn": "€ 4,99/kg",
+"xn": "Promoprijs per kilo"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "-50 %",
+"n": "Mignonettes de porc",
+"d": "Belgique · Au lieu de 13,30 €/kg",
+"p": "6,65 €/kg",
+"nn": "Varkensmignonettes",
+"dn": "België · In plaats van € 13,30/kg",
+"pn": "€ 6,65/kg"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "-50 %",
+"n": "Rôti de porc moutarde",
+"d": "Belgique · Au lieu de 14,99 €/kg",
+"p": "7,49 €/kg",
+"nn": "Varkensgebraad met mosterd",
+"dn": "België · In plaats van € 14,99/kg",
+"pn": "€ 7,49/kg"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "1 + 1 gratis",
+"n": "Filet de canard",
+"d": "±400 g · France · Dès le mercredi 28/10 · Au lieu de 24,98 €/kg",
+"p": "12,49 €/kg",
+"nn": "Eendenfilet",
+"dn": "±400 g · Frankrijk · Vanaf woensdag 28/10 · In plaats van € 24,98/kg",
+"pn": "€ 12,49/kg"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "6 merguez offertes",
+"n": "Côtes d'agneau",
+"d": "Pour 6 côtes achetées, 6 merguez de porc offertes · Angleterre ou Nouvelle-Zélande · Dès le mercredi 28/10",
+"p": "28,99 €/kg",
+"x": "Prix habituel",
+"nn": "Lamskoteletten",
+"dn": "Bij 6 gekochte koteletten 6 varkensmerguez gratis · Engeland of Nieuw-Zeeland · Vanaf woensdag 28/10",
+"pn": "€ 28,99/kg",
+"xn": "Normale prijs"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "Prix exceptionnel",
+"n": "Pavé de bœuf",
+"d": "Belgique",
+"p": "18,99 €/kg",
+"nn": "Runderpavé",
+"dn": "België",
+"pn": "€ 18,99/kg"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "Prix exceptionnel",
+"n": "El Pozo filet pur de porc mariné",
+"d": "Variétés au choix · Espagne",
+"p": "10,49 €/kg",
+"nn": "El Pozo gemarineerde varkenshaas",
+"dn": "Naar keuze · Spanje",
+"pn": "€ 10,49/kg"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "250 g + 500 g gratis",
+"n": "Jambon à l'os",
+"d": "Au lieu de 16,50 € · Soit 7,34 €/kg",
+"p": "5,50 € les 750 g",
+"nn": "Beenham",
+"dn": "In plaats van € 16,50 · Of € 7,34/kg",
+"pn": "€ 5,50 voor 750 g"
+},
+{
+"r": "traiteur",
+"m": "1 kg + 1 kg gratis",
+"n": "Vol-au-vent",
+"d": "Au lieu de 23,80 € · Soit 5,95 €/kg",
+"p": "11,90 € les 2 kg",
+"nn": "Vol-au-vent",
+"dn": "In plaats van € 23,80 · Of € 5,95/kg",
+"pn": "€ 11,90 voor 2 kg"
+},
+{
+"r": "traiteur",
+"m": "1 + 1 gratis",
+"n": "Fish Aven saumon fumé",
+"d": "2 × 150 g · Au lieu de 13,98 € · Soit 23,30 €/kg",
+"p": "6,99 €",
+"nn": "Fish Aven gerookte zalm",
+"dn": "2 × 150 g · In plaats van € 13,98 · Of € 23,30/kg",
+"pn": "€ 6,99"
+},
+{
+"r": "traiteur",
+"m": "1 + 1 gratis",
+"n": "Crevettes roses nordiques",
+"d": "2 × 100 g · Au lieu de 7,98 €",
+"p": "3,99 €",
+"nn": "Noordse roze garnalen",
+"dn": "2 × 100 g · In plaats van € 7,98",
+"pn": "€ 3,99"
+},
+{
+"r": "traiteur",
+"m": "1 + 1 gratis au choix",
+"n": "Maïski poulets panés",
+"d": "2 × 125 g, variétés au choix · Au lieu de 12,50 €",
+"p": "6,25 € les 2 packs",
+"nn": "Maïski gepaneerde kip",
+"dn": "2 × 125 g, naar keuze · In plaats van € 12,50",
+"pn": "€ 6,25 voor 2 pakjes"
+},
+{
+"r": "traiteur",
+"m": "1 + 1 gratis au choix",
+"n": "Aubel",
+"d": "Jambon à l'os, boudin blanc, boulettes, saucisson · Au prix habituel de 2,99 € à 6,99 € la pièce",
+"nn": "Aubel",
+"dn": "Beenham, witte pens, balletjes, salami · Normale prijs € 2,99 tot € 6,99 per stuk"
+},
+{
+"r": "traiteur",
+"m": "1 + 1 gratis",
+"n": "Costa Brava fuet espetec",
+"d": "2 × 150 g · Au lieu de 7,58 €",
+"p": "3,79 €",
+"nn": "Costa Brava fuet espetec",
+"dn": "2 × 150 g · In plaats van € 7,58",
+"pn": "€ 3,79"
+},
+{
+"r": "traiteur",
+"m": "1 + 1 gratis au choix",
+"n": "Délio et Heks'Nkaas",
+"d": "Salades tartinables ou fromage frais, 180 à 200 g · Au prix habituel de 2,19 € à 6,59 €",
+"nn": "Délio en Heks'Nkaas",
+"dn": "Smeersalades of verse kaas, 180 tot 200 g · Normale prijs € 2,19 tot € 6,59"
+},
+{
+"r": "traiteur",
+"carte": 1,
+"m": "2 + 2 gratis au choix",
+"n": "Gran Brianza charcuteries italiennes",
+"d": "En tranches, 70 à 300 g · Au prix habituel de 2,99 € à 8,49 €",
+"nn": "Gran Brianza Italiaanse charcuterie",
+"dn": "In sneetjes, 70 tot 300 g · Normale prijs € 2,99 tot € 8,49"
+},
+{
+"r": "fl",
+"m": "Prix au kilo",
+"n": "Bananes",
+"d": "Costa Rica, en vrac",
+"p": "1,13 €/kg",
+"nn": "Bananen",
+"dn": "Costa Rica, los",
+"pn": "€ 1,13/kg"
+},
+{
+"r": "fl",
+"m": "Prix au kilo",
+"n": "Clémentines à feuilles",
+"d": "Espagne, en vrac",
+"p": "2,99 €/kg",
+"nn": "Clementines met blad",
+"dn": "Spanje, los",
+"pn": "€ 2,99/kg"
+},
+{
+"r": "fl",
+"m": "1 + 1 gratis",
+"n": "Carottes lavées",
+"d": "Raviers de 1 kg · Belgique · Soit 0,99 €/kg",
+"p": "1,98 € les 2",
+"nn": "Gewassen wortelen",
+"dn": "Schaaltjes van 1 kg · België · Of € 0,99/kg",
+"pn": "€ 1,98 voor 2"
+},
+{
+"r": "fl",
+"m": "Moins cher",
+"n": "Pommes de terre Panier malin",
+"d": "Sac de 5 kg · Belgique · Soit 0,94 €/kg",
+"p": "4,69 € le sac",
+"nn": "Aardappelen Slimme winkelkar",
+"dn": "Zak van 5 kg · België · Of € 0,94/kg",
+"pn": "€ 4,69 per zak"
+},
+{
+"r": "boulangerie",
+"m": "10 + 10 gratis",
+"n": "Chouquettes",
+"d": "Cuites sur place · Aussi valable sur les profiteroles · Au lieu de 5,00 €",
+"p": "2,50 € les 20",
+"nn": "Chouquettes",
+"dn": "Ter plaatse gebakken · Ook geldig op profiteroles · In plaats van € 5,00",
+"pn": "€ 2,50 voor 20"
+},
+{
+"r": "boulangerie",
+"m": "10 pour 5 €",
+"n": "Croissants ou pains au chocolat",
+"d": "Cuits sur place, au choix · Au lieu de 6,50 €",
+"p": "5,00 € les 10",
+"nn": "Croissants of chocoladebroodjes",
+"dn": "Ter plaatse gebakken, naar keuze · In plaats van € 6,50",
+"pn": "€ 5,00 voor 10"
+},
+{
+"r": "boulangerie",
+"m": "3 + 3 gratis au choix",
+"n": "Maxi piccolos",
+"d": "Blancs ou gris, cuits sur place · Au lieu de 3,00 €",
+"p": "1,50 € les 6",
+"nn": "Maxi piccolo's",
+"dn": "Wit of grijs, ter plaatse gebakken · In plaats van € 3,00",
+"pn": "€ 1,50 voor 6"
+},
+{
+"r": "boulangerie",
+"m": "2 + 2 gratis",
+"n": "Éclairs au chocolat",
+"d": "Pack de 4 · Au lieu de 5,95 €",
+"p": "2,97 € les 4",
+"nn": "Chocolade-eclairs",
+"dn": "Pak van 4 · In plaats van € 5,95",
+"pn": "€ 2,97 voor 4"
+},
+{
+"r": "cremerie",
+"m": "1 + 1 gratis",
+"n": "EntreMont Meule d'Or",
+"d": "Fromage râpé, 2 × 500 g · Au lieu de 17,18 €",
+"p": "8,59 €",
+"nn": "EntreMont Meule d'Or",
+"dn": "Geraspte kaas, 2 × 500 g · In plaats van € 17,18",
+"pn": "€ 8,59"
+},
+{
+"r": "cremerie",
+"carte": 1,
+"m": "1 + 1 gratis au choix",
+"n": "Pâturages beurre de laiterie",
+"d": "Doux ou salé, 2 × 500 g · 5,99 € reversés sur votre carte",
+"p": "5,99 €",
+"nn": "Pâturages melkerijboter",
+"dn": "Zacht of gezouten, 2 × 500 g · € 5,99 teruggestort op uw kaart",
+"pn": "€ 5,99"
+},
+{
+"r": "cremerie",
+"carte": 1,
+"m": "1 + 1 gratis au choix",
+"n": "Pâturages fromage à raclette",
+"d": "300 ou 400 g · Au prix habituel de 4,19 € à 5,79 €",
+"nn": "Pâturages raclettekaas",
+"dn": "300 of 400 g · Normale prijs € 4,19 tot € 5,79"
+},
+{
+"r": "cremerie",
+"m": "1 + 1 gratis au choix",
+"n": "Actimel",
+"d": "8 × 100 g · Au prix habituel de 3,99 € à 5,19 €",
+"nn": "Actimel",
+"dn": "8 × 100 g · Normale prijs € 3,99 tot € 5,19"
+},
+{
+"r": "stnicolas",
+"m": "Prix folder",
+"n": "Assiette Saint-Nicolas",
+"d": "Assortiment de confiseries, 255 g",
+"p": "4,29 €",
+"nn": "Sinterklaasbord",
+"dn": "Snoepassortiment, 255 g",
+"pn": "€ 4,29"
+},
+{
+"r": "stnicolas",
+"m": "Prix folder",
+"n": "Figurine Saint-Nicolas Friedel",
+"d": "60 g",
+"p": "0,99 €",
+"nn": "Sinterklaasfiguur Friedel",
+"dn": "60 g",
+"pn": "€ 0,99"
+},
+{
+"r": "stnicolas",
+"m": "2 + 2 gratis au choix",
+"n": "Libeert figurines en chocolat",
+"d": "4 × 50 g · Au lieu de 8,36 €",
+"p": "4,18 €",
+"nn": "Libeert chocoladefiguren",
+"dn": "4 × 50 g · In plaats van € 8,36",
+"pn": "€ 4,18"
+},
+{
+"r": "stnicolas",
+"m": "Prix folder",
+"n": "Chabrior speculoos pocket",
+"d": "10 × 2 pièces, 168 g",
+"p": "0,99 €",
+"nn": "Chabrior speculoos pocket",
+"dn": "10 × 2 stuks, 168 g",
+"pn": "€ 0,99"
+},
+{
+"r": "stnicolas",
+"carte": 1,
+"m": "1 + 1 gratis",
+"n": "Kinder calendrier de l'Avent",
+"d": "2 × 113 g · 5,59 € reversés sur votre carte",
+"p": "5,59 €",
+"nn": "Kinder adventskalender",
+"dn": "2 × 113 g · € 5,59 teruggestort op uw kaart",
+"pn": "€ 5,59"
+},
+{
+"r": "epicerie",
+"carte": 1,
+"m": "2 + 2 gratis au choix",
+"n": "Nutella",
+"d": "Pâte à tartiner, biscuits, B-ready · Au prix habituel de 2,86 € à 4,85 €",
+"nn": "Nutella",
+"dn": "Choco, koekjes, B-ready · Normale prijs € 2,86 tot € 4,85"
+},
+{
+"r": "epicerie",
+"carte": 1,
+"m": "1 + 1 gratis au choix",
+"n": "Materne mousseline ou compote",
+"d": "Au prix habituel de 1,25 € à 4,19 €",
+"nn": "Materne mousseline of appelmoes",
+"dn": "Normale prijs € 1,25 tot € 4,19"
+},
+{
+"r": "epicerie",
+"carte": 1,
+"m": "2 + 2 gratis au choix",
+"n": "Galler bâtons de chocolat",
+"d": "65 ou 70 g · Au prix habituel de 1,80 € à 2,22 €",
+"nn": "Galler chocoladerepen",
+"dn": "65 of 70 g · Normale prijs € 1,80 tot € 2,22"
+},
+{
+"r": "epicerie",
+"m": "2 + 2 gratis au choix",
+"n": "De Cecco",
+"d": "Pâtes ou gnocchi di patate, 500 g · Au prix habituel de 1,95 € à 4,79 €",
+"nn": "De Cecco",
+"dn": "Pasta of gnocchi di patate, 500 g · Normale prijs € 1,95 tot € 4,79"
+},
+{
+"r": "epicerie",
+"m": "3 + 3 gratis au choix",
+"n": "Cirio passata",
+"d": "Nature ou basilic, 6 × 700 g · Au lieu de 16,20 €",
+"p": "8,10 €",
+"nn": "Cirio passata",
+"dn": "Natuur of basilicum, 6 × 700 g · In plaats van € 16,20",
+"pn": "€ 8,10"
+},
+{
+"r": "epicerie",
+"m": "1 + 1 gratis",
+"n": "Carapelli Il Frantolio",
+"d": "Huile d'olive extra vierge, 2 × 750 ml · Au lieu de 27,96 €",
+"p": "13,98 €",
+"nn": "Carapelli Il Frantolio",
+"dn": "Extra vierge olijfolie, 2 × 750 ml · In plaats van € 27,96",
+"pn": "€ 13,98"
+},
+{
+"r": "surgeles",
+"m": "1 + 1 gratis au choix",
+"n": "Belviva frites",
+"d": "Classiques, allumettes, zig zag ou gaufrites, 600 g ou 1 kg · Au prix habituel de 4,19 € à 6,49 €",
+"nn": "Belviva frieten",
+"dn": "Klassiek, allumettes, zigzag of wafelfrieten, 600 g of 1 kg · Normale prijs € 4,19 tot € 6,49"
+},
+{
+"r": "surgeles",
+"m": "1 + 1 gratis au choix",
+"n": "Kinder Bueno ou Nutella glace en pot",
+"d": "455 ou 470 ml · Au prix habituel de 6,49 € à 6,99 €",
+"nn": "Kinder Bueno of Nutella ijs",
+"dn": "455 of 470 ml · Normale prijs € 6,49 tot € 6,99"
+},
+{
+"r": "boissons",
+"m": "1 + 1 gratis",
+"n": "Maes 24 × 33 cl",
+"d": "En casier, hors vidanges · Au lieu de 37,98 €",
+"p": "18,99 € les 2 casiers",
+"nn": "Maes 24 × 33 cl",
+"dn": "Bak, zonder leeggoed · In plaats van € 37,98",
+"pn": "€ 18,99 voor 2 bakken"
+},
+{
+"r": "boissons",
+"m": "3 + 3 gratis",
+"n": "IGT Puglia Nero di Troia Vezzani",
+"d": "6 × 75 cl · Soit 3,99 € la bouteille · Au lieu de 47,88 €",
+"p": "23,94 €",
+"nn": "IGT Puglia Nero di Troia Vezzani",
+"dn": "6 × 75 cl · Of € 3,99 per fles · In plaats van € 47,88",
+"pn": "€ 23,94"
+},
+{
+"r": "boissons",
+"carte": 1,
+"m": "1 + 1 gratis au choix",
+"n": "Pepsi ou 7up",
+"d": "6 × 1,5 l · Au prix habituel de 12,90 € à 14,70 €",
+"nn": "Pepsi of 7up",
+"dn": "6 × 1,5 l · Normale prijs € 12,90 tot € 14,70"
+},
+{
+"r": "maison",
+"m": "2 + 3 gratis au choix",
+"n": "Ariel+",
+"d": "Liquide ou pods · Au prix habituel de 16,99 € à 22,99 €",
+"nn": "Ariel+",
+"dn": "Vloeibaar of pods · Normale prijs € 16,99 tot € 22,99"
+},
+{
+"r": "maison",
+"m": "2 + 2 gratis au choix",
+"n": "Silan adoucissant",
+"d": "50 doses · Au prix habituel de 5,79 € à 6,79 €",
+"nn": "Silan wasverzachter",
+"dn": "50 doses · Normale prijs € 5,79 tot € 6,79"
+},
+{
+"r": "maison",
+"m": "1 + 1 gratis",
+"n": "Renova essuie-tout",
+"d": "2 × 8 rouleaux · Au lieu de 15,96 €",
+"p": "7,98 €",
+"nn": "Renova keukenpapier",
+"dn": "2 × 8 rollen · In plaats van € 15,96",
+"pn": "€ 7,98"
+},
+{
+"r": "maison",
+"m": "1 + 1 gratis",
+"n": "Renova papier toilette Skincare",
+"d": "2 × 48 rouleaux · Au lieu de 39,96 €",
+"p": "19,98 €",
+"nn": "Renova toiletpapier Skincare",
+"dn": "2 × 48 rollen · In plaats van € 39,96",
+"pn": "€ 19,98"
+},
+{
+"r": "maison",
+"m": "2 + 2 gratis au choix",
+"n": "Perfect Fit",
+"d": "Croquettes ou pochons pour chat ou chien · Au prix habituel de 2,99 € à 18,59 €",
+"nn": "Perfect Fit",
+"dn": "Brokjes of zakjes voor kat of hond · Normale prijs € 2,99 tot € 18,59"
+},
+{
+"r": "maison",
+"m": "Stock limité",
+"n": "Casque Bluetooth Way",
+"d": "Sans fil, autonomie 10 h",
+"p": "7,99 €",
+"nn": "Bluetooth-koptelefoon Way",
+"dn": "Draadloos, 10 uur autonomie",
+"pn": "€ 7,99"
+},
+{
+"r": "fleurs",
+"m": "Prix imbattable",
+"n": "Chrysanthèmes « Pomponnettes »",
+"d": "Grand format 45/50 cm, pot de 19 cm · Belgique",
+"p": "2,49 € la plante",
+"nn": "Chrysanten « Pomponnettes »",
+"dn": "Groot formaat 45/50 cm, pot van 19 cm · België",
+"pn": "€ 2,49 per plant"
+},
+{
+"r": "fleurs",
+"m": "Prix folder",
+"n": "Calluna (bruyère)",
+"d": "Plante vivace, pot de 12 cm",
+"p": "1,49 € la plante",
+"nn": "Calluna (heide)",
+"dn": "Vaste plant, pot van 12 cm",
+"pn": "€ 1,49 per plant"
+}
 ]
+}
 </script>
 
 <section id="rayons">
@@ -358,7 +916,7 @@ heroEyebrow:"Intermarché Contact · Gedinne",heroTitle:"Le marché du village, 
 heroText:"Boucherie, boulangerie, fruits et légumes, et une bonne affaire différente chaque jour. De 8 h à 19 h, 7 jours sur 7, jours fériés compris.",
 open:"Ouvert maintenant · jusqu'à 19 h",closedMorning:"Fermé · ouvre à 8 h",closedEvening:"Fermé · ouvre demain à 8 h",today:"Aujourd'hui",
 boardTitle:"L'ardoise de la semaine",boardSub:"Nouvelles promos annoncées chaque lundi",boardBtn:"Réserver une offre",todayTag:" · aujourd'hui",resa:"Réserver →",
-folderEyebrow:"Le folder Intermarché",folderTitle:d=>`Découvrez notre folder du ${d}`,folderDates:(a,b)=>`Valable du ${a} au ${b}`,folderBtn:"Feuilleter le folder",folderOther:"Folder in het Nederlands",
+folderEyebrow:"Le folder de la semaine",folderTitle:(a,b)=>`Du ${a} au ${b}`,folderSub:"Toutes les offres de la semaine, rayon par rayon. Ajoutez-les à votre liste pour ne rien oublier en magasin.",folderBtn:"Voir le folder en images",fAll:"Tout",fMine:"Ma liste",fAdd:"+ Ma liste",fAdded:"✓ Dans ma liste",fBook:"Réserver →",fCarte:"Avec la carte",emptyList:"Votre liste est vide. Touchez « + Ma liste » sous une offre pour l'ajouter.",clearList:"Vider ma liste",folderNote:"Offres valables dans la limite des stocks disponibles. Certaines sont limitées à 3 par semaine et par client. Les offres « avec la carte » demandent la carte Intermarché. Conditions complètes dans le folder.",rayons:{boucherie:"Boucherie",traiteur:"Charcuterie & traiteur",fl:"Fruits & légumes",boulangerie:"Boulangerie",cremerie:"Crèmerie",epicerie:"Épicerie",stnicolas:"Saint-Nicolas",surgeles:"Surgelés",boissons:"Boissons",maison:"Maison",fleurs:"Fleurs & plantes"},
 momentEyebrow:"Les promos du moment",momentTitle:"À ne pas manquer cette semaine",momentNote:(a,b)=>`Offres mises en avant par Intermarché, du ${a} au ${b}.`,
 momentStock:"Offres valables dans la limite des stocks disponibles.",momentResa:"Réserver une promo boucherie",
 rayEyebrow:"Le frais",rayTitle:"Les rayons qui font la différence",ray1t:"Boucherie",ray1p:"Hachis, rôtis, volailles et grillades pour toute la famille, avec une offre spéciale presque chaque jour.",
@@ -382,7 +940,7 @@ heroEyebrow:"Intermarché Contact · Gedinne",heroTitle:"De dorpswinkel, <em>elk
 heroText:"Slagerij, bakkerij, groenten en fruit, en elke dag een andere aanbieding. Van 8 tot 19 uur, 7 dagen op 7, ook op feestdagen.",
 open:"Nu open · tot 19 uur",closedMorning:"Gesloten · opent om 8 uur",closedEvening:"Gesloten · opent morgen om 8 uur",today:"Vandaag",
 boardTitle:"Onze promoties van de week",boardSub:"Elke maandag nieuwe promoties",boardBtn:"Een aanbieding reserveren",todayTag:" · vandaag",resa:"Reserveren →",
-folderEyebrow:"De Intermarché-folder",folderTitle:d=>`Ontdek onze folder van ${d}`,folderDates:(a,b)=>`Geldig van ${a} tot ${b}`,folderBtn:"Folder bekijken",folderOther:"Folder en français",
+folderEyebrow:"De folder van de week",folderTitle:(a,b)=>`Van ${a} tot ${b}`,folderSub:"Alle aanbiedingen van de week, afdeling per afdeling. Zet ze op uw lijstje, dan vergeet u niets in de winkel.",folderBtn:"Folder in beeld bekijken",fAll:"Alles",fMine:"Mijn lijstje",fAdd:"+ Mijn lijstje",fAdded:"✓ Op mijn lijstje",fBook:"Reserveren →",fCarte:"Met de kaart",emptyList:"Uw lijstje is leeg. Tik op « + Mijn lijstje » onder een aanbieding om ze toe te voegen.",clearList:"Lijstje leegmaken",folderNote:"Aanbiedingen zolang de voorraad strekt. Sommige zijn beperkt tot 3 per week en per klant. Aanbiedingen « met de kaart » vragen de Intermarché-kaart. Volledige voorwaarden in de folder.",rayons:{boucherie:"Slagerij",traiteur:"Charcuterie & traiteur",fl:"Groenten & fruit",boulangerie:"Bakkerij",cremerie:"Zuivel",epicerie:"Kruidenierswaren",stnicolas:"Sinterklaas",surgeles:"Diepvries",boissons:"Dranken",maison:"Huishouden",fleurs:"Bloemen & planten"},
 momentEyebrow:"Actuele promoties",momentTitle:"Niet te missen deze week",momentNote:(a,b)=>`In de kijker bij Intermarché, van ${a} tot ${b}.`,
 momentStock:"Zolang de voorraad strekt.",momentResa:"Een slagerijpromotie reserveren",
 rayEyebrow:"Vers",rayTitle:"De afdelingen die het verschil maken",ray1t:"Slagerij",ray1p:"Gehakt, gebraad, gevogelte en grillvlees voor het hele gezin, met bijna elke dag een speciale aanbieding.",
@@ -402,10 +960,14 @@ promos:[
  {r:1,t:"Maaltijdpakket voor 4",p:"Op reservatie, af te halen in de winkel."},
  {r:1,t:"Gebraden kip, frietjes & appelmoes",p:"De zondagsmaaltijd om mee te nemen, € 8,49."}]}
 };
-let folder={},offers=[];
+let folder={offres:[],temps:[]};
 try{folder=JSON.parse(document.getElementById("folderData").textContent)}catch(e){document.getElementById("folder").hidden=true}
-try{offers=JSON.parse(document.getElementById("promoData").textContent)}catch(e){}
-if(!offers.length)document.getElementById("moment").hidden=true;
+const RAYONS=["boucherie","traiteur","fl","boulangerie","cremerie","epicerie","stnicolas","surgeles","boissons","maison","fleurs"];
+const LIST_KEY="liste-"+(folder.debut||"");
+let rayon="all",curLang="fr",liste=new Set();
+try{const v=JSON.parse(localStorage.getItem(LIST_KEY)||"[]");if(Array.isArray(v))liste=new Set(v)}catch(e){}
+function saveList(){try{localStorage.setItem(LIST_KEY,JSON.stringify([...liste]))}catch(e){}}
+function mecaNL(m){return m.replace("gratis au choix","gratis naar keuze").replace("Prix exceptionnel","Uitzonderlijke prijs").replace("Prix folder","Folderprijs").replace("Prix au kilo","Kiloprijs").replace("Moins cher","Goedkoper").replace("Prix imbattable","Onklopbare prijs").replace("Stock limité","Beperkte voorraad").replace("10 pour 5 €","10 voor € 5").replace("merguez offertes","merguez gratis")}
 const idx=(new Date().getDay()+6)%7;
 const $=id=>document.getElementById(id);
 
@@ -434,28 +996,46 @@ function render(lang){
     days.appendChild(el);
   });
   // folder
-  if(folder.debut){
-    $("folderTitle").textContent=L.folderTitle(folder.debut);
-    $("folderDates").textContent=L.folderDates(folder.debut,folder.fin);
-    $("folderMain").href=lang==="nl"?folder.nl:folder.fr;
-    $("folderOther").href=lang==="nl"?folder.fr:folder.nl;
-    $("momentNote").textContent=L.momentNote(folder.debut,folder.fin);
-  }
-  // promos du moment
-  const box=$("offers");box.innerHTML="";
-  offers.forEach(o=>{
-    const g=k=>lang==="nl"?(o[k+"_nl"]||o[k]):o[k];
-    const el=document.createElement("article");el.className="offer";
-    const add=(tag,cls,txt)=>{if(!txt)return;const n=document.createElement(tag);if(cls)n.className=cls;n.textContent=txt;el.appendChild(n);};
-    add("span","meca",g("meca"));add("h3","",g("nom"));add("p","",g("detail"));add("p","prix",g("prix"));
-    box.appendChild(el);
-  });
-  $("imLink").href=L.im;
+  renderFolder(lang);
   $("privLink").href="https://intergedinne.github.io/intermarche-gedinne/vie-privee.html"+(lang==="nl"?"?lang=nl":"");
   // horaires
   const tb=document.querySelector("#hours tbody");tb.innerHTML="";
   L.days.forEach((d,i)=>{const tr=document.createElement("tr");if(i===idx)tr.className="today";tr.innerHTML=`<td>${d}</td><td>08:00 – 19:00</td>`;tb.appendChild(tr);});
 }
+
+function renderFolder(lang){
+  curLang=lang;const L=T[lang],nl=lang==="nl",o=folder.offres||[];
+  if(!o.length){$("folder").hidden=true;return}
+  $("folderTitle").textContent=L.folderTitle(folder.debut,folder.fin);
+  $("folderMain").href=nl?folder.nl:folder.fr;
+  const tp=$("temps");tp.innerHTML="";
+  (folder.temps||[]).forEach(t=>{const a=document.createElement("article");const h=document.createElement("h3");h.textContent=nl?t.tn:t.t;const p=document.createElement("p");p.textContent=nl?t.pn:t.p;a.append(h,p);tp.appendChild(a)});
+  tp.hidden=!(folder.temps||[]).length;
+  const chips=$("chips");chips.innerHTML="";
+  const mk=(key,label,count,cls)=>{const b=document.createElement("button");b.type="button";b.className="chip"+(cls?" "+cls:"");b.setAttribute("aria-pressed",rayon===key);b.append(label);const n=document.createElement("span");n.className="n";n.textContent=count;b.appendChild(n);b.addEventListener("click",()=>{rayon=key;renderFolder(curLang)});chips.appendChild(b)};
+  mk("all",L.fAll,o.length);
+  RAYONS.forEach(r=>{const c=o.filter(x=>x.r===r).length;if(c)mk(r,L.rayons[r],c)});
+  mk("mine",L.fMine,liste.size,"mine");
+  const box=$("offers");box.innerHTML="";
+  const shown=o.map((x,i)=>[x,i]).filter(([x,i])=>rayon==="all"||(rayon==="mine"?liste.has(i):x.r===rayon));
+  shown.forEach(([x,i])=>{
+    const el=document.createElement("article");el.className="offer"+(liste.has(i)?" inlist":"");
+    const top=document.createElement("div");top.className="top";
+    const m=document.createElement("span");m.className="meca";m.textContent=nl?mecaNL(x.m):x.m;top.appendChild(m);
+    if(x.carte){const t=document.createElement("span");t.className="tag";t.textContent=L.fCarte;top.appendChild(t)}
+    el.appendChild(top);
+    const add=(tag,cls,txt)=>{if(!txt)return;const n=document.createElement(tag);if(cls)n.className=cls;n.textContent=txt;el.appendChild(n)};
+    add("h3","",nl?x.nn:x.n);add("p","",nl?x.dn:x.d);add("div","price",nl?x.pn:x.p);add("div","x",nl?x.xn:x.x);
+    const acts=document.createElement("div");acts.className="acts";
+    const b=document.createElement("button");b.type="button";b.className="add";const on=liste.has(i);b.setAttribute("aria-pressed",on);b.textContent=on?L.fAdded:L.fAdd;
+    b.addEventListener("click",()=>{liste.has(i)?liste.delete(i):liste.add(i);saveList();renderFolder(curLang)});acts.appendChild(b);
+    if(x.resa){const a=document.createElement("a");a.className="book";a.href=RESA[lang];a.textContent=L.fBook;acts.appendChild(a)}
+    el.appendChild(acts);box.appendChild(el);
+  });
+  $("emptyList").hidden=!(rayon==="mine"&&!liste.size);
+  $("listActions").hidden=!(rayon==="mine"&&liste.size);
+}
+$("clearList").addEventListener("click",()=>{liste.clear();saveList();renderFolder(curLang)});
 
 function pickLang(){
   try{const q=new URLSearchParams(location.search).get("lang");if(q==="nl"||q==="fr")return q;}catch(e){}
