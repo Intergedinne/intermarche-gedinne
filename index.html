@@ -163,6 +163,24 @@ button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:10px 18
 .ghostbtn{background:transparent;color:var(--ink);border:1px solid var(--line)}
 button:focus-visible,a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
 
+/* Livraison */
+#livraison{padding-block:56px 0}
+.livraison{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:start}
+.livraison h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-top:8px}
+.livraison .lead{color:var(--muted);margin:12px 0 0;max-width:54ch}
+.steps{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px;counter-reset:st}
+.steps li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;counter-increment:st}
+.steps li::before{content:counter(st);width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--bg);font-family:var(--hand);font-weight:700;font-size:1.5rem;display:grid;place-items:center}
+.steps strong{display:block}
+.steps span{color:var(--muted);font-size:.95rem}
+.deliv-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;align-items:center}
+.deliv-actions .tel{font-weight:700;font-variant-numeric:tabular-nums}
+.conditions{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.conditions dl{display:grid;grid-template-columns:auto 1fr;gap:12px 18px;margin:0}
+.conditions dt{font-weight:700}
+.conditions dd{margin:0;color:var(--muted)}
+.conditions .tip{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);font-family:var(--hand);font-size:1.45rem;line-height:1.15;color:var(--red)}
+
 /* Infos */
 #infos{padding-block:56px}
 .infos{display:grid;grid-template-columns:1fr 1fr;gap:40px}
@@ -181,7 +199,7 @@ footer p{margin:0;max-width:90ch}
 footer a{color:var(--ink)}
 
 @media (max-width:760px){
-  .hero-under,.colis,.infos,.village{grid-template-columns:1fr}
+  .hero-under,.colis,.infos,.village,.livraison{grid-template-columns:1fr}
   .hero-text{padding-block:32px 30px}
   .status{margin-top:4px}
   .hero-under>p{margin-top:16px}
@@ -199,7 +217,7 @@ footer a{color:var(--ink)}
       <nav aria-label="Navigation">
         <a href="#promos" data-t="navPromos">Promos</a>
         <a class="resa-link" href="https://tally.so/r/EqqgoN" data-t="navResa">Réserver</a>
-        <a href="#folder">Folder</a>
+        <a href="#folder">Folder</a><a href="#livraison" data-t="navDeliv">Livraison</a>
                 <a href="#infos" data-t="navInfos">Horaires & accès</a>
       </nav>
       <div class="lang" role="group" aria-label="Langue / Taal">
@@ -274,7 +292,7 @@ footer a{color:var(--ink)}
     <div class="toolbar" id="chips" role="group" aria-label="Rayons"></div>
     <div class="offers" id="offers"></div>
     <p class="empty" id="emptyList" hidden data-t="emptyList">Votre liste est vide.</p>
-    <div class="toolbar" id="listActions" hidden><button type="button" class="chip" id="clearList" data-t="clearList">Vider ma liste</button></div>
+    <div class="toolbar" id="listActions" hidden><button type="button" class="chip mine" id="copyList" data-t="copyList">Copier ma liste pour la livraison</button><a class="chip deliv-link" href="https://tally.so/r/J11EkK" data-t="dvBtn" style="text-decoration:none">Commander en ligne</a><button type="button" class="chip" id="clearList" data-t="clearList">Vider ma liste</button><span class="note" id="copyListMsg" hidden data-t="copyListMsg">Liste copiée : collez-la dans le formulaire de livraison.</span></div>
     <p class="note" data-t="folderNote">Offres valables dans la limite des stocks disponibles. Certaines sont limitées à 3 par semaine et par client. Les offres « avec la carte » demandent la carte Intermarché. Conditions complètes dans le folder.</p>
   </div>
 </section>
@@ -879,6 +897,36 @@ footer a{color:var(--ink)}
   </div>
 </section>
 
+<section id="livraison">
+  <div class="wrap livraison">
+    <div>
+      <div class="eyebrow" data-t="dvEyebrow">Nouveau · Livraison à domicile</div>
+      <h2 data-t="dvTitle">On fait vos courses, on vous les livre.</h2>
+      <p class="lead" data-t="dvLead">Pas le temps, pas de voiture, ou simplement envie de souffler ? Envoyez-nous votre liste : on prépare tout et on vous livre chez vous, gratuitement dès 50 € d'achat.</p>
+      <ol class="steps">
+        <li><div><strong data-t="dv1t">Envoyez votre liste</strong><span data-t="dv1p">En ligne en 2 minutes, ou par téléphone au 061 61 45 75.</span></div></li>
+        <li><div><strong data-t="dv2t">On vous appelle pour confirmer</strong><span data-t="dv2p">On vérifie votre commande et l'heure de passage.</span></div></li>
+        <li><div><strong data-t="dv3t">On vous livre, vous payez à la livraison</strong><span data-t="dv3p">Le lundi ou le jeudi après-midi, directement chez vous.</span></div></li>
+      </ol>
+      <div class="deliv-actions">
+        <a class="btn deliv-link" href="https://tally.so/r/J11EkK" data-t="dvBtn">Commander en ligne</a>
+        <span class="tel"><span data-t="dvOr">ou au</span> 061 61 45 75</span>
+      </div>
+    </div>
+    <aside class="conditions">
+      <dl>
+        <dt data-t="dvZoneT">Zone</dt><dd data-t="dvZone">Gedinne, Bourseigne-Neuve, Bourseigne-Vieille, Houdremont, Louette-Saint-Denis, Louette-Saint-Pierre, Malvoisin, Patignies, Rienne, Sart-Custinne, Vencimont et Willerzie, et les villages voisins à 15 km maximum.</dd>
+        <dt data-t="dvDaysT">Jours</dt><dd data-t="dvDays">Lundi et jeudi après-midi.</dd>
+        <dt data-t="dvLimitT">Commande</dt><dd data-t="dvLimit">Au plus tard la veille à 18 h.</dd>
+        <dt data-t="dvMinT">Minimum</dt><dd data-t="dvMin">50 € d'achat.</dd>
+        <dt data-t="dvFeeT">Livraison</dt><dd data-t="dvFee">Gratuite.</dd>
+        <dt data-t="dvPayT">Paiement</dt><dd data-t="dvPay">À la livraison.</dd>
+      </dl>
+      <p class="tip" data-t="dvTip">Un pourboire pour votre livreur est toujours le bienvenu, jamais obligatoire.</p>
+    </aside>
+  </div>
+</section>
+
 <section id="infos">
   <div class="wrap infos">
     <div>
@@ -910,13 +958,14 @@ footer a{color:var(--ink)}
 
 <script>
 const RESA={fr:"https://tally.so/r/EqqgoN",nl:"https://tally.so/r/Nqqgkb"};
+const DELIV={fr:"https://tally.so/r/J11EkK",nl:"https://tally.so/r/5XXalZ"};
 const T={
 fr:{navPromos:"Promos",navResa:"Réserver",navMoment:"Promos du moment",navInfos:"Horaires & accès",
 heroEyebrow:"Intermarché Contact · Gedinne",heroTitle:"Le marché du village, <em>ouvert tous les jours.</em>",heroAlt:"La façade de l'Intermarché Contact de Gedinne au coucher du soleil",vilEyebrow:"Ici, à Gedinne",vilTitle:"Un magasin de village, avec tout ce qu'il faut.",vilText:"Les courses de la semaine, le pain du matin, le rôti du week-end ou le poulet du dimanche : on fait tout pour que vous trouviez ce qu'il vous faut, sans faire de kilomètres. Et si vous préférez qu'on prépare pour vous, réservez en ligne.",vilSign:"L'équipe de l'Intermarché Gedinne",f1t:"7 jours sur 7",f1p:"De 8 h à 19 h, dimanches et jours fériés compris.",f2t:"On vous prépare tout",f2p:"Réservez en ligne, retirez au comptoir boucherie à partir de 10 h et payez en caisse.",f3t:"Bienvenue aux vacanciers",f3p:"Le site et les réservations existent aussi en néerlandais.",
 heroText:"Boucherie, boulangerie, fruits et légumes, et une bonne affaire différente chaque jour. De 8 h à 19 h, 7 jours sur 7, jours fériés compris.",
 open:"Ouvert maintenant · jusqu'à 19 h",closedMorning:"Fermé · ouvre à 8 h",closedEvening:"Fermé · ouvre demain à 8 h",today:"Aujourd'hui",
 boardTitle:"L'ardoise de la semaine",boardSub:"Nouvelles promos annoncées chaque lundi",boardBtn:"Réserver une offre",todayTag:" · aujourd'hui",resa:"Réserver →",
-folderEyebrow:"Le folder de la semaine",folderTitle:(a,b)=>`Du ${a} au ${b}`,folderSub:"Toutes les offres de la semaine, rayon par rayon. Ajoutez-les à votre liste pour ne rien oublier en magasin.",folderBtn:"Voir le folder en images",fAll:"Tout",fMine:"Ma liste",fAdd:"+ Ma liste",fAdded:"✓ Dans ma liste",fBook:"Réserver →",fCarte:"Avec la carte",emptyList:"Votre liste est vide. Touchez « + Ma liste » sous une offre pour l'ajouter.",clearList:"Vider ma liste",folderNote:"Offres valables dans la limite des stocks disponibles. Certaines sont limitées à 3 par semaine et par client. Les offres « avec la carte » demandent la carte Intermarché. Conditions complètes dans le folder.",rayons:{boucherie:"Boucherie",traiteur:"Charcuterie & traiteur",fl:"Fruits & légumes",boulangerie:"Boulangerie",cremerie:"Crèmerie",epicerie:"Épicerie",stnicolas:"Saint-Nicolas",surgeles:"Surgelés",boissons:"Boissons",maison:"Maison",fleurs:"Fleurs & plantes"},
+folderEyebrow:"Le folder de la semaine",folderTitle:(a,b)=>`Du ${a} au ${b}`,folderSub:"Toutes les offres de la semaine, rayon par rayon. Ajoutez-les à votre liste pour ne rien oublier en magasin.",folderBtn:"Voir le folder en images",navDeliv:"Livraison",dvEyebrow:"Nouveau · Livraison à domicile",dvTitle:"On fait vos courses, on vous les livre.",dvLead:"Pas le temps, pas de voiture, ou simplement envie de souffler ? Envoyez-nous votre liste : on prépare tout et on vous livre chez vous, gratuitement dès 50 € d'achat.",dv1t:"Envoyez votre liste",dv1p:"En ligne en 2 minutes, ou par téléphone au 061 61 45 75.",dv2t:"On vous appelle pour confirmer",dv2p:"On vérifie votre commande et l'heure de passage.",dv3t:"On vous livre, vous payez à la livraison",dv3p:"Le lundi ou le jeudi après-midi, directement chez vous.",dvBtn:"Commander en ligne",dvOr:"ou au",dvZoneT:"Zone",dvZone:"Gedinne, Bourseigne-Neuve, Bourseigne-Vieille, Houdremont, Louette-Saint-Denis, Louette-Saint-Pierre, Malvoisin, Patignies, Rienne, Sart-Custinne, Vencimont et Willerzie, et les villages voisins à 15 km maximum.",dvDaysT:"Jours",dvDays:"Lundi et jeudi après-midi.",dvLimitT:"Commande",dvLimit:"Au plus tard la veille à 18 h.",dvMinT:"Minimum",dvMin:"50 € d'achat.",dvFeeT:"Livraison",dvFee:"Gratuite.",dvPayT:"Paiement",dvPay:"À la livraison.",dvTip:"Un pourboire pour votre livreur est toujours le bienvenu, jamais obligatoire.",copyList:"Copier ma liste pour la livraison",copyListMsg:"Liste copiée : collez-la dans le formulaire de livraison.",fAll:"Tout",fMine:"Ma liste",fAdd:"+ Ma liste",fAdded:"✓ Dans ma liste",fBook:"Réserver →",fCarte:"Avec la carte",emptyList:"Votre liste est vide. Touchez « + Ma liste » sous une offre pour l'ajouter.",clearList:"Vider ma liste",folderNote:"Offres valables dans la limite des stocks disponibles. Certaines sont limitées à 3 par semaine et par client. Les offres « avec la carte » demandent la carte Intermarché. Conditions complètes dans le folder.",rayons:{boucherie:"Boucherie",traiteur:"Charcuterie & traiteur",fl:"Fruits & légumes",boulangerie:"Boulangerie",cremerie:"Crèmerie",epicerie:"Épicerie",stnicolas:"Saint-Nicolas",surgeles:"Surgelés",boissons:"Boissons",maison:"Maison",fleurs:"Fleurs & plantes"},
 momentEyebrow:"Les promos du moment",momentTitle:"À ne pas manquer cette semaine",momentNote:(a,b)=>`Offres mises en avant par Intermarché, du ${a} au ${b}.`,
 momentStock:"Offres valables dans la limite des stocks disponibles.",momentResa:"Réserver une promo boucherie",
 rayEyebrow:"Le frais",rayTitle:"Les rayons qui font la différence",ray1t:"Boucherie",ray1p:"Hachis, rôtis, volailles et grillades pour toute la famille, avec une offre spéciale presque chaque jour.",
@@ -940,7 +989,7 @@ heroEyebrow:"Intermarché Contact · Gedinne",heroTitle:"De dorpswinkel, <em>elk
 heroText:"Slagerij, bakkerij, groenten en fruit, en elke dag een andere aanbieding. Van 8 tot 19 uur, 7 dagen op 7, ook op feestdagen.",
 open:"Nu open · tot 19 uur",closedMorning:"Gesloten · opent om 8 uur",closedEvening:"Gesloten · opent morgen om 8 uur",today:"Vandaag",
 boardTitle:"Onze promoties van de week",boardSub:"Elke maandag nieuwe promoties",boardBtn:"Een aanbieding reserveren",todayTag:" · vandaag",resa:"Reserveren →",
-folderEyebrow:"De folder van de week",folderTitle:(a,b)=>`Van ${a} tot ${b}`,folderSub:"Alle aanbiedingen van de week, afdeling per afdeling. Zet ze op uw lijstje, dan vergeet u niets in de winkel.",folderBtn:"Folder in beeld bekijken",fAll:"Alles",fMine:"Mijn lijstje",fAdd:"+ Mijn lijstje",fAdded:"✓ Op mijn lijstje",fBook:"Reserveren →",fCarte:"Met de kaart",emptyList:"Uw lijstje is leeg. Tik op « + Mijn lijstje » onder een aanbieding om ze toe te voegen.",clearList:"Lijstje leegmaken",folderNote:"Aanbiedingen zolang de voorraad strekt. Sommige zijn beperkt tot 3 per week en per klant. Aanbiedingen « met de kaart » vragen de Intermarché-kaart. Volledige voorwaarden in de folder.",rayons:{boucherie:"Slagerij",traiteur:"Charcuterie & traiteur",fl:"Groenten & fruit",boulangerie:"Bakkerij",cremerie:"Zuivel",epicerie:"Kruidenierswaren",stnicolas:"Sinterklaas",surgeles:"Diepvries",boissons:"Dranken",maison:"Huishouden",fleurs:"Bloemen & planten"},
+folderEyebrow:"De folder van de week",folderTitle:(a,b)=>`Van ${a} tot ${b}`,folderSub:"Alle aanbiedingen van de week, afdeling per afdeling. Zet ze op uw lijstje, dan vergeet u niets in de winkel.",folderBtn:"Folder in beeld bekijken",navDeliv:"Levering",dvEyebrow:"Nieuw · Thuislevering",dvTitle:"Wij doen uw boodschappen en brengen ze aan huis.",dvLead:"Geen tijd, geen auto, of gewoon even op adem komen? Stuur ons uw lijstje: wij maken alles klaar en leveren bij u thuis, gratis vanaf € 50 aankoop.",dv1t:"Stuur uw lijstje",dv1p:"Online in 2 minuten, of telefonisch op 061 61 45 75.",dv2t:"Wij bellen u om te bevestigen",dv2p:"We overlopen uw bestelling en het uur van levering.",dv3t:"Wij leveren, u betaalt bij levering",dv3p:"Op maandag- of donderdagnamiddag, gewoon bij u thuis.",dvBtn:"Online bestellen",dvOr:"of op",dvZoneT:"Zone",dvZone:"Gedinne, Bourseigne-Neuve, Bourseigne-Vieille, Houdremont, Louette-Saint-Denis, Louette-Saint-Pierre, Malvoisin, Patignies, Rienne, Sart-Custinne, Vencimont en Willerzie, en de naburige dorpen tot 15 km.",dvDaysT:"Dagen",dvDays:"Maandag- en donderdagnamiddag.",dvLimitT:"Bestellen",dvLimit:"Uiterlijk de dag ervoor om 18 uur.",dvMinT:"Minimum",dvMin:"€ 50 aankoop.",dvFeeT:"Levering",dvFee:"Gratis.",dvPayT:"Betaling",dvPay:"Bij levering.",dvTip:"Een fooi voor uw bezorger is altijd welkom, nooit verplicht.",copyList:"Mijn lijstje kopiëren voor de levering",copyListMsg:"Lijstje gekopieerd: plak het in het leveringsformulier.",fAll:"Alles",fMine:"Mijn lijstje",fAdd:"+ Mijn lijstje",fAdded:"✓ Op mijn lijstje",fBook:"Reserveren →",fCarte:"Met de kaart",emptyList:"Uw lijstje is leeg. Tik op « + Mijn lijstje » onder een aanbieding om ze toe te voegen.",clearList:"Lijstje leegmaken",folderNote:"Aanbiedingen zolang de voorraad strekt. Sommige zijn beperkt tot 3 per week en per klant. Aanbiedingen « met de kaart » vragen de Intermarché-kaart. Volledige voorwaarden in de folder.",rayons:{boucherie:"Slagerij",traiteur:"Charcuterie & traiteur",fl:"Groenten & fruit",boulangerie:"Bakkerij",cremerie:"Zuivel",epicerie:"Kruidenierswaren",stnicolas:"Sinterklaas",surgeles:"Diepvries",boissons:"Dranken",maison:"Huishouden",fleurs:"Bloemen & planten"},
 momentEyebrow:"Actuele promoties",momentTitle:"Niet te missen deze week",momentNote:(a,b)=>`In de kijker bij Intermarché, van ${a} tot ${b}.`,
 momentStock:"Zolang de voorraad strekt.",momentResa:"Een slagerijpromotie reserveren",
 rayEyebrow:"Vers",rayTitle:"De afdelingen die het verschil maken",ray1t:"Slagerij",ray1p:"Gehakt, gebraad, gevogelte en grillvlees voor het hele gezin, met bijna elke dag een speciale aanbieding.",
@@ -979,6 +1028,7 @@ function render(lang){
   document.querySelectorAll("[data-th]").forEach(el=>{el.innerHTML=L[el.dataset.th];});
   document.querySelectorAll("[data-ta]").forEach(el=>{el.alt=L[el.dataset.ta];});
   document.querySelectorAll(".resa-link").forEach(a=>a.href=RESA[lang]);
+  document.querySelectorAll(".deliv-link").forEach(a=>a.href=DELIV[lang]);
   // statut ouverture
   const h=new Date().getHours(),open=h>=8&&h<19;
   $("openDot").classList.toggle("closed",!open);
@@ -1035,6 +1085,12 @@ function renderFolder(lang){
   $("emptyList").hidden=!(rayon==="mine"&&!liste.size);
   $("listActions").hidden=!(rayon==="mine"&&liste.size);
 }
+$("copyList").addEventListener("click",()=>{
+  const nl=curLang==="nl",o=folder.offres||[];
+  const txt=[...liste].sort((a,b)=>a-b).filter(i=>o[i]).map(i=>"- "+(nl?o[i].nn:o[i].n)+" ("+(nl?mecaNL(o[i].m):o[i].m)+")").join("\n");
+  const msg=$("copyListMsg");const show=()=>{msg.hidden=false;setTimeout(()=>msg.hidden=true,4000)};
+  try{navigator.clipboard.writeText(txt).then(show).catch(()=>{})}catch(e){}
+});
 $("clearList").addEventListener("click",()=>{liste.clear();saveList();renderFolder(curLang)});
 
 function pickLang(){
