@@ -6,6 +6,8 @@
 <meta name="description" content="Intermarché Gedinne : promo du jour, folder de la semaine, réservations en ligne, horaires 8 h – 19 h tous les jours.">
 <title>Intermarché Gedinne</title>
 <style>
+@font-face{font-family:"Caveat";font-weight:600;font-display:swap;src:url(fonts/caveat-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Caveat";font-weight:700;font-display:swap;src:url(fonts/caveat-latin-700-normal.woff2) format("woff2")}
 @font-face{font-family:"Fraunces";font-weight:600;font-display:swap;src:url(fonts/fraunces-latin-600-normal.woff2) format("woff2")}
 @font-face{font-family:"Fraunces";font-weight:800;font-display:swap;src:url(fonts/fraunces-latin-800-normal.woff2) format("woff2")}
 @font-face{font-family:"Figtree";font-weight:400;font-display:swap;src:url(fonts/figtree-latin-400-normal.woff2) format("woff2")}
@@ -13,11 +15,12 @@
 @font-face{font-family:"Figtree";font-weight:700;font-display:swap;src:url(fonts/figtree-latin-700-normal.woff2) format("woff2")}
 </style>
 <style>
-/* Layout : bandeau d'accueil + "ardoise du marché" de la semaine (7 jours), folder, promos du moment, rayons frais, colis, infos pratiques. Bilingue FR/NL. */
+/* Layout : photo de la façade au crépuscule en ouverture, puis l'ardoise de craie encadrée de bois (le seul moment "fort"), le mot du magasin, folder, promos, rayons, colis, infos. Bilingue FR/NL. */
 :root{
   --bg:#f7f6f2; --surface:#ffffff; --ink:#1c2420; --muted:#5d6862;
   --red:#d0202a; --forest:#1f4d3a; --line:#dfe1da; --chalk:#26302b; --chalk-ink:#f2f1ea; --sun:#f3b23a; --closed:#b5473a;
-  --display:"Fraunces",Georgia,serif; --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --wood:#7a5232; --wood-dark:#4e3320; --dusk:#232a35;
+  --display:"Fraunces",Georgia,serif; --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif; --hand:"Caveat","Segoe Print","Bradley Hand",cursive;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --bg:#141a17; --surface:#1c2420; --ink:#ecefe9; --muted:#a3ada7;
@@ -43,32 +46,53 @@ nav a:hover,nav a:focus-visible{color:var(--ink)}
 .lang button{background:transparent;color:var(--muted);border:0;border-radius:0;padding:6px 12px;font-size:.85rem}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 
-.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;padding-block:56px 40px;align-items:end}
-.hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800}
-.hero h1 em{font-style:normal;color:var(--forest)}
-.hero p{color:var(--muted);max-width:48ch;font-size:1.08rem;margin:16px 0 0}
-.status{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:6px}
+.hero{background:var(--dusk);color:#fff}
+.hero-photo{position:relative;min-height:clamp(340px,62vh,580px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.hero-photo picture,.hero-photo img{position:absolute;inset:0;width:100%;height:100%;max-width:100%}
+.hero-photo img{object-fit:cover;object-position:62% 38%;z-index:-2}
+.hero-photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,24,30,0) 22%,rgba(20,24,30,.62) 56%,rgba(20,24,30,.94) 100%)}
+.hero-text{padding-block:40px 80px;width:100%}
+.hero-text .eyebrow{color:#ffd9a8}
+.hero h1{font-size:clamp(2.3rem,6vw,4.2rem);font-weight:800;color:#fff;max-width:16ch;margin-top:10px;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.hero h1 em{font-style:normal;font-family:var(--hand);font-weight:700;color:#ffb36b;font-size:1.12em;display:inline-block;transform:rotate(-2deg)}
+.hero-under{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:start;padding-block:0 40px;background:var(--dusk)}
+.hero-under>p{color:#d8dde6;max-width:52ch;font-size:1.08rem;margin:22px 0 0}
+.status{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:6px;margin-top:-56px;position:relative;box-shadow:0 18px 40px rgba(0,0,0,.25)}
 .status .now{display:flex;align-items:center;gap:10px;font-weight:700}
 .dot{width:10px;height:10px;border-radius:50%;background:var(--forest)}
 .dot.closed{background:var(--closed)}
 .status .label{color:var(--muted);font-size:.85rem;margin-top:6px}
-.status .promo{font-family:var(--display);font-size:1.4rem;font-weight:600}
+.status .promo{font-family:var(--hand);font-size:1.9rem;font-weight:700;line-height:1.1;color:var(--red)}
 .status .addr{color:var(--muted);font-size:.95rem}
 
 /* Ardoise */
-#promos{padding-block:24px 56px}
-.board{background:var(--chalk);color:var(--chalk-ink);border-radius:18px;padding:28px clamp(18px,4vw,36px)}
+#promos{padding-block:48px 56px}
+.board{background:var(--chalk);color:var(--chalk-ink);border-radius:10px;padding:28px clamp(18px,4vw,36px);
+  border:12px solid var(--wood);box-shadow:inset 0 0 0 2px var(--wood-dark),inset 0 0 60px rgba(0,0,0,.35),0 14px 30px rgba(0,0,0,.18);
+  background-image:radial-gradient(ellipse at 20% 15%,rgba(255,255,255,.06),transparent 55%),radial-gradient(ellipse at 85% 80%,rgba(255,255,255,.04),transparent 50%)}
 .board-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px}
-.board h2{font-size:clamp(1.6rem,3.5vw,2.3rem);color:var(--chalk-ink)}
+.board h2{font-family:var(--hand);font-weight:700;font-size:clamp(2.2rem,5vw,3.1rem);color:var(--chalk-ink);line-height:1}
 .board-head p{margin:6px 0 0;opacity:.75;font-size:.9rem}
 .days{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.day{border:1px dashed rgba(242,241,234,.28);border-radius:12px;padding:16px;display:grid;gap:6px;align-content:start;min-width:0}
+.day{border:1px dashed rgba(242,241,234,.28);border-radius:8px;padding:14px 16px;display:grid;gap:4px;align-content:start;min-width:0}
 .day .d{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;font-weight:700}
-.day h3{font-size:1.15rem;color:var(--chalk-ink)}
+.day h3{font-family:var(--hand);font-weight:700;font-size:1.75rem;line-height:1.05;color:var(--chalk-ink)}
 .day p{margin:0;font-size:.92rem;opacity:.82}
 .day.today{border:2px solid var(--sun);background:rgba(243,178,58,.08)}
 .day.today .d{color:var(--sun);opacity:1}
-.day .resa{justify-self:start;margin-top:4px;font-size:.85rem;font-weight:700;color:var(--sun)}
+.day .resa{justify-self:start;margin-top:6px;font-size:.85rem;font-weight:700;color:var(--sun)}
+
+/* Le magasin */
+#village{padding-block:0 56px}
+.village{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start}
+.village h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-top:8px}
+.village p{color:var(--muted);max-width:56ch;margin:14px 0 0}
+.village .sign{font-family:var(--hand);font-size:1.6rem;color:var(--red);margin-top:12px}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.facts li{display:grid;gap:2px;padding:14px 0;border-bottom:1px solid var(--line)}
+.facts li:first-child{border-top:1px solid var(--line)}
+.facts strong{font-family:var(--display);font-size:1.15rem}
+.facts span{color:var(--muted)}
 
 /* Folder */
 #folder{padding-block:0 56px}
@@ -127,9 +151,11 @@ footer p{margin:0;max-width:90ch}
 footer a{color:var(--ink)}
 
 @media (max-width:760px){
-  .hero .wrap,.colis,.infos{grid-template-columns:1fr}
+  .hero-under,.colis,.infos,.village{grid-template-columns:1fr}
+  .hero-text{padding-block:32px 30px}
+  .status{margin-top:4px}
+  .hero-under>p{margin-top:16px}
   .rayons{grid-template-columns:1fr}
-  .hero .wrap{padding-block:36px 28px}
 }
 @media (prefers-reduced-motion:no-preference){ .day.today{transition:transform .2s} .day.today:hover{transform:translateY(-2px)} }
 </style>
@@ -156,12 +182,18 @@ footer a{color:var(--ink)}
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <div>
-      <div class="eyebrow" data-t="heroEyebrow">Votre supermarché au cœur de Gedinne</div>
-      <h1 data-th="heroTitle">Une bonne affaire <em>chaque jour</em> de la semaine.</h1>
-      <p data-t="heroText">Boucherie, boulangerie, fruits et légumes : les rayons frais qu'on soigne, et une promo différente chaque jour. Ouvert 7 jours sur 7 de 8 h à 19 h, jours fériés compris.</p>
+  <div class="hero-photo">
+    <picture>
+      <source type="image/webp" srcset="img/facade-900.webp 900w, img/facade-1600.webp 1600w" sizes="100vw">
+      <img src="img/facade-1600.jpg" srcset="img/facade-900.jpg 900w, img/facade-1600.jpg 1600w" sizes="100vw" width="1600" height="1200" alt="La façade de l'Intermarché Contact de Gedinne au coucher du soleil" data-ta="heroAlt" fetchpriority="high">
+    </picture>
+    <div class="wrap hero-text">
+      <div class="eyebrow" data-t="heroEyebrow">Intermarché Contact · Gedinne</div>
+      <h1 data-th="heroTitle">Le marché du village, <em>ouvert tous les jours.</em></h1>
     </div>
+  </div>
+  <div class="wrap hero-under">
+    <p data-t="heroText">Boucherie, boulangerie, fruits et légumes, et une bonne affaire différente chaque jour. De 8 h à 19 h, 7 jours sur 7, jours fériés compris.</p>
     <aside class="status" aria-live="polite">
       <div class="now"><span class="dot" id="openDot"></span><span id="openLabel">Ouvert</span></div>
       <div class="label" id="todayLabel">Aujourd'hui</div>
@@ -180,6 +212,22 @@ footer a{color:var(--ink)}
       </div>
       <div class="days" id="days"></div>
     </div>
+  </div>
+</section>
+
+<section id="village">
+  <div class="wrap village">
+    <div>
+      <div class="eyebrow" data-t="vilEyebrow">Ici, à Gedinne</div>
+      <h2 data-t="vilTitle">Un magasin de village, avec tout ce qu'il faut.</h2>
+      <p data-t="vilText">Les courses de la semaine, le pain du matin, le rôti du week-end ou le poulet du dimanche : on fait tout pour que vous trouviez ce qu'il vous faut, sans faire de kilomètres. Et si vous préférez qu'on prépare pour vous, réservez en ligne.</p>
+      <p class="sign" data-t="vilSign">L'équipe de l'Intermarché Gedinne</p>
+    </div>
+    <ul class="facts">
+      <li><strong data-t="f1t">7 jours sur 7</strong><span data-t="f1p">De 8 h à 19 h, dimanches et jours fériés compris.</span></li>
+      <li><strong data-t="f2t">On vous prépare tout</strong><span data-t="f2p">Réservez en ligne, retirez au comptoir boucherie à partir de 10 h et payez en caisse.</span></li>
+      <li><strong data-t="f3t">Bienvenue aux vacanciers</strong><span data-t="f3p">Le site et les réservations existent aussi en néerlandais.</span></li>
+    </ul>
   </div>
 </section>
 
@@ -292,8 +340,8 @@ footer a{color:var(--ink)}
 const RESA={fr:"https://tally.so/r/EqqgoN",nl:"https://tally.so/r/Nqqgkb"};
 const T={
 fr:{navPromos:"Promos",navResa:"Réserver",navMoment:"Promos du moment",navInfos:"Horaires & accès",
-heroEyebrow:"Votre supermarché au cœur de Gedinne",heroTitle:"Une bonne affaire <em>chaque jour</em> de la semaine.",
-heroText:"Boucherie, boulangerie, fruits et légumes : les rayons frais qu'on soigne, et une promo différente chaque jour. Ouvert 7 jours sur 7 de 8 h à 19 h, jours fériés compris.",
+heroEyebrow:"Intermarché Contact · Gedinne",heroTitle:"Le marché du village, <em>ouvert tous les jours.</em>",heroAlt:"La façade de l'Intermarché Contact de Gedinne au coucher du soleil",vilEyebrow:"Ici, à Gedinne",vilTitle:"Un magasin de village, avec tout ce qu'il faut.",vilText:"Les courses de la semaine, le pain du matin, le rôti du week-end ou le poulet du dimanche : on fait tout pour que vous trouviez ce qu'il vous faut, sans faire de kilomètres. Et si vous préférez qu'on prépare pour vous, réservez en ligne.",vilSign:"L'équipe de l'Intermarché Gedinne",f1t:"7 jours sur 7",f1p:"De 8 h à 19 h, dimanches et jours fériés compris.",f2t:"On vous prépare tout",f2p:"Réservez en ligne, retirez au comptoir boucherie à partir de 10 h et payez en caisse.",f3t:"Bienvenue aux vacanciers",f3p:"Le site et les réservations existent aussi en néerlandais.",
+heroText:"Boucherie, boulangerie, fruits et légumes, et une bonne affaire différente chaque jour. De 8 h à 19 h, 7 jours sur 7, jours fériés compris.",
 open:"Ouvert maintenant · jusqu'à 19 h",closedMorning:"Fermé · ouvre à 8 h",closedEvening:"Fermé · ouvre demain à 8 h",today:"Aujourd'hui",
 boardTitle:"L'ardoise de la semaine",boardSub:"Nouvelles promos annoncées chaque lundi",boardBtn:"Réserver une offre",todayTag:" · aujourd'hui",resa:"Réserver →",
 folderEyebrow:"Le folder Intermarché",folderTitle:d=>`Découvrez notre folder du ${d}`,folderDates:(a,b)=>`Valable du ${a} au ${b}`,folderBtn:"Feuilleter le folder",folderOther:"Folder in het Nederlands",
@@ -316,8 +364,8 @@ promos:[
  {r:1,t:"Colis repas pour 4",p:"Sur réservation, à retirer en magasin."},
  {r:1,t:"Poulet rôti, frites & compote",p:"Le repas du dimanche prêt à emporter, 8,49 €."}]},
 nl:{navPromos:"Promoties",navResa:"Reserveren",navMoment:"Actuele promoties",navInfos:"Openingsuren & ligging",
-heroEyebrow:"Uw supermarkt in het hart van Gedinne",heroTitle:"Elke dag <em>een koopje</em>, de hele week lang.",
-heroText:"Slagerij, bakkerij, groenten en fruit: verse afdelingen waar we zorg voor dragen, en elke dag een andere promotie. Alle dagen open van 8 tot 19 uur, ook op feestdagen.",
+heroEyebrow:"Intermarché Contact · Gedinne",heroTitle:"De dorpswinkel, <em>elke dag open.</em>",heroAlt:"De gevel van de Intermarché Contact in Gedinne bij zonsondergang",vilEyebrow:"Hier, in Gedinne",vilTitle:"Een dorpswinkel met alles wat u nodig hebt.",vilText:"De boodschappen voor de week, het brood van de ochtend, het gebraad voor het weekend of de kip op zondag: wij zorgen ervoor dat u vindt wat u zoekt, zonder kilometers te rijden. Liever dat wij alles klaarmaken? Reserveer online.",vilSign:"Het team van Intermarché Gedinne",f1t:"7 dagen op 7",f1p:"Van 8 tot 19 uur, ook op zon- en feestdagen.",f2t:"Wij maken alles klaar",f2p:"Reserveer online, haal af aan de slagerijtoonbank vanaf 10 uur en betaal aan de kassa.",f3t:"Welkom aan vakantiegangers",f3p:"De website en de reservaties zijn er ook in het Nederlands.",
+heroText:"Slagerij, bakkerij, groenten en fruit, en elke dag een andere aanbieding. Van 8 tot 19 uur, 7 dagen op 7, ook op feestdagen.",
 open:"Nu open · tot 19 uur",closedMorning:"Gesloten · opent om 8 uur",closedEvening:"Gesloten · opent morgen om 8 uur",today:"Vandaag",
 boardTitle:"Onze promoties van de week",boardSub:"Elke maandag nieuwe promoties",boardBtn:"Een aanbieding reserveren",todayTag:" · vandaag",resa:"Reserveren →",
 folderEyebrow:"De Intermarché-folder",folderTitle:d=>`Ontdek onze folder van ${d}`,folderDates:(a,b)=>`Geldig van ${a} tot ${b}`,folderBtn:"Folder bekijken",folderOther:"Folder en français",
@@ -353,6 +401,7 @@ function render(lang){
   $("langFr").setAttribute("aria-pressed",lang==="fr");$("langNl").setAttribute("aria-pressed",lang==="nl");
   document.querySelectorAll("[data-t]").forEach(el=>{const v=L[el.dataset.t];if(typeof v==="string")el.textContent=v;});
   document.querySelectorAll("[data-th]").forEach(el=>{el.innerHTML=L[el.dataset.th];});
+  document.querySelectorAll("[data-ta]").forEach(el=>{el.alt=L[el.dataset.ta];});
   document.querySelectorAll(".resa-link").forEach(a=>a.href=RESA[lang]);
   // statut ouverture
   const h=new Date().getHours(),open=h>=8&&h<19;
