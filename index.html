@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Promo du jour, folder de la semaine et réservation en ligne à la boucherie. Ouvert de 8 h à 19 h, 7 jours sur 7, jours fériés compris. Rue de Charleville 48, Gedinne.">
-<link rel="canonical" href="https://intergedinne.github.io/intermarche-gedinne/">
+<link rel="canonical" href="https://intergedinne.be/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Intermarché Gedinne">
 <meta property="og:title" content="Intermarché Gedinne – le marché du village, ouvert tous les jours">
 <meta property="og:description" content="Promo du jour, folder de la semaine et réservation en ligne à la boucherie. Ouvert de 8 h à 19 h, 7 jours sur 7, jours fériés compris. Rue de Charleville 48, Gedinne.">
-<meta property="og:url" content="https://intergedinne.github.io/intermarche-gedinne/">
-<meta property="og:image" content="https://intergedinne.github.io/intermarche-gedinne/img/partage.jpg">
+<meta property="og:url" content="https://intergedinne.be/">
+<meta property="og:image" content="https://intergedinne.be/img/partage.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="La façade de l'Intermarché Contact de Gedinne au coucher du soleil">
@@ -951,7 +951,7 @@ footer a{color:var(--ink)}
   <div class="wrap legal">
     <p><strong data-t="legalName">SA Loïseco</strong> · <span data-t="legalSeat">Siège social</span> : Rue de Charleville 48, 5575 Gedinne · <span data-t="legalBce">N° d'entreprise et TVA</span> : BE 0826.587.082 · <span data-t="legalRpr">RPR Liège, division Dinant</span> · <span data-t="dtTel">Téléphone</span> : 061 61 45 75</p>
     <p data-t="legalBrand">Intermarché est une marque du Groupement Les Mousquetaires. Ce magasin est exploité par SA Loïseco, commerçant indépendant.</p>
-    <p><span data-t="footNote">Promotions valables dans la limite des stocks disponibles.</span> · <a id="privLink" href="https://intergedinne.github.io/intermarche-gedinne/vie-privee.html" data-t="privacy">Vie privée</a></p>
+    <p><span data-t="footNote">Promotions valables dans la limite des stocks disponibles.</span> · <a id="privLink" href="https://intergedinne.be/vie-privee.html" data-t="privacy">Vie privée</a></p>
   </div>
 </footer>
 
@@ -1046,7 +1046,7 @@ function render(lang){
   });
   // folder
   renderFolder(lang);
-  $("privLink").href="https://intergedinne.github.io/intermarche-gedinne/vie-privee.html"+(lang==="nl"?"?lang=nl":"");
+  $("privLink").href="https://intergedinne.be/vie-privee.html"+(lang==="nl"?"?lang=nl":"");
   // horaires
   const tb=document.querySelector("#hours tbody");tb.innerHTML="";
   L.days.forEach((d,i)=>{const tr=document.createElement("tr");if(i===idx)tr.className="today";tr.innerHTML=`<td>${d}</td><td>08:00 – 19:00</td>`;tb.appendChild(tr);});
