@@ -1,0 +1,1083 @@
+<title>Intermarché Gedinne</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Figtree:wght@400;500;700&display=swap">
+<style>
+/* Layout : photo de la façade au crépuscule en ouverture, puis l'ardoise de craie encadrée de bois (le seul moment "fort"), le mot du magasin, folder, promos, rayons, colis, infos. Bilingue FR/NL. */
+:root{
+  --bg:#f7f6f2; --surface:#ffffff; --ink:#1c2420; --muted:#5d6862;
+  --red:#d0202a; --forest:#1f4d3a; --line:#dfe1da; --chalk:#26302b; --chalk-ink:#f2f1ea; --sun:#f3b23a; --closed:#b5473a;
+  --banner:#b3121c; --wood:#7a5232; --wood-dark:#4e3320; --dusk:#232a35;
+  --display:"Fraunces",Georgia,serif; --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif; --hand:"Caveat","Segoe Print","Bradley Hand",cursive;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141a17; --surface:#1c2420; --ink:#ecefe9; --muted:#a3ada7;
+  --red:#ff5a5f; --forest:#7cc4a3; --line:#2f3934; --chalk:#0e1311; --chalk-ink:#f2f1ea; --sun:#f3b23a; --closed:#ff8a7a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a17; --surface:#1c2420; --ink:#ecefe9; --muted:#a3ada7;
+  --red:#ff5a5f; --forest:#7cc4a3; --line:#2f3934; --chalk:#0e1311; --chalk-ink:#f2f1ea; --sun:#f3b23a; --closed:#ff8a7a; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.1}
+a{color:inherit}
+.eyebrow{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+
+header.top{border-bottom:1px solid var(--line);background:var(--surface)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-weight:800;font-size:1.35rem}
+.brand span{color:var(--red)}
+.navrow{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+nav{display:flex;gap:18px;flex-wrap:wrap;font-weight:500;font-size:.95rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover,nav a:focus-visible{color:var(--ink)}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{background:transparent;color:var(--muted);border:0;border-radius:0;padding:6px 12px;font-size:.85rem}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+.hero{background:var(--dusk);color:#fff}
+.hero-photo{position:relative;min-height:clamp(340px,62vh,580px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}
+.hero-photo picture,.hero-photo img{position:absolute;inset:0;width:100%;height:100%;max-width:100%}
+.hero-photo img{object-fit:cover;object-position:62% 38%;z-index:-2}
+.hero-photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,24,30,0) 22%,rgba(20,24,30,.62) 56%,rgba(20,24,30,.94) 100%)}
+.hero-text{padding-block:40px 80px;width:100%}
+.hero-text .eyebrow{color:#ffd9a8}
+.hero h1{font-size:clamp(2.3rem,6vw,4.2rem);font-weight:800;color:#fff;max-width:16ch;margin-top:10px;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.hero h1 em{font-style:normal;font-family:var(--hand);font-weight:700;color:#ffb36b;font-size:1.12em;display:inline-block;transform:rotate(-2deg)}
+.hero-under{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:start;padding-block:0 40px;background:var(--dusk)}
+.hero-under>p{color:#d8dde6;max-width:52ch;font-size:1.08rem;margin:22px 0 0}
+.status{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:6px;margin-top:-56px;position:relative;box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.status .now{display:flex;align-items:center;gap:10px;font-weight:700}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--forest)}
+.dot.closed{background:var(--closed)}
+.status .label{color:var(--muted);font-size:.85rem;margin-top:6px}
+.status .promo{font-family:var(--hand);font-size:1.9rem;font-weight:700;line-height:1.1;color:var(--red)}
+.status .addr{color:var(--muted);font-size:.95rem}
+
+/* Ardoise */
+#promos{padding-block:48px 56px}
+.board{background:var(--chalk);color:var(--chalk-ink);border-radius:10px;padding:28px clamp(18px,4vw,36px);
+  border:12px solid var(--wood);box-shadow:inset 0 0 0 2px var(--wood-dark),inset 0 0 60px rgba(0,0,0,.35),0 14px 30px rgba(0,0,0,.18);
+  background-image:radial-gradient(ellipse at 20% 15%,rgba(255,255,255,.06),transparent 55%),radial-gradient(ellipse at 85% 80%,rgba(255,255,255,.04),transparent 50%)}
+.board-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.board h2{font-family:var(--hand);font-weight:700;font-size:clamp(2.2rem,5vw,3.1rem);color:var(--chalk-ink);line-height:1}
+.board-head p{margin:6px 0 0;opacity:.75;font-size:.9rem}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.day{border:1px dashed rgba(242,241,234,.28);border-radius:8px;padding:14px 16px;display:grid;gap:4px;align-content:start;min-width:0}
+.day .d{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.7;font-weight:700}
+.day h3{font-family:var(--hand);font-weight:700;font-size:1.75rem;line-height:1.05;color:var(--chalk-ink)}
+.day p{margin:0;font-size:.92rem;opacity:.82}
+.day.today{border:2px solid var(--sun);background:rgba(243,178,58,.08)}
+.day.today .d{color:var(--sun);opacity:1}
+.day .resa{justify-self:start;margin-top:6px;font-size:.85rem;font-weight:700;color:var(--sun)}
+
+/* Le magasin */
+#village{padding-block:0 56px}
+.village{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start}
+.village h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-top:8px}
+.village p{color:var(--muted);max-width:56ch;margin:14px 0 0}
+.village .sign{font-family:var(--hand);font-size:1.6rem;color:var(--red);margin-top:12px}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.facts li{display:grid;gap:2px;padding:14px 0;border-bottom:1px solid var(--line)}
+.facts li:first-child{border-top:1px solid var(--line)}
+.facts strong{font-family:var(--display);font-size:1.15rem}
+.facts span{color:var(--muted)}
+
+/* Folder de la semaine */
+#folder{padding-block:8px 56px}
+.folder-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.folder-head h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-top:8px;font-variant-numeric:tabular-nums}
+.folder-head p{margin:8px 0 0;color:var(--muted);max-width:60ch}
+.folder-links{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:999px;padding:10px 18px;background:var(--red);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.temps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:26px}
+.temps article{background:var(--banner);color:#fff;border-radius:12px;padding:16px 18px;display:grid;gap:4px;align-content:start}
+.temps h3{font-family:var(--display);font-size:1.15rem;color:#fff}
+.temps p{margin:0;font-size:.9rem;color:#ffe9e6}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:.9rem;font-weight:600}
+.chip .n{opacity:.65;font-weight:500;margin-left:4px;font-variant-numeric:tabular-nums}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip.mine{border-color:var(--forest);color:var(--forest)}
+.chip.mine[aria-pressed="true"]{background:var(--forest);color:var(--bg);border-color:var(--forest)}
+.offers{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.offer{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:6px;align-content:start;min-width:0}
+.offer.inlist{border-color:var(--forest);box-shadow:inset 0 0 0 1px var(--forest)}
+.offer .top{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.offer .meca{background:var(--banner);color:#fff;font-weight:700;font-size:.85rem;padding:4px 10px;border-radius:6px;font-variant-numeric:tabular-nums}
+.offer .tag{font-size:.75rem;font-weight:700;color:var(--forest);border:1px solid var(--forest);border-radius:6px;padding:2px 8px}
+.offer h3{font-size:1.15rem;margin-top:4px}
+.offer p{margin:0;color:var(--muted);font-size:.9rem}
+.offer .price{font-family:var(--display);font-size:1.35rem;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;margin-top:2px}
+.offer .x{font-size:.8rem;color:var(--muted)}
+.offer .acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;align-items:center}
+.offer .add{background:transparent;color:var(--ink);border:1px solid var(--line);padding:7px 12px;font-size:.85rem}
+.offer .add[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:var(--bg)}
+.offer .book{font-size:.85rem;font-weight:700;color:var(--red)}
+.empty{color:var(--muted)}
+#folder .note{max-width:80ch}
+
+/* Rayons */
+#rayons{padding-block:16px 56px}
+.sec-head{display:grid;gap:8px;margin-bottom:24px}
+.sec-head h2{font-size:clamp(1.6rem,3.5vw,2.3rem)}
+.sec-head p{color:var(--muted);margin:0;max-width:60ch}
+.rayons{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.rayon{display:grid;gap:8px;padding-top:16px;border-top:3px solid var(--forest);min-width:0}
+.rayon h3{font-size:1.3rem}
+.rayon p{margin:0;color:var(--muted)}
+
+/* Colis */
+.colis{background:var(--surface);border:1px solid var(--line);border-radius:18px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;padding:28px clamp(18px,4vw,36px);align-items:center}
+.colis h2{font-size:clamp(1.5rem,3vw,2rem)}
+.colis p{color:var(--muted);margin:10px 0 0;max-width:52ch}
+.callbox{display:grid;gap:10px;justify-items:start}
+.phone{font-family:var(--display);font-size:1.8rem;font-weight:800;font-variant-numeric:tabular-nums;user-select:all}
+button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:10px 18px;background:var(--red);color:#fff;cursor:pointer}
+.ghostbtn{background:transparent;color:var(--ink);border:1px solid var(--line)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+
+/* Livraison */
+#livraison{padding-block:56px 0}
+.livraison{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:start}
+.livraison h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-top:8px}
+.livraison .lead{color:var(--muted);margin:12px 0 0;max-width:54ch}
+.steps{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px;counter-reset:st}
+.steps li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;counter-increment:st}
+.steps li::before{content:counter(st);width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--bg);font-family:var(--hand);font-weight:700;font-size:1.5rem;display:grid;place-items:center}
+.steps strong{display:block}
+.steps span{color:var(--muted);font-size:.95rem}
+.deliv-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;align-items:center}
+.deliv-actions .tel{font-weight:700;font-variant-numeric:tabular-nums}
+.conditions{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.conditions dl{display:grid;grid-template-columns:auto 1fr;gap:12px 18px;margin:0}
+.conditions dt{font-weight:700}
+.conditions dd{margin:0;color:var(--muted)}
+.conditions .tip{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);font-family:var(--hand);font-size:1.45rem;line-height:1.15;color:var(--red)}
+
+/* Infos */
+#infos{padding-block:56px}
+.infos{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.infos h2{font-size:1.8rem;margin:6px 0 14px}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+td{padding:9px 0;border-bottom:1px solid var(--line)}
+td:last-child{text-align:right;color:var(--muted)}
+tr.today td{font-weight:700;color:var(--ink)}
+.note{font-size:.85rem;color:var(--muted);margin-top:10px}
+.contact dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:0}
+.contact dt{font-weight:700}
+.contact dd{margin:0;color:var(--muted)}
+footer{border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+footer .wrap{padding-block:22px;display:grid;gap:6px}
+footer p{margin:0;max-width:90ch}
+footer a{color:var(--ink)}
+
+@media (max-width:760px){
+  .hero-under,.colis,.infos,.village,.livraison{grid-template-columns:1fr}
+  .hero-text{padding-block:32px 30px}
+  .status{margin-top:4px}
+  .hero-under>p{margin-top:16px}
+  .rayons{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){ .day.today{transition:transform .2s} .day.today:hover{transform:translateY(-2px)} }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Intermarché <span>Gedinne</span></div>
+    <div class="navrow">
+      <nav aria-label="Navigation">
+        <a href="#promos" data-t="navPromos">Promos</a>
+        <a class="resa-link" href="https://tally.so/r/EqqgoN" data-t="navResa">Réserver</a>
+        <a href="#folder">Folder</a><a href="#livraison" data-t="navDeliv">Livraison</a>
+                <a href="#infos" data-t="navInfos">Horaires & accès</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Langue / Taal">
+        <button type="button" id="langFr" aria-pressed="true">FR</button>
+        <button type="button" id="langNl" aria-pressed="false">NL</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-photo">
+    <picture>
+      <source type="image/webp" srcset="img/facade-900.webp 900w, img/facade-1600.webp 1600w" sizes="100vw">
+      <img src="img/facade-1600.jpg" srcset="img/facade-900.jpg 900w, img/facade-1600.jpg 1600w" sizes="100vw" width="1600" height="1200" alt="La façade de l'Intermarché Contact de Gedinne au coucher du soleil" data-ta="heroAlt" fetchpriority="high">
+    </picture>
+    <div class="wrap hero-text">
+      <div class="eyebrow" data-t="heroEyebrow">Intermarché Contact · Gedinne</div>
+      <h1 data-th="heroTitle">Le marché du village, <em>ouvert tous les jours.</em></h1>
+    </div>
+  </div>
+  <div class="wrap hero-under">
+    <p data-t="heroText">Boucherie, boulangerie, fruits et légumes, et une bonne affaire différente chaque jour. De 8 h à 19 h, 7 jours sur 7, jours fériés compris.</p>
+    <aside class="status" aria-live="polite">
+      <div class="now"><span class="dot" id="openDot"></span><span id="openLabel">Ouvert</span></div>
+      <div class="label" id="todayLabel">Aujourd'hui</div>
+      <div class="promo" id="todayPromo"></div>
+      <div class="addr">Rue de Charleville 48 · 5575 Gedinne</div>
+    </aside>
+  </div>
+</section>
+
+<section id="promos">
+  <div class="wrap">
+    <div class="board">
+      <div class="board-head">
+        <div><h2 data-t="boardTitle">L'ardoise de la semaine</h2><p data-t="boardSub">Nouvelles promos annoncées chaque lundi</p></div>
+        <a class="btn resa-link" href="https://tally.so/r/EqqgoN" data-t="boardBtn">Réserver une offre</a>
+      </div>
+      <div class="days" id="days"></div>
+    </div>
+  </div>
+</section>
+
+<section id="village">
+  <div class="wrap village">
+    <div>
+      <div class="eyebrow" data-t="vilEyebrow">Ici, à Gedinne</div>
+      <h2 data-t="vilTitle">Un magasin de village, avec tout ce qu'il faut.</h2>
+      <p data-t="vilText">Les courses de la semaine, le pain du matin, le rôti du week-end ou le poulet du dimanche : on fait tout pour que vous trouviez ce qu'il vous faut, sans faire de kilomètres. Et si vous préférez qu'on prépare pour vous, réservez en ligne.</p>
+      <p class="sign" data-t="vilSign">L'équipe de l'Intermarché Gedinne</p>
+    </div>
+    <ul class="facts">
+      <li><strong data-t="f1t">7 jours sur 7</strong><span data-t="f1p">De 8 h à 19 h, dimanches et jours fériés compris.</span></li>
+      <li><strong data-t="f2t">On vous prépare tout</strong><span data-t="f2p">Réservez en ligne, retirez au comptoir boucherie à partir de 10 h et payez en caisse.</span></li>
+      <li><strong data-t="f3t">Bienvenue aux vacanciers</strong><span data-t="f3p">Le site et les réservations existent aussi en néerlandais.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="folder">
+  <div class="wrap">
+    <div class="folder-head">
+      <div>
+        <div class="eyebrow" data-t="folderEyebrow">Le folder de la semaine</div>
+        <h2 id="folderTitle"></h2>
+        <p data-t="folderSub">Toutes les offres de la semaine, rayon par rayon. Ajoutez-les à votre liste pour ne rien oublier en magasin.</p>
+      </div>
+      <div class="folder-links"><a class="btn ghost" id="folderMain" href="#" data-t="folderBtn">Voir le folder en images</a></div>
+    </div>
+    <div class="temps" id="temps"></div>
+    <div class="toolbar" id="chips" role="group" aria-label="Rayons"></div>
+    <div class="offers" id="offers"></div>
+    <p class="empty" id="emptyList" hidden data-t="emptyList">Votre liste est vide.</p>
+    <div class="toolbar" id="listActions" hidden><button type="button" class="chip mine" id="copyList" data-t="copyList">Copier ma liste pour la livraison</button><a class="chip deliv-link" href="https://tally.so/r/J11EkK" data-t="dvBtn" style="text-decoration:none">Commander en ligne</a><button type="button" class="chip" id="clearList" data-t="clearList">Vider ma liste</button><span class="note" id="copyListMsg" hidden data-t="copyListMsg">Liste copiée : collez-la dans le formulaire de livraison.</span></div>
+    <p class="note" data-t="folderNote">Offres valables dans la limite des stocks disponibles. Certaines sont limitées à 3 par semaine et par client. Les offres « avec la carte » demandent la carte Intermarché. Conditions complètes dans le folder.</p>
+  </div>
+</section>
+
+<!-- DONNEES DU FOLDER : mises à jour chaque lundi. Garder le format JSON (voir MISE-A-JOUR.md). -->
+<script id="folderData" type="application/json">
+{
+"debut": "27/10",
+"fin": "01/11/2026",
+"fr": "https://www.intermarche.be/folders/decouvrez-notre-folder-du-27-10-26/",
+"nl": "https://www.intermarche.be/nl/folders/ontdek-onze-folder-van-27-10-26/",
+"temps": [
+{
+"t": "Ouvert le dimanche de la Toussaint",
+"p": "Dimanche 1er novembre, de 8 h à 19 h, comme tous les jours.",
+"tn": "Open op Allerheiligen",
+"pn": "Zondag 1 november, van 8 tot 19 uur, zoals elke dag."
+},
+{
+"t": "Un calendrier 2027 offert",
+"p": "Le dimanche 1er novembre : un calendrier par passage en caisse et par famille, dans la limite des stocks.",
+"tn": "Een gratis kalender 2027",
+"pn": "Op zondag 1 november: één kalender per kassabezoek en per gezin, zolang de voorraad strekt."
+},
+{
+"t": "5 € offerts dès 50 € d'achat",
+"p": "Samedi 31/10 et dimanche 1/11, avec votre carte Intermarché et le bon du folder papier. Hors tabac, alcool, vidanges, sacs poubelles et services.",
+"tn": "€ 5 cadeau vanaf € 50 aankoop",
+"pn": "Zaterdag 31/10 en zondag 1/11, met uw Intermarché-kaart en de bon uit de papieren folder. Behalve tabak, alcohol, leeggoed, vuilniszakken en diensten."
+}
+],
+"offres": [
+{
+"r": "boucherie",
+"resa": 1,
+"m": "5 kg + 5 kg gratis",
+"n": "Colis boucherie ±5 kg",
+"d": "Porc et bœuf, 10 kg au total · Belgique · Réservez 24 h à l'avance",
+"p": "54,99 € le colis",
+"x": "Soit 5,49 €/kg",
+"nn": "Vleespakket ±5 kg",
+"dn": "Varken en rund, 10 kg in totaal · België · Reserveer 24 uur op voorhand",
+"pn": "€ 54,99 per pakket",
+"xn": "Of € 5,49/kg"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "1 kg + 1 kg gratis",
+"n": "Haché de campagne",
+"d": "Belgique · Au lieu de 8,49 €/kg",
+"p": "4,19 €/kg",
+"x": "Prix promo au kilo",
+"nn": "Boerengehakt",
+"dn": "België · In plaats van € 8,49/kg",
+"pn": "€ 4,19/kg",
+"xn": "Promoprijs per kilo"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "3 + 3 gratis",
+"n": "Saucisses de campagne pur porc",
+"d": "Belgique · Au lieu de 10,09 €/kg",
+"p": "4,99 €/kg",
+"x": "Prix promo au kilo",
+"nn": "Boerenworsten zuiver varken",
+"dn": "België · In plaats van € 10,09/kg",
+"pn": "€ 4,99/kg",
+"xn": "Promoprijs per kilo"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "-50 %",
+"n": "Mignonettes de porc",
+"d": "Belgique · Au lieu de 13,30 €/kg",
+"p": "6,65 €/kg",
+"nn": "Varkensmignonettes",
+"dn": "België · In plaats van € 13,30/kg",
+"pn": "€ 6,65/kg"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "-50 %",
+"n": "Rôti de porc moutarde",
+"d": "Belgique · Au lieu de 14,99 €/kg",
+"p": "7,49 €/kg",
+"nn": "Varkensgebraad met mosterd",
+"dn": "België · In plaats van € 14,99/kg",
+"pn": "€ 7,49/kg"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "1 + 1 gratis",
+"n": "Filet de canard",
+"d": "±400 g · France · Dès le mercredi 28/10 · Au lieu de 24,98 €/kg",
+"p": "12,49 €/kg",
+"nn": "Eendenfilet",
+"dn": "±400 g · Frankrijk · Vanaf woensdag 28/10 · In plaats van € 24,98/kg",
+"pn": "€ 12,49/kg"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "6 merguez offertes",
+"n": "Côtes d'agneau",
+"d": "Pour 6 côtes achetées, 6 merguez de porc offertes · Angleterre ou Nouvelle-Zélande · Dès le mercredi 28/10",
+"p": "28,99 €/kg",
+"x": "Prix habituel",
+"nn": "Lamskoteletten",
+"dn": "Bij 6 gekochte koteletten 6 varkensmerguez gratis · Engeland of Nieuw-Zeeland · Vanaf woensdag 28/10",
+"pn": "€ 28,99/kg",
+"xn": "Normale prijs"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "Prix exceptionnel",
+"n": "Pavé de bœuf",
+"d": "Belgique",
+"p": "18,99 €/kg",
+"nn": "Runderpavé",
+"dn": "België",
+"pn": "€ 18,99/kg"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "Prix exceptionnel",
+"n": "El Pozo filet pur de porc mariné",
+"d": "Variétés au choix · Espagne",
+"p": "10,49 €/kg",
+"nn": "El Pozo gemarineerde varkenshaas",
+"dn": "Naar keuze · Spanje",
+"pn": "€ 10,49/kg"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"m": "250 g + 500 g gratis",
+"n": "Jambon à l'os",
+"d": "Au lieu de 16,50 € · Soit 7,34 €/kg",
+"p": "5,50 € les 750 g",
+"nn": "Beenham",
+"dn": "In plaats van € 16,50 · Of € 7,34/kg",
+"pn": "€ 5,50 voor 750 g"
+},
+{
+"r": "traiteur",
+"m": "1 kg + 1 kg gratis",
+"n": "Vol-au-vent",
+"d": "Au lieu de 23,80 € · Soit 5,95 €/kg",
+"p": "11,90 € les 2 kg",
+"nn": "Vol-au-vent",
+"dn": "In plaats van € 23,80 · Of € 5,95/kg",
+"pn": "€ 11,90 voor 2 kg"
+},
+{
+"r": "traiteur",
+"m": "1 + 1 gratis",
+"n": "Fish Aven saumon fumé",
+"d": "2 × 150 g · Au lieu de 13,98 € · Soit 23,30 €/kg",
+"p": "6,99 €",
+"nn": "Fish Aven gerookte zalm",
+"dn": "2 × 150 g · In plaats van € 13,98 · Of € 23,30/kg",
+"pn": "€ 6,99"
+},
+{
+"r": "traiteur",
+"m": "1 + 1 gratis",
+"n": "Crevettes roses nordiques",
+"d": "2 × 100 g · Au lieu de 7,98 €",
+"p": "3,99 €",
+"nn": "Noordse roze garnalen",
+"dn": "2 × 100 g · In plaats van € 7,98",
+"pn": "€ 3,99"
+},
+{
+"r": "traiteur",
+"m": "1 + 1 gratis au choix",
+"n": "Maïski poulets panés",
+"d": "2 × 125 g, variétés au choix · Au lieu de 12,50 €",
+"p": "6,25 € les 2 packs",
+"nn": "Maïski gepaneerde kip",
+"dn": "2 × 125 g, naar keuze · In plaats van € 12,50",
+"pn": "€ 6,25 voor 2 pakjes"
+},
+{
+"r": "traiteur",
+"m": "1 + 1 gratis au choix",
+"n": "Aubel",
+"d": "Jambon à l'os, boudin blanc, boulettes, saucisson · Au prix habituel de 2,99 € à 6,99 € la pièce",
+"nn": "Aubel",
+"dn": "Beenham, witte pens, balletjes, salami · Normale prijs € 2,99 tot € 6,99 per stuk"
+},
+{
+"r": "traiteur",
+"m": "1 + 1 gratis",
+"n": "Costa Brava fuet espetec",
+"d": "2 × 150 g · Au lieu de 7,58 €",
+"p": "3,79 €",
+"nn": "Costa Brava fuet espetec",
+"dn": "2 × 150 g · In plaats van € 7,58",
+"pn": "€ 3,79"
+},
+{
+"r": "traiteur",
+"m": "1 + 1 gratis au choix",
+"n": "Délio et Heks'Nkaas",
+"d": "Salades tartinables ou fromage frais, 180 à 200 g · Au prix habituel de 2,19 € à 6,59 €",
+"nn": "Délio en Heks'Nkaas",
+"dn": "Smeersalades of verse kaas, 180 tot 200 g · Normale prijs € 2,19 tot € 6,59"
+},
+{
+"r": "traiteur",
+"carte": 1,
+"m": "2 + 2 gratis au choix",
+"n": "Gran Brianza charcuteries italiennes",
+"d": "En tranches, 70 à 300 g · Au prix habituel de 2,99 € à 8,49 €",
+"nn": "Gran Brianza Italiaanse charcuterie",
+"dn": "In sneetjes, 70 tot 300 g · Normale prijs € 2,99 tot € 8,49"
+},
+{
+"r": "fl",
+"m": "Prix au kilo",
+"n": "Bananes",
+"d": "Costa Rica, en vrac",
+"p": "1,13 €/kg",
+"nn": "Bananen",
+"dn": "Costa Rica, los",
+"pn": "€ 1,13/kg"
+},
+{
+"r": "fl",
+"m": "Prix au kilo",
+"n": "Clémentines à feuilles",
+"d": "Espagne, en vrac",
+"p": "2,99 €/kg",
+"nn": "Clementines met blad",
+"dn": "Spanje, los",
+"pn": "€ 2,99/kg"
+},
+{
+"r": "fl",
+"m": "1 + 1 gratis",
+"n": "Carottes lavées",
+"d": "Raviers de 1 kg · Belgique · Soit 0,99 €/kg",
+"p": "1,98 € les 2",
+"nn": "Gewassen wortelen",
+"dn": "Schaaltjes van 1 kg · België · Of € 0,99/kg",
+"pn": "€ 1,98 voor 2"
+},
+{
+"r": "fl",
+"m": "Moins cher",
+"n": "Pommes de terre Panier malin",
+"d": "Sac de 5 kg · Belgique · Soit 0,94 €/kg",
+"p": "4,69 € le sac",
+"nn": "Aardappelen Slimme winkelkar",
+"dn": "Zak van 5 kg · België · Of € 0,94/kg",
+"pn": "€ 4,69 per zak"
+},
+{
+"r": "boulangerie",
+"m": "10 + 10 gratis",
+"n": "Chouquettes",
+"d": "Cuites sur place · Aussi valable sur les profiteroles · Au lieu de 5,00 €",
+"p": "2,50 € les 20",
+"nn": "Chouquettes",
+"dn": "Ter plaatse gebakken · Ook geldig op profiteroles · In plaats van € 5,00",
+"pn": "€ 2,50 voor 20"
+},
+{
+"r": "boulangerie",
+"m": "10 pour 5 €",
+"n": "Croissants ou pains au chocolat",
+"d": "Cuits sur place, au choix · Au lieu de 6,50 €",
+"p": "5,00 € les 10",
+"nn": "Croissants of chocoladebroodjes",
+"dn": "Ter plaatse gebakken, naar keuze · In plaats van € 6,50",
+"pn": "€ 5,00 voor 10"
+},
+{
+"r": "boulangerie",
+"m": "3 + 3 gratis au choix",
+"n": "Maxi piccolos",
+"d": "Blancs ou gris, cuits sur place · Au lieu de 3,00 €",
+"p": "1,50 € les 6",
+"nn": "Maxi piccolo's",
+"dn": "Wit of grijs, ter plaatse gebakken · In plaats van € 3,00",
+"pn": "€ 1,50 voor 6"
+},
+{
+"r": "boulangerie",
+"m": "2 + 2 gratis",
+"n": "Éclairs au chocolat",
+"d": "Pack de 4 · Au lieu de 5,95 €",
+"p": "2,97 € les 4",
+"nn": "Chocolade-eclairs",
+"dn": "Pak van 4 · In plaats van € 5,95",
+"pn": "€ 2,97 voor 4"
+},
+{
+"r": "cremerie",
+"m": "1 + 1 gratis",
+"n": "EntreMont Meule d'Or",
+"d": "Fromage râpé, 2 × 500 g · Au lieu de 17,18 €",
+"p": "8,59 €",
+"nn": "EntreMont Meule d'Or",
+"dn": "Geraspte kaas, 2 × 500 g · In plaats van € 17,18",
+"pn": "€ 8,59"
+},
+{
+"r": "cremerie",
+"carte": 1,
+"m": "1 + 1 gratis au choix",
+"n": "Pâturages beurre de laiterie",
+"d": "Doux ou salé, 2 × 500 g · 5,99 € reversés sur votre carte",
+"p": "5,99 €",
+"nn": "Pâturages melkerijboter",
+"dn": "Zacht of gezouten, 2 × 500 g · € 5,99 teruggestort op uw kaart",
+"pn": "€ 5,99"
+},
+{
+"r": "cremerie",
+"carte": 1,
+"m": "1 + 1 gratis au choix",
+"n": "Pâturages fromage à raclette",
+"d": "300 ou 400 g · Au prix habituel de 4,19 € à 5,79 €",
+"nn": "Pâturages raclettekaas",
+"dn": "300 of 400 g · Normale prijs € 4,19 tot € 5,79"
+},
+{
+"r": "cremerie",
+"m": "1 + 1 gratis au choix",
+"n": "Actimel",
+"d": "8 × 100 g · Au prix habituel de 3,99 € à 5,19 €",
+"nn": "Actimel",
+"dn": "8 × 100 g · Normale prijs € 3,99 tot € 5,19"
+},
+{
+"r": "stnicolas",
+"m": "Prix folder",
+"n": "Assiette Saint-Nicolas",
+"d": "Assortiment de confiseries, 255 g",
+"p": "4,29 €",
+"nn": "Sinterklaasbord",
+"dn": "Snoepassortiment, 255 g",
+"pn": "€ 4,29"
+},
+{
+"r": "stnicolas",
+"m": "Prix folder",
+"n": "Figurine Saint-Nicolas Friedel",
+"d": "60 g",
+"p": "0,99 €",
+"nn": "Sinterklaasfiguur Friedel",
+"dn": "60 g",
+"pn": "€ 0,99"
+},
+{
+"r": "stnicolas",
+"m": "2 + 2 gratis au choix",
+"n": "Libeert figurines en chocolat",
+"d": "4 × 50 g · Au lieu de 8,36 €",
+"p": "4,18 €",
+"nn": "Libeert chocoladefiguren",
+"dn": "4 × 50 g · In plaats van € 8,36",
+"pn": "€ 4,18"
+},
+{
+"r": "stnicolas",
+"m": "Prix folder",
+"n": "Chabrior speculoos pocket",
+"d": "10 × 2 pièces, 168 g",
+"p": "0,99 €",
+"nn": "Chabrior speculoos pocket",
+"dn": "10 × 2 stuks, 168 g",
+"pn": "€ 0,99"
+},
+{
+"r": "stnicolas",
+"carte": 1,
+"m": "1 + 1 gratis",
+"n": "Kinder calendrier de l'Avent",
+"d": "2 × 113 g · 5,59 € reversés sur votre carte",
+"p": "5,59 €",
+"nn": "Kinder adventskalender",
+"dn": "2 × 113 g · € 5,59 teruggestort op uw kaart",
+"pn": "€ 5,59"
+},
+{
+"r": "epicerie",
+"carte": 1,
+"m": "2 + 2 gratis au choix",
+"n": "Nutella",
+"d": "Pâte à tartiner, biscuits, B-ready · Au prix habituel de 2,86 € à 4,85 €",
+"nn": "Nutella",
+"dn": "Choco, koekjes, B-ready · Normale prijs € 2,86 tot € 4,85"
+},
+{
+"r": "epicerie",
+"carte": 1,
+"m": "1 + 1 gratis au choix",
+"n": "Materne mousseline ou compote",
+"d": "Au prix habituel de 1,25 € à 4,19 €",
+"nn": "Materne mousseline of appelmoes",
+"dn": "Normale prijs € 1,25 tot € 4,19"
+},
+{
+"r": "epicerie",
+"carte": 1,
+"m": "2 + 2 gratis au choix",
+"n": "Galler bâtons de chocolat",
+"d": "65 ou 70 g · Au prix habituel de 1,80 € à 2,22 €",
+"nn": "Galler chocoladerepen",
+"dn": "65 of 70 g · Normale prijs € 1,80 tot € 2,22"
+},
+{
+"r": "epicerie",
+"m": "2 + 2 gratis au choix",
+"n": "De Cecco",
+"d": "Pâtes ou gnocchi di patate, 500 g · Au prix habituel de 1,95 € à 4,79 €",
+"nn": "De Cecco",
+"dn": "Pasta of gnocchi di patate, 500 g · Normale prijs € 1,95 tot € 4,79"
+},
+{
+"r": "epicerie",
+"m": "3 + 3 gratis au choix",
+"n": "Cirio passata",
+"d": "Nature ou basilic, 6 × 700 g · Au lieu de 16,20 €",
+"p": "8,10 €",
+"nn": "Cirio passata",
+"dn": "Natuur of basilicum, 6 × 700 g · In plaats van € 16,20",
+"pn": "€ 8,10"
+},
+{
+"r": "epicerie",
+"m": "1 + 1 gratis",
+"n": "Carapelli Il Frantolio",
+"d": "Huile d'olive extra vierge, 2 × 750 ml · Au lieu de 27,96 €",
+"p": "13,98 €",
+"nn": "Carapelli Il Frantolio",
+"dn": "Extra vierge olijfolie, 2 × 750 ml · In plaats van € 27,96",
+"pn": "€ 13,98"
+},
+{
+"r": "surgeles",
+"m": "1 + 1 gratis au choix",
+"n": "Belviva frites",
+"d": "Classiques, allumettes, zig zag ou gaufrites, 600 g ou 1 kg · Au prix habituel de 4,19 € à 6,49 €",
+"nn": "Belviva frieten",
+"dn": "Klassiek, allumettes, zigzag of wafelfrieten, 600 g of 1 kg · Normale prijs € 4,19 tot € 6,49"
+},
+{
+"r": "surgeles",
+"m": "1 + 1 gratis au choix",
+"n": "Kinder Bueno ou Nutella glace en pot",
+"d": "455 ou 470 ml · Au prix habituel de 6,49 € à 6,99 €",
+"nn": "Kinder Bueno of Nutella ijs",
+"dn": "455 of 470 ml · Normale prijs € 6,49 tot € 6,99"
+},
+{
+"r": "boissons",
+"m": "1 + 1 gratis",
+"n": "Maes 24 × 33 cl",
+"d": "En casier, hors vidanges · Au lieu de 37,98 €",
+"p": "18,99 € les 2 casiers",
+"nn": "Maes 24 × 33 cl",
+"dn": "Bak, zonder leeggoed · In plaats van € 37,98",
+"pn": "€ 18,99 voor 2 bakken"
+},
+{
+"r": "boissons",
+"m": "3 + 3 gratis",
+"n": "IGT Puglia Nero di Troia Vezzani",
+"d": "6 × 75 cl · Soit 3,99 € la bouteille · Au lieu de 47,88 €",
+"p": "23,94 €",
+"nn": "IGT Puglia Nero di Troia Vezzani",
+"dn": "6 × 75 cl · Of € 3,99 per fles · In plaats van € 47,88",
+"pn": "€ 23,94"
+},
+{
+"r": "boissons",
+"carte": 1,
+"m": "1 + 1 gratis au choix",
+"n": "Pepsi ou 7up",
+"d": "6 × 1,5 l · Au prix habituel de 12,90 € à 14,70 €",
+"nn": "Pepsi of 7up",
+"dn": "6 × 1,5 l · Normale prijs € 12,90 tot € 14,70"
+},
+{
+"r": "maison",
+"m": "2 + 3 gratis au choix",
+"n": "Ariel+",
+"d": "Liquide ou pods · Au prix habituel de 16,99 € à 22,99 €",
+"nn": "Ariel+",
+"dn": "Vloeibaar of pods · Normale prijs € 16,99 tot € 22,99"
+},
+{
+"r": "maison",
+"m": "2 + 2 gratis au choix",
+"n": "Silan adoucissant",
+"d": "50 doses · Au prix habituel de 5,79 € à 6,79 €",
+"nn": "Silan wasverzachter",
+"dn": "50 doses · Normale prijs € 5,79 tot € 6,79"
+},
+{
+"r": "maison",
+"m": "1 + 1 gratis",
+"n": "Renova essuie-tout",
+"d": "2 × 8 rouleaux · Au lieu de 15,96 €",
+"p": "7,98 €",
+"nn": "Renova keukenpapier",
+"dn": "2 × 8 rollen · In plaats van € 15,96",
+"pn": "€ 7,98"
+},
+{
+"r": "maison",
+"m": "1 + 1 gratis",
+"n": "Renova papier toilette Skincare",
+"d": "2 × 48 rouleaux · Au lieu de 39,96 €",
+"p": "19,98 €",
+"nn": "Renova toiletpapier Skincare",
+"dn": "2 × 48 rollen · In plaats van € 39,96",
+"pn": "€ 19,98"
+},
+{
+"r": "maison",
+"m": "2 + 2 gratis au choix",
+"n": "Perfect Fit",
+"d": "Croquettes ou pochons pour chat ou chien · Au prix habituel de 2,99 € à 18,59 €",
+"nn": "Perfect Fit",
+"dn": "Brokjes of zakjes voor kat of hond · Normale prijs € 2,99 tot € 18,59"
+},
+{
+"r": "maison",
+"m": "Stock limité",
+"n": "Casque Bluetooth Way",
+"d": "Sans fil, autonomie 10 h",
+"p": "7,99 €",
+"nn": "Bluetooth-koptelefoon Way",
+"dn": "Draadloos, 10 uur autonomie",
+"pn": "€ 7,99"
+},
+{
+"r": "fleurs",
+"m": "Prix imbattable",
+"n": "Chrysanthèmes « Pomponnettes »",
+"d": "Grand format 45/50 cm, pot de 19 cm · Belgique",
+"p": "2,49 € la plante",
+"nn": "Chrysanten « Pomponnettes »",
+"dn": "Groot formaat 45/50 cm, pot van 19 cm · België",
+"pn": "€ 2,49 per plant"
+},
+{
+"r": "fleurs",
+"m": "Prix folder",
+"n": "Calluna (bruyère)",
+"d": "Plante vivace, pot de 12 cm",
+"p": "1,49 € la plante",
+"nn": "Calluna (heide)",
+"dn": "Vaste plant, pot van 12 cm",
+"pn": "€ 1,49 per plant"
+}
+]
+}
+</script>
+
+<section id="rayons">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-t="rayEyebrow">Le frais</div>
+      <h2 data-t="rayTitle">Les rayons qui font la différence</h2>
+    </div>
+    <div class="rayons">
+      <div class="rayon"><h3 data-t="ray1t">Boucherie</h3><p data-t="ray1p">Hachis, rôtis, volailles et grillades pour toute la famille, avec une offre spéciale presque chaque jour.</p></div>
+      <div class="rayon"><h3 data-t="ray2t">Boulangerie</h3><p data-t="ray2p">Pain cuit sur place tout au long de la journée. Le mardi, le pain carré de 800 g à 1,99 €.</p></div>
+      <div class="rayon"><h3 data-t="ray3t">Fruits & légumes</h3><p data-t="ray3p">Les produits de saison au meilleur prix.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="colis">
+  <div class="wrap">
+    <div class="colis">
+      <div>
+        <div class="eyebrow" data-t="colisEyebrow">Le samedi, sur réservation</div>
+        <h2 data-t="colisTitle">Le colis repas pour 4</h2>
+        <p data-t="colisText">Tout ce qu'il faut pour un repas complet en famille, préparé par nos équipes. Réservez en ligne jusqu'au jeudi 18 h, ou par téléphone, et retirez-le le samedi au comptoir boucherie dès 10 h.</p>
+      </div>
+      <div class="callbox">
+        <div class="phone" id="phone">061 61 45 75</div>
+        <a class="btn resa-link" href="https://tally.so/r/EqqgoN" data-t="colisBtn">Réserver en ligne</a>
+        <button type="button" id="copyBtn" class="ghostbtn" data-t="copyBtn">Copier le numéro</button>
+        <span id="copyMsg" class="note" hidden data-t="copyMsg">Numéro copié</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="livraison">
+  <div class="wrap livraison">
+    <div>
+      <div class="eyebrow" data-t="dvEyebrow">Nouveau · Livraison à domicile</div>
+      <h2 data-t="dvTitle">On fait vos courses, on vous les livre.</h2>
+      <p class="lead" data-t="dvLead">Pas le temps, pas de voiture, ou simplement envie de souffler ? Envoyez-nous votre liste : on prépare tout et on vous livre chez vous, gratuitement dès 50 € d'achat.</p>
+      <ol class="steps">
+        <li><div><strong data-t="dv1t">Envoyez votre liste</strong><span data-t="dv1p">En ligne en 2 minutes, ou par téléphone au 061 61 45 75.</span></div></li>
+        <li><div><strong data-t="dv2t">On vous appelle pour confirmer</strong><span data-t="dv2p">On vérifie votre commande et l'heure de passage.</span></div></li>
+        <li><div><strong data-t="dv3t">On vous livre, vous payez à la livraison</strong><span data-t="dv3p">Le jeudi après-midi, directement chez vous, par QR code ou en espèces.</span></div></li>
+      </ol>
+      <div class="deliv-actions">
+        <a class="btn deliv-link" href="https://tally.so/r/J11EkK" data-t="dvBtn">Commander en ligne</a>
+        <span class="tel"><span data-t="dvOr">ou au</span> 061 61 45 75</span>
+      </div>
+    </div>
+    <aside class="conditions">
+      <dl>
+        <dt data-t="dvZoneT">Zone</dt><dd data-t="dvZone">Gedinne, Bourseigne-Neuve, Bourseigne-Vieille, Houdremont, Louette-Saint-Denis, Louette-Saint-Pierre, Malvoisin, Patignies, Rienne, Sart-Custinne, Vencimont et Willerzie, et les villages voisins à 15 km maximum.</dd>
+        <dt data-t="dvDaysT">Tournée</dt><dd data-t="dvDays">Le jeudi après-midi.</dd>
+        <dt data-t="dvLimitT">Commande</dt><dd data-t="dvLimit">Jusqu'au mercredi 12 h.</dd>
+        <dt data-t="dvFeeT">Livraison</dt><dd data-t="dvFee">Gratuite dès 50 € d'achat, 5 € en dessous.</dd>
+        <dt data-t="dvPayT">Paiement</dt><dd data-t="dvPay">À la livraison, par QR code ou en espèces.</dd>
+      </dl>
+      <p class="tip" data-t="dvTip">Un pourboire pour votre livreur est toujours le bienvenu, jamais obligatoire.</p>
+    </aside>
+  </div>
+</section>
+
+<section id="infos">
+  <div class="wrap infos">
+    <div>
+      <div class="eyebrow" data-t="hoursEyebrow">Horaires</div>
+      <h2 data-t="hoursTitle">Quand passer ?</h2>
+      <table id="hours"><tbody></tbody></table>
+      <p class="note" data-t="hoursNote">Ouvert tous les jours, jours fériés compris.</p>
+    </div>
+    <div class="contact">
+      <div class="eyebrow" data-t="infoEyebrow">Nous trouver</div>
+      <h2 data-t="infoTitle">Infos pratiques</h2>
+      <dl>
+        <dt data-t="dtAddr">Adresse</dt><dd>Rue de Charleville 48<br>5575 Gedinne</dd>
+        <dt data-t="dtTel">Téléphone</dt><dd>061 61 45 75</dd>
+        <dt>Parking</dt><dd data-t="ddPark">Gratuit, devant le magasin</dd>
+        <dt data-t="dtRoute">Itinéraire</dt><dd><a href="https://www.openstreetmap.org/search?query=Rue%20de%20Charleville%2048%205575%20Gedinne" data-t="ddRoute">Ouvrir la carte</a></dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap legal">
+    <p><strong data-t="legalName">SA Loïseco</strong> · <span data-t="legalSeat">Siège social</span> : Rue de Charleville 48, 5575 Gedinne · <span data-t="legalBce">N° d'entreprise et TVA</span> : BE 0826.587.082 · <span data-t="legalRpr">RPR Liège, division Dinant</span> · <span data-t="dtTel">Téléphone</span> : 061 61 45 75</p>
+    <p data-t="legalBrand">Intermarché est une marque du Groupement Les Mousquetaires. Ce magasin est exploité par SA Loïseco, commerçant indépendant.</p>
+    <p><span data-t="footNote">Promotions valables dans la limite des stocks disponibles.</span> · <a id="privLink" href="https://intergedinne.be/vie-privee.html" data-t="privacy">Vie privée</a></p>
+  </div>
+</footer>
+
+<script>
+const RESA={fr:"https://tally.so/r/EqqgoN",nl:"https://tally.so/r/Nqqgkb"};
+const DELIV={fr:"https://tally.so/r/J11EkK",nl:"https://tally.so/r/5XXalZ"};
+const T={
+fr:{navPromos:"Promos",navResa:"Réserver",navMoment:"Promos du moment",navInfos:"Horaires & accès",
+heroEyebrow:"Intermarché Contact · Gedinne",heroTitle:"Le marché du village, <em>ouvert tous les jours.</em>",heroAlt:"La façade de l'Intermarché Contact de Gedinne au coucher du soleil",vilEyebrow:"Ici, à Gedinne",vilTitle:"Un magasin de village, avec tout ce qu'il faut.",vilText:"Les courses de la semaine, le pain du matin, le rôti du week-end ou le poulet du dimanche : on fait tout pour que vous trouviez ce qu'il vous faut, sans faire de kilomètres. Et si vous préférez qu'on prépare pour vous, réservez en ligne.",vilSign:"L'équipe de l'Intermarché Gedinne",f1t:"7 jours sur 7",f1p:"De 8 h à 19 h, dimanches et jours fériés compris.",f2t:"On vous prépare tout",f2p:"Réservez en ligne, retirez au comptoir boucherie à partir de 10 h et payez en caisse.",f3t:"Bienvenue aux vacanciers",f3p:"Le site et les réservations existent aussi en néerlandais.",
+heroText:"Boucherie, boulangerie, fruits et légumes, et une bonne affaire différente chaque jour. De 8 h à 19 h, 7 jours sur 7, jours fériés compris.",
+open:"Ouvert maintenant · jusqu'à 19 h",closedMorning:"Fermé · ouvre à 8 h",closedEvening:"Fermé · ouvre demain à 8 h",today:"Aujourd'hui",
+boardTitle:"L'ardoise de la semaine",boardSub:"Nouvelles promos annoncées chaque lundi",boardBtn:"Réserver une offre",todayTag:" · aujourd'hui",resa:"Réserver →",
+folderEyebrow:"Le folder de la semaine",folderTitle:(a,b)=>`Du ${a} au ${b}`,folderSub:"Toutes les offres de la semaine, rayon par rayon. Ajoutez-les à votre liste pour ne rien oublier en magasin.",folderBtn:"Voir le folder en images",navDeliv:"Livraison",dvEyebrow:"Nouveau · Livraison à domicile",dvTitle:"On fait vos courses, on vous les livre.",dvLead:"Pas le temps, pas de voiture, ou simplement envie de souffler ? Envoyez-nous votre liste : on prépare tout et on vous livre chez vous, gratuitement dès 50 € d'achat.",dv1t:"Envoyez votre liste",dv1p:"En ligne en 2 minutes, ou par téléphone au 061 61 45 75.",dv2t:"On vous appelle pour confirmer",dv2p:"On vérifie votre commande et l'heure de passage.",dv3t:"On vous livre, vous payez à la livraison",dv3p:"Le jeudi après-midi, directement chez vous, par QR code ou en espèces.",dvBtn:"Commander en ligne",dvOr:"ou au",dvZoneT:"Zone",dvZone:"Gedinne, Bourseigne-Neuve, Bourseigne-Vieille, Houdremont, Louette-Saint-Denis, Louette-Saint-Pierre, Malvoisin, Patignies, Rienne, Sart-Custinne, Vencimont et Willerzie, et les villages voisins à 15 km maximum.",dvDaysT:"Tournée",dvDays:"Le jeudi après-midi.",dvLimitT:"Commande",dvLimit:"Jusqu'au mercredi 12 h.",dvFeeT:"Livraison",dvFee:"Gratuite dès 50 € d'achat, 5 € en dessous.",dvPayT:"Paiement",dvPay:"À la livraison, par QR code ou en espèces.",dvTip:"Un pourboire pour votre livreur est toujours le bienvenu, jamais obligatoire.",copyList:"Copier ma liste pour la livraison",copyListMsg:"Liste copiée : collez-la dans le formulaire de livraison.",fAll:"Tout",fMine:"Ma liste",fAdd:"+ Ma liste",fAdded:"✓ Dans ma liste",fBook:"Réserver →",fCarte:"Avec la carte",emptyList:"Votre liste est vide. Touchez « + Ma liste » sous une offre pour l'ajouter.",clearList:"Vider ma liste",folderNote:"Offres valables dans la limite des stocks disponibles. Certaines sont limitées à 3 par semaine et par client. Les offres « avec la carte » demandent la carte Intermarché. Conditions complètes dans le folder.",rayons:{boucherie:"Boucherie",traiteur:"Charcuterie & traiteur",fl:"Fruits & légumes",boulangerie:"Boulangerie",cremerie:"Crèmerie",epicerie:"Épicerie",stnicolas:"Saint-Nicolas",surgeles:"Surgelés",boissons:"Boissons",maison:"Maison",fleurs:"Fleurs & plantes"},
+momentEyebrow:"Les promos du moment",momentTitle:"À ne pas manquer cette semaine",momentNote:(a,b)=>`Offres mises en avant par Intermarché, du ${a} au ${b}.`,
+momentStock:"Offres valables dans la limite des stocks disponibles.",momentResa:"Réserver une promo boucherie",
+rayEyebrow:"Le frais",rayTitle:"Les rayons qui font la différence",ray1t:"Boucherie",ray1p:"Hachis, rôtis, volailles et grillades pour toute la famille, avec une offre spéciale presque chaque jour.",
+ray2t:"Boulangerie",ray2p:"Pain cuit sur place tout au long de la journée. Le mardi, le pain carré de 800 g à 1,99 €.",ray3t:"Fruits & légumes",ray3p:"Les produits de saison au meilleur prix.",
+colisEyebrow:"Le samedi, sur réservation",colisTitle:"Le colis repas pour 4",colisText:"Tout ce qu'il faut pour un repas complet en famille, préparé par nos équipes. Réservez en ligne jusqu'au jeudi 18 h, ou par téléphone, et retirez-le le samedi au comptoir boucherie dès 10 h.",
+colisBtn:"Réserver en ligne",copyBtn:"Copier le numéro",copyMsg:"Numéro copié",
+hoursEyebrow:"Horaires",hoursTitle:"Quand passer ?",hoursNote:"Ouvert tous les jours, jours fériés compris.",
+infoEyebrow:"Nous trouver",infoTitle:"Infos pratiques",dtAddr:"Adresse",dtTel:"Téléphone",ddPark:"Gratuit, devant le magasin",dtRoute:"Itinéraire",ddRoute:"Ouvrir la carte",
+footNote:"Promotions valables dans la limite des stocks disponibles.",legalName:"SA Loïseco",legalSeat:"Siège social",legalBce:"N° d'entreprise et TVA",legalRpr:"RPR Liège, division Dinant",legalBrand:"Intermarché est une marque du Groupement Les Mousquetaires. Ce magasin est exploité par SA Loïseco, commerçant indépendant.",privacy:"Vie privée",im:"https://www.intermarche.be/produits/",
+days:["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"],
+promos:[
+ {r:1,t:"Hachis 1+1 offert",p:"Au rayon boucherie."},
+ {t:"Pain carré 800 g à 1,99 €",p:"À la boulangerie, toute la journée."},
+ {t:"Formule lunch",p:"Sandwich maison + boisson + dessert."},
+ {r:1,t:"Rôti spécial à 9,99 €/kg",p:"À la boucherie."},
+ {r:1,t:"Rôti & volaille",p:"Le rôti ou la volaille du week-end en offre spéciale."},
+ {r:1,t:"Colis repas pour 4",p:"Sur réservation, à retirer en magasin."},
+ {r:1,t:"Poulet rôti, frites & compote",p:"Le repas du dimanche prêt à emporter, 8,49 €."}]},
+nl:{navPromos:"Promoties",navResa:"Reserveren",navMoment:"Actuele promoties",navInfos:"Openingsuren & ligging",
+heroEyebrow:"Intermarché Contact · Gedinne",heroTitle:"De dorpswinkel, <em>elke dag open.</em>",heroAlt:"De gevel van de Intermarché Contact in Gedinne bij zonsondergang",vilEyebrow:"Hier, in Gedinne",vilTitle:"Een dorpswinkel met alles wat u nodig hebt.",vilText:"De boodschappen voor de week, het brood van de ochtend, het gebraad voor het weekend of de kip op zondag: wij zorgen ervoor dat u vindt wat u zoekt, zonder kilometers te rijden. Liever dat wij alles klaarmaken? Reserveer online.",vilSign:"Het team van Intermarché Gedinne",f1t:"7 dagen op 7",f1p:"Van 8 tot 19 uur, ook op zon- en feestdagen.",f2t:"Wij maken alles klaar",f2p:"Reserveer online, haal af aan de slagerijtoonbank vanaf 10 uur en betaal aan de kassa.",f3t:"Welkom aan vakantiegangers",f3p:"De website en de reservaties zijn er ook in het Nederlands.",
+heroText:"Slagerij, bakkerij, groenten en fruit, en elke dag een andere aanbieding. Van 8 tot 19 uur, 7 dagen op 7, ook op feestdagen.",
+open:"Nu open · tot 19 uur",closedMorning:"Gesloten · opent om 8 uur",closedEvening:"Gesloten · opent morgen om 8 uur",today:"Vandaag",
+boardTitle:"Onze promoties van de week",boardSub:"Elke maandag nieuwe promoties",boardBtn:"Een aanbieding reserveren",todayTag:" · vandaag",resa:"Reserveren →",
+folderEyebrow:"De folder van de week",folderTitle:(a,b)=>`Van ${a} tot ${b}`,folderSub:"Alle aanbiedingen van de week, afdeling per afdeling. Zet ze op uw lijstje, dan vergeet u niets in de winkel.",folderBtn:"Folder in beeld bekijken",navDeliv:"Levering",dvEyebrow:"Nieuw · Thuislevering",dvTitle:"Wij doen uw boodschappen en brengen ze aan huis.",dvLead:"Geen tijd, geen auto, of gewoon even op adem komen? Stuur ons uw lijstje: wij maken alles klaar en leveren bij u thuis, gratis vanaf € 50 aankoop.",dv1t:"Stuur uw lijstje",dv1p:"Online in 2 minuten, of telefonisch op 061 61 45 75.",dv2t:"Wij bellen u om te bevestigen",dv2p:"We overlopen uw bestelling en het uur van levering.",dv3t:"Wij leveren, u betaalt bij levering",dv3p:"Op donderdagnamiddag, gewoon bij u thuis, met QR-code of contant.",dvBtn:"Online bestellen",dvOr:"of op",dvZoneT:"Zone",dvZone:"Gedinne, Bourseigne-Neuve, Bourseigne-Vieille, Houdremont, Louette-Saint-Denis, Louette-Saint-Pierre, Malvoisin, Patignies, Rienne, Sart-Custinne, Vencimont en Willerzie, en de naburige dorpen tot 15 km.",dvDaysT:"Ronde",dvDays:"Donderdagnamiddag.",dvLimitT:"Bestellen",dvLimit:"Tot woensdag 12 uur.",dvFeeT:"Levering",dvFee:"Gratis vanaf € 50 aankoop, € 5 daaronder.",dvPayT:"Betaling",dvPay:"Bij levering, met QR-code of contant.",dvTip:"Een fooi voor uw bezorger is altijd welkom, nooit verplicht.",copyList:"Mijn lijstje kopiëren voor de levering",copyListMsg:"Lijstje gekopieerd: plak het in het leveringsformulier.",fAll:"Alles",fMine:"Mijn lijstje",fAdd:"+ Mijn lijstje",fAdded:"✓ Op mijn lijstje",fBook:"Reserveren →",fCarte:"Met de kaart",emptyList:"Uw lijstje is leeg. Tik op « + Mijn lijstje » onder een aanbieding om ze toe te voegen.",clearList:"Lijstje leegmaken",folderNote:"Aanbiedingen zolang de voorraad strekt. Sommige zijn beperkt tot 3 per week en per klant. Aanbiedingen « met de kaart » vragen de Intermarché-kaart. Volledige voorwaarden in de folder.",rayons:{boucherie:"Slagerij",traiteur:"Charcuterie & traiteur",fl:"Groenten & fruit",boulangerie:"Bakkerij",cremerie:"Zuivel",epicerie:"Kruidenierswaren",stnicolas:"Sinterklaas",surgeles:"Diepvries",boissons:"Dranken",maison:"Huishouden",fleurs:"Bloemen & planten"},
+momentEyebrow:"Actuele promoties",momentTitle:"Niet te missen deze week",momentNote:(a,b)=>`In de kijker bij Intermarché, van ${a} tot ${b}.`,
+momentStock:"Zolang de voorraad strekt.",momentResa:"Een slagerijpromotie reserveren",
+rayEyebrow:"Vers",rayTitle:"De afdelingen die het verschil maken",ray1t:"Slagerij",ray1p:"Gehakt, gebraad, gevogelte en grillvlees voor het hele gezin, met bijna elke dag een speciale aanbieding.",
+ray2t:"Bakkerij",ray2p:"De hele dag door vers gebakken brood. Op dinsdag vierkant brood van 800 g aan € 1,99.",ray3t:"Groenten & fruit",ray3p:"Seizoensproducten aan de beste prijs.",
+colisEyebrow:"Op zaterdag, op reservatie",colisTitle:"Het maaltijdpakket voor 4",colisText:"Alles voor een volledige maaltijd met het gezin, klaargemaakt door ons team. Reserveer online tot donderdag 18 uur of telefonisch, en haal het zaterdag vanaf 10 uur af aan de slagerijtoonbank.",
+colisBtn:"Online reserveren",copyBtn:"Nummer kopiëren",copyMsg:"Nummer gekopieerd",
+hoursEyebrow:"Openingsuren",hoursTitle:"Wanneer langskomen?",hoursNote:"Elke dag open, ook op feestdagen.",
+infoEyebrow:"Ligging",infoTitle:"Praktische info",dtAddr:"Adres",dtTel:"Telefoon",ddPark:"Gratis, voor de winkel",dtRoute:"Route",ddRoute:"Kaart openen",
+footNote:"Promoties geldig zolang de voorraad strekt.",legalName:"NV Loïseco",legalSeat:"Maatschappelijke zetel",legalBce:"Ondernemings- en btw-nummer",legalRpr:"RPR Luik, afdeling Dinant",legalBrand:"Intermarché is een merk van de Groupement Les Mousquetaires. Deze winkel wordt uitgebaat door NV Loïseco, zelfstandig handelaar.",privacy:"Privacy",im:"https://www.intermarche.be/nl/",
+days:["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"],
+promos:[
+ {r:1,t:"Gehakt 1+1 gratis",p:"Aan de slagerijtoonbank."},
+ {t:"Vierkant brood 800 g aan € 1,99",p:"In de bakkerij, de hele dag."},
+ {t:"Lunchformule",p:"Huisgemaakte sandwich + drankje + dessert."},
+ {r:1,t:"Speciaal gebraad aan € 9,99/kg",p:"Aan de slagerij."},
+ {r:1,t:"Gebraad & gevogelte",p:"Gebraad of gevogelte voor het weekend in promotie."},
+ {r:1,t:"Maaltijdpakket voor 4",p:"Op reservatie, af te halen in de winkel."},
+ {r:1,t:"Gebraden kip, frietjes & appelmoes",p:"De zondagsmaaltijd om mee te nemen, € 8,49."}]}
+};
+let folder={offres:[],temps:[]};
+try{folder=JSON.parse(document.getElementById("folderData").textContent)}catch(e){document.getElementById("folder").hidden=true}
+const RAYONS=["boucherie","traiteur","fl","boulangerie","cremerie","epicerie","stnicolas","surgeles","boissons","maison","fleurs"];
+const LIST_KEY="liste-"+(folder.debut||"");
+let rayon="all",curLang="fr",liste=new Set();
+try{const v=JSON.parse(localStorage.getItem(LIST_KEY)||"[]");if(Array.isArray(v))liste=new Set(v)}catch(e){}
+function saveList(){try{localStorage.setItem(LIST_KEY,JSON.stringify([...liste]))}catch(e){}}
+function mecaNL(m){return m.replace("gratis au choix","gratis naar keuze").replace("Prix exceptionnel","Uitzonderlijke prijs").replace("Prix folder","Folderprijs").replace("Prix au kilo","Kiloprijs").replace("Moins cher","Goedkoper").replace("Prix imbattable","Onklopbare prijs").replace("Stock limité","Beperkte voorraad").replace("10 pour 5 €","10 voor € 5").replace("merguez offertes","merguez gratis")}
+const idx=(new Date().getDay()+6)%7;
+const $=id=>document.getElementById(id);
+
+function render(lang){
+  const L=T[lang];
+  document.documentElement.lang=lang;
+  $("langFr").setAttribute("aria-pressed",lang==="fr");$("langNl").setAttribute("aria-pressed",lang==="nl");
+  document.querySelectorAll("[data-t]").forEach(el=>{const v=L[el.dataset.t];if(typeof v==="string")el.textContent=v;});
+  document.querySelectorAll("[data-th]").forEach(el=>{el.innerHTML=L[el.dataset.th];});
+  document.querySelectorAll("[data-ta]").forEach(el=>{el.alt=L[el.dataset.ta];});
+  document.querySelectorAll(".resa-link").forEach(a=>a.href=RESA[lang]);
+  document.querySelectorAll(".deliv-link").forEach(a=>a.href=DELIV[lang]);
+  // statut ouverture
+  const h=new Date().getHours(),open=h>=8&&h<19;
+  $("openDot").classList.toggle("closed",!open);
+  $("openLabel").textContent=open?L.open:(h<8?L.closedMorning:L.closedEvening);
+  $("todayLabel").textContent=L.today+" ("+L.days[idx].toLowerCase()+")";
+  $("todayPromo").textContent=L.promos[idx].t;
+  // ardoise
+  const days=$("days");days.innerHTML="";
+  L.promos.forEach((x,i)=>{
+    const el=document.createElement("div");el.className="day"+(i===idx?" today":"");
+    const d=document.createElement("span");d.className="d";d.textContent=L.days[i]+(i===idx?L.todayTag:"");el.appendChild(d);
+    const h3=document.createElement("h3");h3.textContent=x.t;el.appendChild(h3);
+    const p=document.createElement("p");p.textContent=x.p;el.appendChild(p);
+    if(x.r){const a=document.createElement("a");a.className="resa";a.href=RESA[lang];a.textContent=L.resa;el.appendChild(a);}
+    days.appendChild(el);
+  });
+  // folder
+  renderFolder(lang);
+  $("privLink").href="https://intergedinne.be/vie-privee.html"+(lang==="nl"?"?lang=nl":"");
+  // horaires
+  const tb=document.querySelector("#hours tbody");tb.innerHTML="";
+  L.days.forEach((d,i)=>{const tr=document.createElement("tr");if(i===idx)tr.className="today";tr.innerHTML=`<td>${d}</td><td>08:00 – 19:00</td>`;tb.appendChild(tr);});
+}
+
+function renderFolder(lang){
+  curLang=lang;const L=T[lang],nl=lang==="nl",o=folder.offres||[];
+  if(!o.length){$("folder").hidden=true;return}
+  $("folderTitle").textContent=L.folderTitle(folder.debut,folder.fin);
+  $("folderMain").href=nl?folder.nl:folder.fr;
+  const tp=$("temps");tp.innerHTML="";
+  (folder.temps||[]).forEach(t=>{const a=document.createElement("article");const h=document.createElement("h3");h.textContent=nl?t.tn:t.t;const p=document.createElement("p");p.textContent=nl?t.pn:t.p;a.append(h,p);tp.appendChild(a)});
+  tp.hidden=!(folder.temps||[]).length;
+  const chips=$("chips");chips.innerHTML="";
+  const mk=(key,label,count,cls)=>{const b=document.createElement("button");b.type="button";b.className="chip"+(cls?" "+cls:"");b.setAttribute("aria-pressed",rayon===key);b.append(label);const n=document.createElement("span");n.className="n";n.textContent=count;b.appendChild(n);b.addEventListener("click",()=>{rayon=key;renderFolder(curLang)});chips.appendChild(b)};
+  mk("all",L.fAll,o.length);
+  RAYONS.forEach(r=>{const c=o.filter(x=>x.r===r).length;if(c)mk(r,L.rayons[r],c)});
+  mk("mine",L.fMine,liste.size,"mine");
+  const box=$("offers");box.innerHTML="";
+  const shown=o.map((x,i)=>[x,i]).filter(([x,i])=>rayon==="all"||(rayon==="mine"?liste.has(i):x.r===rayon));
+  shown.forEach(([x,i])=>{
+    const el=document.createElement("article");el.className="offer"+(liste.has(i)?" inlist":"");
+    const top=document.createElement("div");top.className="top";
+    const m=document.createElement("span");m.className="meca";m.textContent=nl?mecaNL(x.m):x.m;top.appendChild(m);
+    if(x.carte){const t=document.createElement("span");t.className="tag";t.textContent=L.fCarte;top.appendChild(t)}
+    el.appendChild(top);
+    const add=(tag,cls,txt)=>{if(!txt)return;const n=document.createElement(tag);if(cls)n.className=cls;n.textContent=txt;el.appendChild(n)};
+    add("h3","",nl?x.nn:x.n);add("p","",nl?x.dn:x.d);add("div","price",nl?x.pn:x.p);add("div","x",nl?x.xn:x.x);
+    const acts=document.createElement("div");acts.className="acts";
+    const b=document.createElement("button");b.type="button";b.className="add";const on=liste.has(i);b.setAttribute("aria-pressed",on);b.textContent=on?L.fAdded:L.fAdd;
+    b.addEventListener("click",()=>{liste.has(i)?liste.delete(i):liste.add(i);saveList();renderFolder(curLang)});acts.appendChild(b);
+    if(x.resa){const a=document.createElement("a");a.className="book";a.href=RESA[lang];a.textContent=L.fBook;acts.appendChild(a)}
+    el.appendChild(acts);box.appendChild(el);
+  });
+  $("emptyList").hidden=!(rayon==="mine"&&!liste.size);
+  $("listActions").hidden=!(rayon==="mine"&&liste.size);
+}
+$("copyList").addEventListener("click",()=>{
+  const nl=curLang==="nl",o=folder.offres||[];
+  const txt=[...liste].sort((a,b)=>a-b).filter(i=>o[i]).map(i=>"- "+(nl?o[i].nn:o[i].n)+" ("+(nl?mecaNL(o[i].m):o[i].m)+")").join("\n");
+  const msg=$("copyListMsg");const show=()=>{msg.hidden=false;setTimeout(()=>msg.hidden=true,4000)};
+  try{navigator.clipboard.writeText(txt).then(show).catch(()=>{})}catch(e){}
+});
+$("clearList").addEventListener("click",()=>{liste.clear();saveList();renderFolder(curLang)});
+
+function pickLang(){
+  try{const q=new URLSearchParams(location.search).get("lang");if(q==="nl"||q==="fr")return q;}catch(e){}
+  try{const s=localStorage.getItem("lang");if(s==="nl"||s==="fr")return s;}catch(e){}
+  return (navigator.language||"").toLowerCase().startsWith("nl")?"nl":"fr";
+}
+function setLang(l){render(l);try{localStorage.setItem("lang",l)}catch(e){}}
+$("langFr").addEventListener("click",()=>setLang("fr"));
+$("langNl").addEventListener("click",()=>setLang("nl"));
+render(pickLang());
+
+$("copyBtn").addEventListener("click",()=>{
+  const msg=$("copyMsg");
+  const show=()=>{msg.hidden=false;setTimeout(()=>msg.hidden=true,2000)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents($("phone"));const s=getSelection();s.removeAllRanges();s.addRange(r);};
+  try{navigator.clipboard.writeText("061614575").then(show).catch(sel)}catch(e){sel()}
+});
+</script>

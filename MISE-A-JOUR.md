@@ -46,3 +46,11 @@ Le reste de la page (ardoise, horaires, textes, formulaires) ne bouge pas.
 1. Le bloc est du JSON valide (`python3 -c "import json,re; ..."`).
 2. Chaque offre a `nn` et `dn`, et les paires `p`/`pn`, `x`/`xn` sont complètes.
 3. Commit « Folder du JJ/MM », push sur `main`.
+
+## Autres modifications du site
+
+- `outils/source-artifact.html` : source de la copie de travail (artifact https://claude.ai/artifact/57WNNxdphnVhSF4sqfRdoj).
+- `python3 outils/build_site.py` reconstruit `index.html` à partir de cette source (polices locales, balises de partage).
+  Il conserve le bloc `folderData` déjà présent dans `index.html` : une modif de texte n'efface pas le folder de la semaine.
+- Après une modif de la source, republier aussi l'artifact pour garder les deux copies identiques.
+- Guide complet (routine, comptes, duplication pour un autre magasin) : https://claude.ai/artifact/6vP9CXWFhvqPwQL8XmxxLj
