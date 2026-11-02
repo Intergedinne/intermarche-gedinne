@@ -1677,7 +1677,7 @@ const LIST_KEY="liste-"+(folder.debut||"");
 let rayon="all",curLang="fr",liste=new Set();
 try{const v=JSON.parse(localStorage.getItem(LIST_KEY)||"[]");if(Array.isArray(v))liste=new Set(v)}catch(e){}
 function saveList(){try{localStorage.setItem(LIST_KEY,JSON.stringify([...liste]))}catch(e){}}
-function mecaNL(m){return m.replace("gratis au choix","gratis naar keuze").replace("Prix exceptionnel","Uitzonderlijke prijs").replace("Prix folder","Folderprijs").replace("Prix au kilo","Kiloprijs").replace("Moins cher","Goedkoper").replace("Prix imbattable","Onklopbare prijs").replace("Stock limité","Beperkte voorraad").replace("10 pour 5 €","10 voor € 5").replace("merguez offertes","merguez gratis")}
+function mecaNL(m){return m.replace("gratis au choix","gratis naar keuze").replace("Prix exceptionnel","Uitzonderlijke prijs").replace("Prix folder","Folderprijs").replace("Prix au kilo","Kiloprijs").replace("Moins cher","Goedkoper").replace("Prix imbattable","Onklopbare prijs").replace("Stock limité","Beperkte voorraad").replace("10 pour 5 €","10 voor € 5").replace("merguez offertes","merguez gratis").replace("au choix","naar keuze").replace("2e à ","2de aan ").replace("de remise immédiate","directe korting").replace("Jusqu'à ","Tot ").replace("verre gratis","glas gratis")}
 const idx=(new Date().getDay()+6)%7;
 const $=id=>document.getElementById(id);
 
