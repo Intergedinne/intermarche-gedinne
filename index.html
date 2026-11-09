@@ -129,6 +129,7 @@ nav a:hover,nav a:focus-visible{color:var(--ink)}
 .offers{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .offer{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:6px;align-content:start;min-width:0}
 .offer.inlist{border-color:var(--forest);box-shadow:inset 0 0 0 1px var(--forest)}
+.offer .pic{display:block;width:100%;height:150px;object-fit:contain;background:#fff;border-radius:10px;margin-bottom:6px}
 .offer .top{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .offer .meca{background:var(--banner);color:#fff;font-weight:700;font-size:.85rem;padding:4px 10px;border-radius:6px;font-variant-numeric:tabular-nums}
 .offer .tag{font-size:.75rem;font-weight:700;color:var(--forest);border:1px solid var(--forest);border-radius:6px;padding:2px 8px}
@@ -300,22 +301,28 @@ footer a{color:var(--ink)}
 <!-- DONNEES DU FOLDER : mises à jour chaque lundi. Garder le format JSON (voir MISE-A-JOUR.md). -->
 <script id="folderData" type="application/json">
 {
-"debut": "03/11",
-"fin": "08/11/2026",
-"fr": "https://www.intermarche.be/folders/decouvrez-notre-folder-du-03-11-26/",
-"nl": "https://www.intermarche.be/nl/folders/ontdek-onze-folder-van-03-11-26/",
+"debut": "10/11",
+"fin": "15/11/2026",
+"fr": "https://www.intermarche.be/folders/decouvrez-notre-folder-du-10-11-26/",
+"nl": "https://www.intermarche.be/nl/folders/ontdek-onze-folder-van-10-11-26/",
 "temps": [
 {
-"t": "Recevez 30 € pour des fêtes moins chères",
-"p": "L'action de fin d'année d'Intermarché a commencé. Conditions et règlement sur intermarche.be.",
-"tn": "Ontvang € 30 voor goedkopere feestdagen",
-"pn": "De eindejaarsactie van Intermarché is begonnen. Voorwaarden en reglement op intermarche.be."
+"t": "Ouvert toute la journée le mercredi 11 novembre",
+"p": "Le magasin est ouvert le jour de l'Armistice, aux horaires habituels.",
+"tn": "Woensdag 11 november de hele dag open",
+"pn": "De winkel is open op Wapenstilstand, met de gewone openingsuren."
 },
 {
-"t": "Jeudi 05/11 : 1 + 1 gratis au choix",
-"p": "Avec votre carte Intermarché, sur les articles marqués « Ce jeudi, c'est 1+1 gratis » (repérez « Jeudi 05/11 uniquement » ci-dessous).",
-"tn": "Donderdag 05/11: 1 + 1 gratis naar keuze",
-"pn": "Met uw Intermarché-kaart, op de artikelen met « Deze donderdag 1+1 gratis » (zie « Enkel donderdag 05/11 » hieronder)."
+"t": "Jeudi 12/11 : les offres « Ce jeudi » avec ma carte",
+"p": "1 + 1 gratis ou 2e à -80 % sur une sélection d'articles (repérez « Jeudi 12/11 uniquement » ci-dessous).",
+"tn": "Donderdag 12/11: de « Deze donderdag »-aanbiedingen met mijn kaart",
+"pn": "1 + 1 gratis of 2de aan -80 % op een selectie artikelen (zie « Enkel donderdag 12/11 » hieronder)."
+},
+{
+"t": "Recevez 30 € pour des fêtes moins chères",
+"p": "L'action de fin d'année d'Intermarché continue. Conditions et règlement sur intermarche.be.",
+"tn": "Ontvang € 30 voor goedkopere feestdagen",
+"pn": "De eindejaarsactie van Intermarché loopt verder. Voorwaarden en reglement op intermarche.be."
 },
 {
 "t": "Concours de coloriage Saint-Nicolas",
@@ -328,1200 +335,1226 @@ footer a{color:var(--ink)}
 {
 "r": "boucherie",
 "resa": 1,
+"img": "img/folder/1011/014.webp",
 "m": "3 + 3 gratis",
-"n": "Foire aux hamburgers",
-"d": "Variétés au choix (hors pur bœuf) · Belgique · Au prix habituel de 12,69 €/kg · Max. 3 offres par semaine par client",
-"p": "6,29 €/kg",
+"n": "Cordons bleus",
+"d": "Belgique · Au prix habituel de 13,79 €/kg",
+"p": "6,89 €/kg",
 "x": "Prix promo au kilo",
-"nn": "Hamburgerfestijn",
-"dn": "Naar keuze (behalve zuiver rund) · België · Normale prijs € 12,69/kg · Max. 3 aanbiedingen per week per klant",
-"pn": "€ 6,29/kg",
+"nn": "Cordon bleus",
+"dn": "België · Normale prijs € 13,79/kg",
+"pn": "€ 6,89/kg",
 "xn": "Promoprijs per kilo"
 },
 {
 "r": "boucherie",
 "resa": 1,
-"m": "1,5 kg + 1 kg gratis",
-"n": "Hachis porc et bœuf",
-"d": "Belgique · Au prix habituel de 8,49 €/kg",
-"p": "5,09 €/kg",
-"x": "Prix promo au kilo",
-"nn": "Gehakt varken en rund",
-"dn": "België · Normale prijs € 8,49/kg",
-"pn": "€ 5,09/kg",
-"xn": "Promoprijs per kilo"
+"img": "img/folder/1011/015.webp",
+"m": "-35 %",
+"n": "Chipolatas porc et bœuf",
+"d": "Belgique · Au lieu de 10,99 €/kg",
+"p": "6,99 €/kg",
+"nn": "Chipolata's varken en rund",
+"dn": "België · In plaats van € 10,99/kg",
+"pn": "€ 6,99/kg"
 },
 {
 "r": "boucherie",
 "resa": 1,
-"m": "Prix folder",
-"n": "Plateau pierrade ou fondue",
-"d": "Belgique",
-"p": "15,99 €/kg",
-"nn": "Gourmet- of fondueschotel",
-"dn": "België",
-"pn": "€ 15,99/kg"
-},
-{
-"r": "boucherie",
-"resa": 1,
+"img": "img/folder/1011/016.webp",
 "m": "3 + 1 gratis",
-"n": "Tomates ou poivrons farcis",
-"d": "Belgique · Au prix habituel de 12,29 €/kg",
-"p": "9,19 €/kg",
+"n": "Hamburger pur bœuf",
+"d": "Belgique · Au prix habituel de 15,98 €/kg",
+"p": "11,98 €/kg",
 "x": "Prix promo au kilo",
-"nn": "Gevulde tomaten of paprika's",
-"dn": "België · Normale prijs € 12,29/kg",
-"pn": "€ 9,19/kg",
+"nn": "Hamburger zuiver rund",
+"dn": "België · Normale prijs € 15,98/kg",
+"pn": "€ 11,98/kg",
 "xn": "Promoprijs per kilo"
 },
 {
 "r": "boucherie",
 "resa": 1,
-"m": "3 + 3 gratis",
-"n": "Oiseaux sans tête",
-"d": "Belgique · Au prix habituel de 15,99 €/kg",
-"p": "7,99 €/kg",
-"x": "Prix promo au kilo",
-"nn": "Vogelnestjes zonder kop",
-"dn": "België · Normale prijs € 15,99/kg",
-"pn": "€ 7,99/kg",
-"xn": "Promoprijs per kilo"
-},
-{
-"r": "boucherie",
-"resa": 1,
-"m": "3 + 3 gratis",
-"n": "Saucisses porc et bœuf",
-"d": "Belgique · Au prix habituel de 10,09 €/kg",
-"p": "4,99 €/kg",
-"x": "Prix promo au kilo",
-"nn": "Worsten varken en rund",
-"dn": "België · Normale prijs € 10,09/kg",
-"pn": "€ 4,99/kg",
-"xn": "Promoprijs per kilo"
-},
-{
-"r": "boucherie",
-"resa": 1,
+"img": "img/folder/1011/017.webp",
 "m": "Prix folder",
-"n": "Châteaubriand de bœuf",
+"n": "Pavé de bœuf",
 "d": "Belgique",
-"p": "20,49 €/kg",
-"nn": "Chateaubriand van rund",
+"p": "18,49 €/kg",
+"nn": "Rundspavé",
 "dn": "België",
-"pn": "€ 20,49/kg"
+"pn": "€ 18,49/kg"
 },
 {
 "r": "boucherie",
 "resa": 1,
+"img": "img/folder/1011/018.webp",
 "m": "Prix folder",
-"n": "Contrefilet de bœuf",
+"n": "Carbonnades de bœuf",
 "d": "Belgique",
-"p": "19,49 €/kg",
-"nn": "Rundercontrefilet",
+"p": "13,49 €/kg",
+"nn": "Runderstoofvlees",
 "dn": "België",
-"pn": "€ 19,49/kg"
+"pn": "€ 13,49/kg"
 },
 {
 "r": "boucherie",
 "resa": 1,
-"m": "-30 %",
-"n": "Poulet de Wallonie",
-"d": "Poulet entier, cuisses, pilons, filets ou aiguillettes · Belgique · Au prix habituel de 8,75 € à 18,49 €/kg · Disponible à partir du mercredi 04/11",
-"nn": "Poulet de Wallonie",
-"dn": "Hele kip, kippenbouten, drumsticks, filets of reepjes · België · Normale prijs € 8,75 tot € 18,49/kg · Verkrijgbaar vanaf woensdag 04/11"
+"img": "img/folder/1011/019.webp",
+"m": "Tarif économique à partir de 1,5 kg",
+"n": "Hachis porc et bœuf",
+"d": "Belgique · À partir de 1,5 kg",
+"p": "6,99 €/kg",
+"nn": "Gehakt varken en rund",
+"dn": "België · Vanaf 1,5 kg",
+"pn": "€ 6,99/kg"
 },
 {
 "r": "boucherie",
 "resa": 1,
-"m": "-30 %",
-"n": "Lapin entier",
-"d": "Coupé en 8 morceaux · Belgique · Au lieu de 13,49 €/kg",
-"p": "9,39 €/kg",
-"nn": "Heel konijn",
-"dn": "In 8 stukken gesneden · België · In plaats van € 13,49/kg",
-"pn": "€ 9,39/kg"
-},
-{
-"r": "boucherie",
-"resa": 1,
-"m": "1,5 kg + 1,5 kg gratis",
-"n": "Cuisses de poulet",
-"d": "Barquette de ± 3 kg · Belgique · Au prix habituel de 6,39 €/kg",
-"p": "3,19 €/kg",
+"img": "img/folder/1011/020.webp",
+"m": "-20 %",
+"n": "Côtes d'agneau",
+"d": "Angleterre ou Nouvelle-Zélande · Au lieu de 28,99 €/kg · Disponible dès le mercredi 11/11",
+"p": "22,99 €/kg",
 "x": "Prix promo au kilo",
-"nn": "Kippenbouten",
-"dn": "Schaal van ± 3 kg · België · Normale prijs € 6,39/kg",
-"pn": "€ 3,19/kg",
+"nn": "Lamskoteletten",
+"dn": "Engeland of Nieuw-Zeeland · In plaats van € 28,99/kg · Verkrijgbaar vanaf woensdag 11/11",
+"pn": "€ 22,99/kg",
 "xn": "Promoprijs per kilo"
 },
 {
-"r": "traiteur",
-"m": "-50 %",
-"n": "Filet de saumon sans peau",
-"d": "Élevé en Norvège · Au lieu de 3,04 € les 100 g · Disponible dès le mercredi 04/11",
-"p": "1,52 € les 100 g",
-"x": "Soit 15,20 €/kg",
-"nn": "Zalmfilet zonder vel",
-"dn": "Gekweekt in Noorwegen · In plaats van € 3,04 per 100 g · Verkrijgbaar vanaf woensdag 04/11",
-"pn": "€ 1,52 per 100 g",
-"xn": "Of € 15,20/kg"
-},
-{
-"r": "traiteur",
-"m": "1 + 1 gratis",
-"n": "Boubasud couscous",
-"d": "1,37 kg · Pour 2 personnes · Au lieu de 28,78 € · Max. 3 offres par semaine par client",
-"p": "14,39 € les 2 packs",
-"x": "Soit 7,20 € le pack",
-"nn": "Boubasud couscous",
-"dn": "1,37 kg · Voor 2 personen · In plaats van € 28,78 · Max. 3 aanbiedingen per week per klant",
-"pn": "€ 14,39 voor 2 pakken",
-"xn": "Of € 7,20 per pak"
-},
-{
-"r": "traiteur",
-"m": "10 + 10 gratis",
-"n": "Saucisses sèches",
-"d": "Nature ou piquantes · Au lieu de 22,00 € · Max. 3 offres par semaine par client",
-"p": "11,00 € les 20 pièces",
-"x": "Soit 0,55 € la pièce",
-"nn": "Droge worstjes",
-"dn": "Natuur of pikant · In plaats van € 22,00 · Max. 3 aanbiedingen per week per klant",
-"pn": "€ 11,00 voor 20 stuks",
-"xn": "Of € 0,55 per stuk"
-},
-{
-"r": "traiteur",
-"m": "-40 %",
-"n": "Jambon Serrano",
-"d": "Au lieu de 3,00 € les 100 g",
-"p": "1,80 € les 100 g",
-"x": "Soit 18,00 €/kg",
-"nn": "Serranoham",
-"dn": "In plaats van € 3,00 per 100 g",
-"pn": "€ 1,80 per 100 g",
-"xn": "Of € 18,00/kg"
-},
-{
-"r": "traiteur",
-"m": "-41 %",
-"n": "Jambon à l'os Grand-Mère",
-"d": "Au lieu de 2,20 € les 100 g · Soit 12,90 €/kg",
-"p": "1,29 € les 100 g",
-"nn": "Beenham Grand-Mère",
-"dn": "In plaats van € 2,20 per 100 g · Of € 12,90/kg",
-"pn": "€ 1,29 per 100 g"
-},
-{
-"r": "traiteur",
-"carte": 1,
-"m": "2e à -50 % au choix",
-"n": "Herta charcuterie",
-"d": "Jambon, Finesse poulet, dinde ou Knackis · Variétés au choix · Au prix habituel de 1,89 € à 7,45 € le pack",
-"nn": "Herta vleeswaren",
-"dn": "Ham, Finesse kip, kalkoen of Knackis · Variëteiten naar keuze · Normale prijs € 1,89 tot € 7,45 per pak"
-},
-{
-"r": "traiteur",
-"carte": 1,
-"m": "1 + 1 gratis au choix",
-"n": "Herta charcuterie",
-"d": "Jeudi 05/11 uniquement · Jambon, Finesse poulet, dinde ou Knackis · Variétés au choix · Au prix habituel de 1,89 € à 7,45 € le pack",
-"nn": "Herta vleeswaren",
-"dn": "Enkel donderdag 05/11 · Ham, Finesse kip, kalkoen of Knackis · Variëteiten naar keuze · Normale prijs € 1,89 tot € 7,45 per pak"
-},
-{
-"r": "traiteur",
-"carte": 1,
-"m": "2e à -50 % au choix",
-"n": "Aoste charcuterie",
-"d": "Poulet, dinde ou salami en tranches · Variétés au choix · De 90 g à 120 g · Au prix habituel de 2,89 € à 4,89 € le pack",
-"nn": "Aoste vleeswaren",
-"dn": "Kip, kalkoen of salami in sneetjes · Variëteiten naar keuze · Van 90 g tot 120 g · Normale prijs € 2,89 tot € 4,89 per pak"
-},
-{
-"r": "traiteur",
-"carte": 1,
-"m": "1 + 1 gratis au choix",
-"n": "Aoste charcuterie",
-"d": "Jeudi 05/11 uniquement · Poulet, dinde ou salami en tranches · Variétés au choix · De 90 g à 120 g · Au prix habituel de 2,89 € à 4,89 € le pack",
-"nn": "Aoste vleeswaren",
-"dn": "Enkel donderdag 05/11 · Kip, kalkoen of salami in sneetjes · Variëteiten naar keuze · Van 90 g tot 120 g · Normale prijs € 2,89 tot € 4,89 per pak"
-},
-{
-"r": "traiteur",
-"m": "4 + 2 gratis au choix",
-"n": "Boulettes rôties nature ou à la liégeoise",
-"d": "± 100 g pièce · Au lieu de 8,34 € les 6 pièces · Soit 0,93 € la pièce",
-"p": "5,56 € les 6 pièces",
-"nn": "Gebraden balletjes natuur of op Luikse wijze",
-"dn": "± 100 g per stuk · In plaats van € 8,34 voor 6 stuks · Of € 0,93 per stuk",
-"pn": "€ 5,56 voor 6 stuks"
-},
-{
-"r": "traiteur",
+"r": "boucherie",
+"resa": 1,
+"img": "img/folder/1011/021.webp",
 "m": "-30 %",
-"n": "Pâté",
-"d": "Variétés au choix · Au prix habituel de 13,34 € à 19,90 €/kg",
-"nn": "Paté",
-"dn": "Variëteiten naar keuze · Normale prijs € 13,34 tot € 19,90/kg"
+"n": "Poulet entier maïs",
+"d": "± 1,35 kg · Belgique · Au lieu de 8,49 €/kg · Disponible dès le mercredi 11/11",
+"p": "5,94 €/kg",
+"x": "Prix promo au kilo",
+"nn": "Hele maïskip",
+"dn": "± 1,35 kg · België · In plaats van € 8,49/kg · Verkrijgbaar vanaf woensdag 11/11",
+"pn": "€ 5,94/kg",
+"xn": "Promoprijs per kilo"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"img": "img/folder/1011/022.webp",
+"m": "-20 %",
+"n": "Filets minute de poulet",
+"d": "Belgique · Au lieu de 12,99 €/kg · L'offre de -20 % est également valable sur les filets minute de dinde (au prix habituel de 15,99 €/kg)",
+"p": "10,39 €/kg",
+"x": "Prix promo au kilo",
+"nn": "Minutefilets van kip",
+"dn": "België · In plaats van € 12,99/kg · De korting van -20 % geldt ook voor minutefilets van kalkoen (normale prijs € 15,99/kg)",
+"pn": "€ 10,39/kg",
+"xn": "Promoprijs per kilo"
+},
+{
+"r": "boucherie",
+"resa": 1,
+"img": "img/folder/1011/023.webp",
+"m": "2e à -50 % au choix",
+"n": "Croc poulet, nuggets ou aiguillettes panées",
+"d": "Croc poulet jambon fromage, champignons ou croustillant 4 x 125 g · Nuggets 450 g · Aiguillettes panées 500 g · Au lieu de 13,58 €",
+"p": "10,18 € les 2 packs",
+"nn": "Croc kip, nuggets of gepaneerde reepjes",
+"dn": "Croc kip ham-kaas, champignons of krokant 4 x 125 g · Nuggets 450 g · Gepaneerde reepjes 500 g · In plaats van € 13,58",
+"pn": "€ 10,18 voor 2 pakken"
 },
 {
 "r": "traiteur",
-"m": "-40 %",
-"n": "Boulettes en sauce",
-"d": "Liégeoise, provençale ou tomate · Au lieu de 12,50 €/kg",
-"p": "7,50 €/kg",
-"nn": "Balletjes in saus",
-"dn": "Luikse, provençaalse of tomatensaus · In plaats van € 12,50/kg",
-"pn": "€ 7,50/kg"
-},
-{
-"r": "traiteur",
-"m": "12 + 12 gratis",
-"n": "Huîtres creuses de Zélande",
-"d": "Cal. 3 · En bourriche de 24 pièces · Au lieu de 26,99 € · Soit 0,57 € la pièce · Aussi 6 + 6 gratis sur huîtres françaises et creuses de Bretagne Cal. 3, 12 pièces · Disponible en magasin à partir du mercredi 04/11",
-"p": "13,49 € la bourriche de 24 pièces",
-"nn": "Zeeuwse creuses-oesters",
-"dn": "Kal. 3 · In mand van 24 stuks · In plaats van € 26,99 · Of € 0,57 per stuk · Ook 6 + 6 gratis op Franse oesters en creuses uit Bretagne Kal. 3, 12 stuks · Verkrijgbaar in de winkel vanaf woensdag 04/11",
-"pn": "€ 13,49 per mand van 24 stuks"
-},
-{
-"r": "traiteur",
-"m": "-19 %",
-"n": "Filet de lieu noir",
-"d": "Atlantique Nord-Est · Au lieu de 2,09 € les 100 g · Soit 16,90 €/kg · Disponible en magasin à partir du mercredi 04/11",
-"p": "1,69 € les 100 g",
-"nn": "Koolvisfilet",
-"dn": "Noordoost-Atlantische Oceaan · In plaats van € 2,09 per 100 g · Of € 16,90/kg · Verkrijgbaar in de winkel vanaf woensdag 04/11",
-"pn": "€ 1,69 per 100 g"
-},
-{
-"r": "traiteur",
-"carte": 1,
-"m": "2e à -50 % au choix",
-"n": "Gabriel poisson fumé",
-"d": "Saumon fumé, assiette nordique, filet de truite, flétan fumé, saumon bellevue nature ou épicé ou assortiment de poisson fumé · De 75 g à 240 g · Au prix habituel de 3,99 € à 7,79 € le pack",
-"nn": "Gabriel gerookte vis",
-"dn": "Gerookte zalm, Noordse schotel, forelfilet, gerookte heilbot, zalm bellevue natuur of pikant of assortiment gerookte vis · Van 75 g tot 240 g · Normale prijs € 3,99 tot € 7,79 per pak"
-},
-{
-"r": "traiteur",
-"carte": 1,
-"m": "1 + 1 gratis au choix",
-"n": "Gabriel poisson fumé",
-"d": "Jeudi 05/11 uniquement · Saumon fumé, assiette nordique, filet de truite, flétan fumé, saumon bellevue nature ou épicé ou assortiment de poisson fumé · De 75 g à 240 g · Au prix habituel de 3,99 € à 7,79 € le pack",
-"nn": "Gabriel gerookte vis",
-"dn": "Enkel donderdag 05/11 · Gerookte zalm, Noordse schotel, forelfilet, gerookte heilbot, zalm bellevue natuur of pikant of assortiment gerookte vis · Van 75 g tot 240 g · Normale prijs € 3,99 tot € 7,79 per pak"
-},
-{
-"r": "traiteur",
-"carte": 1,
-"m": "2e à -50 % au choix",
-"n": "Tortuovo pâtes fraîches",
-"d": "Variétés au choix, 500 g · Au prix habituel de 1,99 € à 4,79 € le pack",
-"nn": "Tortuovo verse pasta",
-"dn": "Naar keuze, 500 g · Normale prijs € 1,99 tot € 4,79 per pak"
-},
-{
-"r": "traiteur",
-"carte": 1,
-"m": "1 + 1 gratis au choix",
-"n": "Tortuovo pâtes fraîches",
-"d": "Jeudi 05/11 uniquement · Variétés au choix, 500 g · Au prix habituel de 1,99 € à 4,79 € le pack",
-"nn": "Tortuovo verse pasta",
-"dn": "Enkel donderdag 05/11 · Naar keuze, 500 g · Normale prijs € 1,99 tot € 4,79 per pak"
-},
-{
-"r": "traiteur",
-"m": "2e à -50 % au choix",
-"n": "Royal Chef paëlla",
-"d": "Mixte ou marinée, 350 g · Au lieu de 8,98 € · Offre également valable sur la paëlla Royal Chef mixte ou marinée 1 kg",
-"p": "6,73 € les 2 packs",
-"x": "Soit 3,37 € le pack",
-"nn": "Royal Chef paella",
-"dn": "Mixta of marinera, 350 g · In plaats van € 8,98 · Aanbieding ook geldig op Royal Chef paella mixta of marinera 1 kg",
-"pn": "€ 6,73 voor 2 pakken",
-"xn": "Of € 3,37 per pak"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "Oranges de table",
-"d": "Cat. 1 · Cal. 5/6 · Espagne",
-"p": "1,89 €/kg",
-"nn": "Tafelsinaasappelen",
-"dn": "Kl. 1 · Kal. 5/6 · Spanje",
-"pn": "€ 1,89/kg"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "Oranges à jus",
-"d": "Cat. 1 · Cal. 6/7 · Espagne · Filet de 3 kg",
-"p": "3,99 € le filet de 3 kg",
-"x": "Soit 1,33 €/kg",
-"nn": "Perssinaasappelen",
-"dn": "Kl. 1 · Kal. 6/7 · Spanje · Net van 3 kg",
-"pn": "€ 3,99 per net van 3 kg",
-"xn": "Of € 1,33/kg"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "Citrons",
-"d": "Cat. 1 · Cal. 4/5 · Espagne · Filet de 1 kg",
-"p": "1,99 € le filet",
-"nn": "Citroenen",
-"dn": "Kl. 1 · Kal. 4/5 · Spanje · Net van 1 kg",
-"pn": "€ 1,99 per net"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "Ananas Sweet",
-"d": "Cat. 1 · Cal. 10 · Costa Rica",
-"p": "1,89 € la pièce",
-"nn": "Ananas Sweet",
-"dn": "Kl. 1 · Kal. 10 · Costa Rica",
-"pn": "€ 1,89 per stuk"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "Avocats Hass",
-"d": "Cat. 1 · Cal. 20/22 · Espagne",
-"p": "1,09 € la pièce",
-"nn": "Avocado's Hass",
-"dn": "Kl. 1 · Kal. 20/22 · Spanje",
-"pn": "€ 1,09 per stuk"
-},
-{
-"r": "fl",
-"m": "3 + 3 gratis",
-"n": "Kaki Persimon",
-"d": "Cat. 1 · Cal. 20 · Espagne",
-"p": "3,00 € les 6 pièces",
-"x": "Soit 0,50 € la pièce",
-"nn": "Kaki Persimon",
-"dn": "Kl. 1 · Kal. 20 · Spanje",
-"pn": "€ 3,00 voor 6 stuks",
-"xn": "Of € 0,50 per stuk"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "Pommes Jonagold ou Boskoop",
-"d": "Cat. 1 · Cal. 70/85 · Belgique · Sachet de 2 kg",
-"p": "2,89 € le sachet de 2 kg",
-"x": "Soit 1,45 €/kg",
-"nn": "Appels Jonagold of Boskoop",
-"dn": "Kl. 1 · Kal. 70/85 · België · Zak van 2 kg",
-"pn": "€ 2,89 per zak van 2 kg",
-"xn": "Of € 1,45/kg"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "Tomates en grappe",
-"d": "Cat. 1 · Cal. 4/5F · Belgique · En vrac",
-"p": "1,99 €/kg",
-"nn": "Trostomaten",
-"dn": "Kl. 1 · Kal. 4/5F · België · Los",
-"pn": "€ 1,99/kg"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "Courgettes",
-"d": "Cat. 1 · Cal. 21/30 · Espagne · En vrac",
-"p": "1,79 €/kg",
-"nn": "Courgettes",
-"dn": "Kl. 1 · Kal. 21/30 · Spanje · Los",
-"pn": "€ 1,79/kg"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "Chou-fleur",
-"d": "Cat. 1 · Cal. 6 · Espagne",
-"p": "1,99 € la pièce",
-"nn": "Bloemkool",
-"dn": "Kl. 1 · Kal. 6 · Spanje",
-"pn": "€ 1,99 per stuk"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "Poivrons mixtes",
-"d": "Cat. 1 · Espagne · 500 g",
-"p": "1,99 € les 500 g",
-"x": "Soit 3,98 €/kg",
-"nn": "Gemengde paprika's",
-"dn": "Kl. 1 · Spanje · 500 g",
-"pn": "€ 1,99 per 500 g",
-"xn": "Of € 3,98/kg"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "BelOrta chicons",
-"d": "Cat. 1 · Belgique · Sachet de 500 g",
-"p": "2,29 € le sachet de 500 g",
-"x": "Soit 4,58 €/kg",
-"nn": "BelOrta witloof",
-"dn": "Kl. 1 · België · Zak van 500 g",
-"pn": "€ 2,29 per zak van 500 g",
-"xn": "Of € 4,58/kg"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "Champignons blancs",
-"d": "Cat. 1 · Belgique · Ravier de 1 kg",
-"p": "3,99 € le ravier de 1 kg",
-"nn": "Witte champignons",
-"dn": "Kl. 1 · België · Schaal van 1 kg",
-"pn": "€ 3,99 per schaal van 1 kg"
-},
-{
-"r": "fl",
-"m": "Prix folder",
-"n": "Saint Eloi pommes de terre",
-"d": "Variétés au choix (bio inclus) · Cat. 1 · Belgique · Sac de 2,5 kg",
-"p": "3,99 € le sac",
-"x": "Soit 1,60 €/kg",
-"nn": "Saint Eloi aardappelen",
-"dn": "Variëteiten naar keuze (bio inbegrepen) · Kl. 1 · België · Zak van 2,5 kg",
-"pn": "€ 3,99 per zak",
-"xn": "Of € 1,60/kg"
-},
-{
-"r": "boulangerie",
-"m": "4 + 4 gratis au choix",
-"n": "Piccolos",
-"d": "Blancs ± 60 g ou gris ± 80 g · Cuits sur place plusieurs fois par jour · Au lieu de 3,60 € · Max. 3 offres par semaine par client",
-"p": "1,80 € les 8 pièces",
-"x": "Soit 0,23 € la pièce",
-"nn": "Piccolo's",
-"dn": "Wit ± 60 g of grijs ± 80 g · Meermaals per dag ter plaatse gebakken · In plaats van € 3,60 · Max. 3 aanbiedingen per week per klant",
-"pn": "€ 1,80 voor 8 stuks",
-"xn": "Of € 0,23 per stuk"
-},
-{
-"r": "boulangerie",
-"m": "3 + 1 gratis au choix",
-"n": "Donuts Twister",
-"d": "Variétés au choix, 60 g · Au lieu de 4,76 €",
-"p": "3,57 € les 4 pièces",
-"x": "Soit 0,90 € la pièce",
-"nn": "Donuts Twister",
-"dn": "Naar keuze, 60 g · In plaats van € 4,76",
-"pn": "€ 3,57 voor 4 stuks",
-"xn": "Of € 0,90 per stuk"
-},
-{
-"r": "boulangerie",
-"m": "Prix folder",
-"n": "Pâtissons! ou Becky's part de tarte",
-"d": "Variétés au choix, de 85 g à 140 g",
-"p": "2,00 € la pièce",
-"nn": "Pâtissons! of Becky's taartpunt",
-"dn": "Naar keuze, van 85 g tot 140 g",
-"pn": "€ 2,00 per stuk"
-},
-{
-"r": "boulangerie",
-"m": "4 + 1 gratis au choix",
-"n": "Torsades ou tresses",
-"d": "Cuites sur place · Variétés au choix, de 75 g à 100 g · Au lieu de 4,45 €",
-"p": "3,56 € les 5 pièces",
-"x": "Soit 0,72 € la pièce",
-"nn": "Torsades of vlechten",
-"dn": "Ter plaatse gebakken · Naar keuze, van 75 g tot 100 g · In plaats van € 4,45",
-"pn": "€ 3,56 voor 5 stuks",
-"xn": "Of € 0,72 per stuk"
-},
-{
-"r": "boulangerie",
-"m": "1 + 1 gratis au choix",
-"n": "Pasquier Pitch ou Grilletine",
-"d": "Pitch blueberry ou chocobarre duo chocolat blanc, 6 pièces · Grilletine froment ou céréales & graines, 255 g · Au prix habituel de 2,49 € à 2,89 € le pack",
-"nn": "Pasquier Pitch of Grilletine",
-"dn": "Pitch blueberry of chocobarre duo witte chocolade, 6 stuks · Grilletine tarwe of granen & zaden, 255 g · Normale prijs € 2,49 tot € 2,89 per pak"
-},
-{
-"r": "cremerie",
-"m": "1 + 1 gratis au choix",
-"n": "La Laitière riz au lait ou semoule au lait",
-"d": "4 x 115 g · Variétés au choix (excepté riz au lait vanille) · Au prix habituel de 3,19 € à 3,49 € le pack · Max. 3 offres par semaine par client",
-"nn": "La Laitière rijstpap of griesmeelpudding",
-"dn": "4 x 115 g · Naar keuze (behalve rijstpap vanille) · Normale prijs € 3,19 tot € 3,49 per pak · Max. 3 aanbiedingen per week per klant"
-},
-{
-"r": "cremerie",
-"m": "2 + 1 gratis au choix",
-"n": "Passendale, Père Joseph ou Postel",
-"d": "Fromage en tranches ou en bloc · Variétés au choix · De 150 g à 290 g · Au prix habituel de 3,69 € à 5,89 € le pack",
-"nn": "Passendale, Père Joseph of Postel",
-"dn": "Kaas in sneetjes of in blok · Variëteiten naar keuze · Van 150 g tot 290 g · Normale prijs € 3,69 tot € 5,89 per pak"
-},
-{
-"r": "cremerie",
-"carte": 1,
-"m": "2e à -50 % au choix",
-"n": "Cœur de Lion fromages",
-"d": "Variétés au choix · De 150 g à 250 g · Au prix habituel de 3,45 € à 4,89 € le pack",
-"nn": "Cœur de Lion kazen",
-"dn": "Variëteiten naar keuze · Van 150 g tot 250 g · Normale prijs € 3,45 tot € 4,89 per pak"
-},
-{
-"r": "cremerie",
-"carte": 1,
-"m": "1 + 1 gratis au choix",
-"n": "Cœur de Lion fromages",
-"d": "Jeudi 05/11 uniquement · Variétés au choix · De 150 g à 250 g · Au prix habituel de 3,45 € à 4,89 € le pack",
-"nn": "Cœur de Lion kazen",
-"dn": "Enkel donderdag 05/11 · Variëteiten naar keuze · Van 150 g tot 250 g · Normale prijs € 3,45 tot € 4,89 per pak"
-},
-{
-"r": "cremerie",
-"carte": 1,
-"m": "2e à -50 % au choix",
-"n": "Dilea",
-"d": "Sans lactose · Variétés au choix · De 100 g à 500 g ou de 200 ml à 1 l · Au prix habituel de 2,25 € à 5,59 € le pack",
-"nn": "Dilea",
-"dn": "Lactosevrij · Variëteiten naar keuze · Van 100 g tot 500 g of van 200 ml tot 1 l · Normale prijs € 2,25 tot € 5,59 per pak"
-},
-{
-"r": "cremerie",
-"carte": 1,
-"m": "1 + 1 gratis au choix",
-"n": "Dilea",
-"d": "Jeudi 05/11 uniquement · Sans lactose · Variétés au choix · De 100 g à 500 g ou de 200 ml à 1 l · Au prix habituel de 2,25 € à 5,59 € le pack",
-"nn": "Dilea",
-"dn": "Enkel donderdag 05/11 · Lactosevrij · Variëteiten naar keuze · Van 100 g tot 500 g of van 200 ml tot 1 l · Normale prijs € 2,25 tot € 5,59 per pak"
-},
-{
-"r": "cremerie",
-"m": "Jusqu'à -35 %",
-"n": "Maredsous Tradition ou Caractère",
-"d": "Découpé sur place · Au lieu de 2,45 € à 2,65 € les 100 g · Soit 16,90 €/kg",
-"p": "1,69 € les 100 g",
-"nn": "Maredsous Tradition of Caractère",
-"dn": "Ter plaatse gesneden · In plaats van € 2,45 tot € 2,65 per 100 g · Of € 16,90/kg",
-"pn": "€ 1,69 per 100 g"
-},
-{
-"r": "cremerie",
-"m": "-15 %",
-"n": "Morbier",
-"d": "Fromage au lait cru · Découpé sur place · Au lieu de 2,00 € les 100 g · Soit 16,90 €/kg",
-"p": "1,69 € les 100 g",
-"nn": "Morbier",
-"dn": "Kaas van rauwe melk · Ter plaatse gesneden · In plaats van € 2,00 per 100 g · Of € 16,90/kg",
-"pn": "€ 1,69 per 100 g"
-},
-{
-"r": "cremerie",
-"m": "2e à -50 % au choix",
-"n": "Pâturages crème",
-"d": "Crème fleurette entière ou légère 40 cl ou crème fraîche épaisse 20 cl ou 45 cl · Au prix habituel de 1,69 € à 2,69 € le pack",
-"nn": "Pâturages room",
-"dn": "Volle of lichte room 40 cl of dikke verse room 20 cl of 45 cl · Normale prijs € 1,69 tot € 2,69 per pak"
-},
-{
-"r": "cremerie",
-"m": "-30 %",
-"n": "Old Amsterdam",
-"d": "Découpé sur place · Au lieu de 2,30 € les 100 g · Soit 16,00 €/kg",
-"p": "1,60 € les 100 g",
-"nn": "Old Amsterdam",
-"dn": "Ter plaatse gesneden · In plaats van € 2,30 per 100 g · Of € 16,00/kg",
-"pn": "€ 1,60 per 100 g"
-},
-{
-"r": "cremerie",
-"m": "2e à -50 % au choix",
-"n": "Campina lait",
-"d": "Demi-écrémé, entier ou sans lactose · En bouteille, 6 x 1 l · Au prix habituel de 8,22 € à 16,08 € le pack",
-"nn": "Campina melk",
-"dn": "Halfvol, volle of lactosevrije melk · In fles, 6 x 1 l · Normale prijs € 8,22 tot € 16,08 per pak"
-},
-{
-"r": "cremerie",
-"carte": 1,
-"m": "2e à -50 % au choix",
-"n": "Becel Pro Activ",
-"d": "Variétés au choix · De 225 g à 500 g · Au prix habituel de 2,75 € à 5,49 € le pack",
-"nn": "Becel Pro Activ",
-"dn": "Variëteiten naar keuze · Van 225 g tot 500 g · Normale prijs € 2,75 tot € 5,49 per pak"
-},
-{
-"r": "cremerie",
-"carte": 1,
-"m": "1 + 1 gratis au choix",
-"n": "Becel Pro Activ",
-"d": "Jeudi 05/11 uniquement · Variétés au choix · De 225 g à 500 g · Au prix habituel de 2,75 € à 5,49 € le pack",
-"nn": "Becel Pro Activ",
-"dn": "Enkel donderdag 05/11 · Variëteiten naar keuze · Van 225 g tot 500 g · Normale prijs € 2,75 tot € 5,49 per pak"
-},
-{
-"r": "cremerie",
-"m": "3 + 3 gratis au choix",
-"n": "Danio fromage frais",
-"d": "Variétés au choix, 165 g · Au prix habituel de 1,39 € à 1,59 € la pièce",
-"nn": "Danio verse kaas",
-"dn": "Naar keuze, 165 g · Normale prijs € 1,39 tot € 1,59 per stuk"
-},
-{
-"r": "cremerie",
-"m": "2e à -50 % au choix",
-"n": "Yoplait Skyr",
-"d": "Variétés au choix, 4x100 g ou 850 g · Au prix habituel de 2,99 € à 3,99 € le pack",
-"nn": "Yoplait Skyr",
-"dn": "Naar keuze, 4x100 g of 850 g · Normale prijs € 2,99 tot € 3,99 per pak"
-},
-{
-"r": "cremerie",
-"m": "1 + 1 gratis au choix",
-"n": "Danone yaourt à la grecque",
-"d": "Variétés au choix, 4x110 g · Au prix habituel de 2,39 € à 2,89 € le pack",
-"nn": "Danone Griekse yoghurt",
-"dn": "Naar keuze, 4x110 g · Normale prijs € 2,39 tot € 2,89 per pak"
-},
-{
-"r": "epicerie",
-"m": "2 + 3 gratis au choix",
-"n": "Panzani pâtes",
-"d": "Variétés au choix, 500 g · Au prix habituel de 1,31 € à 3,65 € la pièce · Max. 3 offres par semaine par client",
-"nn": "Panzani pasta",
-"dn": "Naar keuze, 500 g · Normale prijs € 1,31 tot € 3,65 per stuk · Max. 3 aanbiedingen per week per klant"
-},
-{
-"r": "epicerie",
-"m": "2 + 2 gratis au choix",
-"n": "Délichoc biscuits ou Delacre Schtroumpfs",
-"d": "Délichoc de 120 g à 250 g ou Delacre Schtroumpfs 150 g · Au prix habituel de 1,99 € à 4,39 € le pack · Max. 3 offres par semaine par client",
-"nn": "Délichoc koekjes of Delacre Smurfen",
-"dn": "Délichoc van 120 g tot 250 g of Delacre Smurfen 150 g · Normale prijs € 1,99 tot € 4,39 per pak · Max. 3 aanbiedingen per week per klant"
-},
-{
-"r": "epicerie",
-"carte": 1,
-"m": "2 + 2 gratis au choix",
-"n": "Lay's Oven Baked",
-"d": "Variétés au choix, 150 g · Au prix habituel de 1,75 € à 2,35 € la pièce · Max. 3 offres par semaine par porteur de la carte Intermarché",
-"nn": "Lay's Oven Baked",
-"dn": "Naar keuze, 150 g · Normale prijs € 1,75 tot € 2,35 per stuk · Max. 3 aanbiedingen per week per houder van de Intermarché-kaart"
-},
-{
-"r": "epicerie",
-"m": "3 + 1 gratis au choix",
-"n": "Senseo café en pads",
-"d": "Variétés au choix · Au prix habituel de 3,79 € à 8,95 € le pack",
-"nn": "Senseo koffiepads",
-"dn": "Naar keuze · Normale prijs € 3,79 tot € 8,95 per pak"
-},
-{
-"r": "epicerie",
-"m": "3 + 1 gratis au choix",
-"n": "Starbucks café",
-"d": "Variétés au choix · Au prix habituel de 3,69 € à 11,99 € le pack",
-"nn": "Starbucks koffie",
-"dn": "Naar keuze · Normale prijs € 3,69 tot € 11,99 per pak"
-},
-{
-"r": "epicerie",
-"carte": 1,
-"m": "2 + 2 gratis au choix",
-"n": "BN ou Sultana",
-"d": "BN 150 g ou 175 g, Sultana 175 g ou 218 g · Variétés au choix · Au prix habituel de 2,15 € à 4,15 € le pack",
-"nn": "BN of Sultana",
-"dn": "BN 150 g of 175 g, Sultana 175 g of 218 g · Naar keuze · Normale prijs € 2,15 tot € 4,15 per pak"
-},
-{
-"r": "epicerie",
-"m": "3 + 1 gratis au choix",
-"n": "Liebig soupe ou bouillon",
-"d": "Soupe 500 ml, 2 x 350 ml, 750 ml ou 1 L, bouillon 12 pièces · Variétés au choix · Au prix habituel de 2,29 € à 6,39 € le pack",
-"nn": "Liebig soep of bouillon",
-"dn": "Soep 500 ml, 2 x 350 ml, 750 ml of 1 L, bouillon 12 stuks · Naar keuze · Normale prijs € 2,29 tot € 6,39 per pak"
-},
-{
-"r": "epicerie",
-"m": "3 + 3 gratis au choix",
-"n": "Gargano Rosso",
-"d": "Conserves ou sauces tomates, de 290 g à 690 g · Variétés au choix · Au prix habituel de 1,58 € à 3,98 € la pièce",
-"nn": "Gargano Rosso",
-"dn": "Tomatenconserven of -sauzen, van 290 g tot 690 g · Naar keuze · Normale prijs € 1,58 tot € 3,98 per stuk"
-},
-{
-"r": "epicerie",
-"m": "1 + 1 gratis au choix",
-"n": "Brets chips",
-"d": "La bretonne subtilement beurrée, beurre persillé, tajine de poulet aux épices ou gyozas au poulet · Au lieu de 4,68 € · Soit 9,36 €/kg",
-"p": "2,34 € les 2 x 125 g",
-"nn": "Brets chips",
-"dn": "La bretonne licht geboterd, peterseliebotersmaak, kip-tajine met kruiden of kip-gyoza · In plaats van € 4,68 · Of € 9,36/kg",
-"pn": "€ 2,34 voor 2 x 125 g"
-},
-{
-"r": "epicerie",
-"m": "1 + 1 gratis",
-"n": "Bonduelle",
-"d": "Petits pois & carottes 2 x 610 g ou haricots verts très fins 2 x 800 g · Gratuit dans le pack · Au prix promotionnel de 3,25 € à 4,15 € le lot de 2 boîtes",
-"nn": "Bonduelle",
-"dn": "Erwtjes & worteltjes 2 x 610 g of extra fijne sperziebonen 2 x 800 g · Gratis in de verpakking · Promoprijs € 3,25 tot € 4,15 voor 2 blikken"
-},
-{
-"r": "epicerie",
-"carte": 1,
-"m": "2e à -50 % au choix",
-"n": "Colona sauce froide",
-"d": "Top Down 350 ml ou en tube 500 ml · Variétés au choix · Au prix habituel de 3,29 € à 4,19 € la pièce",
-"nn": "Colona koude saus",
-"dn": "Top Down 350 ml of in tube 500 ml · Naar keuze · Normale prijs € 3,29 tot € 4,19 per stuk"
-},
-{
-"r": "epicerie",
-"carte": 1,
-"m": "1 + 1 gratis au choix",
-"n": "Colona sauce froide",
-"d": "Jeudi 05/11 uniquement · Top Down 350 ml ou en tube 500 ml · Variétés au choix · Au prix habituel de 3,29 € à 4,19 € la pièce",
-"nn": "Colona koude saus",
-"dn": "Enkel donderdag 05/11 · Top Down 350 ml of in tube 500 ml · Naar keuze · Normale prijs € 3,29 tot € 4,19 per stuk"
-},
-{
-"r": "stnicolas",
-"carte": 1,
-"m": "2e à -30 % au choix",
-"n": "Côte d'Or",
-"d": "Mignonnettes 21 ou 24 pièces, boîte métal édition limitée 295 g, bouchées 8 pièces, mini bouchées 20 pièces ou mini roc 21 pièces · Au prix habituel de 3,95 € à 14,99 € le pack",
-"nn": "Côte d'Or",
-"dn": "Mignonnettes 21 of 24 stuks, metalen doos limited edition 295 g, bouchées 8 stuks, mini bouchées 20 stuks of mini roc 21 stuks · Normale prijs € 3,95 tot € 14,99 per pak"
-},
-{
-"r": "stnicolas",
-"carte": 1,
-"m": "2e à -50 % au choix",
-"n": "Baci coffret de pralines",
-"d": "Noir ou lait, 150 g · Au lieu de 25,98 € les 2 (86,60 €/kg) · 6,50 € ajoutés à ma carte",
-"p": "19,48 € les 2 x 150 g",
-"x": "Soit 64,94 €/kg",
-"nn": "Baci pralinedoos",
-"dn": "Puur of melk, 150 g · In plaats van € 25,98 voor 2 (€ 86,60/kg) · € 6,50 op mijn kaart gezet",
-"pn": "€ 19,48 voor 2 x 150 g",
-"xn": "Of € 64,94/kg"
-},
-{
-"r": "stnicolas",
-"carte": 1,
-"m": "1 + 1 gratis au choix",
-"n": "Baci coffret de pralines",
-"d": "Jeudi 05/11 uniquement · Noir ou lait, 150 g · Variétés au choix",
-"nn": "Baci pralinedoos",
-"dn": "Enkel donderdag 05/11 · Puur of melk, 150 g · Naar keuze"
-},
-{
-"r": "stnicolas",
-"m": "Prix folder",
-"n": "Lotus Biscoff speculoos Saint-Nicolas au chocolat",
-"d": "9 cm, 2 pièces ou 6 x 25 g · Variétés au choix",
-"p": "3,69 € le pack",
-"nn": "Lotus Biscoff Sinterklaasspeculoos met chocolade",
-"dn": "9 cm, 2 stuks of 6 x 25 g · Naar keuze",
-"pn": "€ 3,69 per pak"
-},
-{
-"r": "stnicolas",
-"carte": 1,
-"m": "2e à -30 % au choix",
-"n": "Toblerone",
-"d": "Chocolat au lait 340 g ou Mini mix 248 g · Variétés au choix · Au prix habituel de 8,85 € à 12,69 € le pack",
-"nn": "Toblerone",
-"dn": "Melkchocolade 340 g of Mini mix 248 g · Naar keuze · Normale prijs € 8,85 tot € 12,69 per pak"
-},
-{
-"r": "stnicolas",
-"carte": 1,
-"m": "2e à -30 % au choix",
-"n": "Kinder ou Nutella calendrier de l'Avent",
-"d": "De 123 g à 528 g · Variétés au choix · Au prix habituel de 5,99 € à 36,99 € le pack",
-"nn": "Kinder of Nutella adventskalender",
-"dn": "Van 123 g tot 528 g · Naar keuze · Normale prijs € 5,99 tot € 36,99 per pak"
-},
-{
-"r": "stnicolas",
-"m": "Prix folder",
-"n": "Kinder Surprise Maxi",
-"d": "220 g · Soit 68,14 €/kg",
-"p": "14,99 € les 220 g",
-"nn": "Kinder Surprise Maxi",
-"dn": "220 g · Of € 68,14/kg",
-"pn": "€ 14,99 per 220 g"
-},
-{
-"r": "stnicolas",
-"m": "Prix folder",
-"n": "Sachet Saint-Nicolas cône",
-"d": "155 g · Soit 31,30 €/kg",
-"p": "4,85 € les 155 g",
-"nn": "Sinterklaaszakje kegel",
-"dn": "155 g · Of € 31,30/kg",
-"pn": "€ 4,85 per 155 g"
-},
-{
-"r": "stnicolas",
-"m": "2e à -40 % au choix",
-"n": "Raffaello ou Mon Chéri",
-"d": "Raffaello 8, 15 ou 23 pièces, Mon Chéri 15 ou 30 pièces · Variétés au choix · Au prix habituel de 2,55 € à 11,55 € le pack",
-"nn": "Raffaello of Mon Chéri",
-"dn": "Raffaello 8, 15 of 23 stuks, Mon Chéri 15 of 30 stuks · Naar keuze · Normale prijs € 2,55 tot € 11,55 per pak"
-},
-{
-"r": "surgeles",
-"m": "1 + 1 gratis",
-"n": "McCain Rösti",
-"d": "800 g · Au lieu de 11,98 € · Soit 3,75 €/kg · Max. 3 offres par semaine par client",
-"p": "5,99 € les 2 x 800 g",
-"nn": "McCain Rösti",
-"dn": "800 g · In plaats van € 11,98 · Of € 3,75/kg · Max. 3 aanbiedingen per week per klant",
-"pn": "€ 5,99 voor 2 x 800 g"
-},
-{
-"r": "surgeles",
-"m": "2e à -40 % au choix",
-"n": "Mora",
-"d": "Viandelles 4x70 g, Carrero 4x100 g ou Poulycroc 4x60 g · Au prix habituel de 5,09 € à 5,75 € le pack",
-"nn": "Mora",
-"dn": "Viandelles 4x70 g, Carrero 4x100 g of Poulycroc 4x60 g · Normale prijs € 5,09 tot € 5,75 per pak"
-},
-{
-"r": "surgeles",
+"img": "img/folder/1011/003.webp",
 "m": "Prix exceptionnel",
-"n": "Tipiak plats cuisinés",
-"d": "Variétés au choix, 2x125 g · Soit 19,16 €/kg",
-"p": "4,79 € les 2x125 g",
-"nn": "Tipiak bereide gerechten",
-"dn": "Naar keuze, 2x125 g · Of € 19,16/kg",
-"pn": "€ 4,79 voor 2x125 g"
+"n": "Boudins",
+"d": "Variétés au choix · Soit 11,00 €/kg",
+"p": "1,65 € les 150 g",
+"nn": "Pensen",
+"dn": "Naar keuze · Of € 11,00/kg",
+"pn": "€ 1,65 per 150 g"
 },
 {
-"r": "surgeles",
-"carte": 1,
-"m": "2e à -50 % au choix",
-"n": "Iglo saumon ou Captain's Cuisine",
-"d": "Saumon 2x125 g ou 500 g, ou Captain's Cuisine mix aux fruits de mer 400 g · Variétés au choix · Au prix habituel de 5,95 € à 24,69 € le pack",
-"nn": "Iglo zalm of Captain's Cuisine",
-"dn": "Zalm 2x125 g of 500 g, of Captain's Cuisine mix met zeevruchten 400 g · Naar keuze · Normale prijs € 5,95 tot € 24,69 per pak"
+"r": "traiteur",
+"img": "img/folder/1011/004.webp",
+"m": "500 g + 500 g gratis in pack",
+"n": "Gambas fraîches cuites",
+"d": "Cal. 40/60 · Amérique centrale ou du Sud · Au lieu de 1,79 € les 100 g · Soit 8,90 €/kg",
+"p": "0,89 € les 100 g",
+"nn": "Verse gekookte gamba's",
+"dn": "Kal. 40/60 · Centraal- of Zuid-Amerika · In plaats van € 1,79 per 100 g · Of € 8,90/kg",
+"pn": "€ 0,89 per 100 g"
 },
 {
-"r": "surgeles",
+"r": "traiteur",
 "carte": 1,
+"img": "img/folder/1011/005.webp",
 "m": "1 + 1 gratis au choix",
-"n": "Iglo saumon ou Captain's Cuisine",
-"d": "Jeudi 05/11 uniquement · Saumon 2x125 g ou 500 g, ou Captain's Cuisine mix aux fruits de mer 400 g · Variétés au choix · Au prix habituel de 5,95 € à 24,69 € le pack",
-"nn": "Iglo zalm of Captain's Cuisine",
-"dn": "Enkel donderdag 05/11 · Zalm 2x125 g of 500 g, of Captain's Cuisine mix met zeevruchten 400 g · Naar keuze · Normale prijs € 5,95 tot € 24,69 per pak"
+"n": "Emma Giordani Pâtes fraîches fourrées",
+"d": "Granfarciotti · Variétés au choix · 250 g · Au prix habituel de 2,99 € le pack · Max. 3 offres par semaine par porteur de la carte",
+"p": "2,99 € les 2 x 250 g",
+"x": "Vous payez 5,98 €, dont 2,99 € ajoutés à ma carte · Soit 1,50 €/pack",
+"nn": "Emma Giordani Verse gevulde pasta",
+"dn": "Granfarciotti · Naar keuze · 250 g · Normale prijs € 2,99 per pak · Max. 3 aanbiedingen per week per kaarthouder",
+"pn": "€ 2,99 voor 2 x 250 g",
+"xn": "U betaalt € 5,98, waarvan € 2,99 op mijn kaart gezet · Of € 1,50 per pak"
 },
 {
-"r": "surgeles",
-"m": "1 + 1 gratis au choix",
-"n": "Monique Ranou paniers feuilletés",
-"d": "Variétés au choix, 400 g · Au prix habituel de 3,49 € à 4,99 € le pack",
-"nn": "Monique Ranou bladerdeegmandjes",
-"dn": "Naar keuze, 400 g · Normale prijs € 3,49 tot € 4,99 per pak"
+"r": "traiteur",
+"img": "img/folder/1011/013.webp",
+"m": "2 kg + 2 kg gratis",
+"n": "Moules de Zélande",
+"d": "Cal. Extra · Zélande (Pays-Bas) · Au lieu de 17,98 € · Soit 2,25 €/kg",
+"p": "8,99 € les 2 x 2 kg",
+"nn": "Zeeuwse mosselen",
+"dn": "Kal. Extra · Zeeland (Nederland) · In plaats van € 17,98 · Of € 2,25/kg",
+"pn": "€ 8,99 voor 2 x 2 kg"
 },
 {
-"r": "boissons",
-"m": "1 + 1 gratis",
-"n": "Villa Vincenta DOC Prosecco",
-"d": "75 cl · Au lieu de 27,96 € · Max. 3 offres par semaine par client",
-"p": "13,98 € les 2 x 75 cl",
-"x": "Soit 6,99 € la bouteille",
-"nn": "Villa Vincenta DOC Prosecco",
-"dn": "75 cl · In plaats van € 27,96 · Max. 3 aanbiedingen per week per klant",
-"pn": "€ 13,98 voor 2 x 75 cl",
-"xn": "Of € 6,99 per fles"
-},
-{
-"r": "boissons",
-"m": "2e à -50 % au choix",
-"n": "Coca-Cola",
-"d": "Variétés au choix, bouteilles 6 x 1,5 l · Au prix habituel de 14,22 € à 14,88 € le pack",
-"nn": "Coca-Cola",
-"dn": "Naar keuze, flessen 6 x 1,5 l · Normale prijs € 14,22 tot € 14,88 per pak"
-},
-{
-"r": "boissons",
-"m": "2e à -50 % au choix",
-"n": "Jupiler ou Stella Artois",
-"d": "Jupiler casier 24 x 33 cl ou Stella Artois casier 24 x 25 cl (hors vidanges) · Au prix habituel de 16,45 € à 19,39 € le casier",
-"nn": "Jupiler of Stella Artois",
-"dn": "Jupiler bak 24 x 33 cl of Stella Artois bak 24 x 25 cl (zonder leeggoed) · Normale prijs € 16,45 tot € 19,39 per bak"
-},
-{
-"r": "boissons",
+"r": "traiteur",
 "carte": 1,
+"img": "img/folder/1011/030.webp",
 "m": "2e à -50 % au choix",
-"n": "Maison Perrier Forever eau aromatisée",
-"d": "En pack 6 x 50 cl ou 6 x 1 L · Variétés au choix · Au prix habituel de 6,45 € à 10,20 € le pack",
-"nn": "Maison Perrier Forever water met smaak",
-"dn": "Pak van 6 x 50 cl of 6 x 1 L · Naar keuze · Normale prijs € 6,45 tot € 10,20 per pak"
+"n": "Levoni charcuteries italiennes",
+"d": "Variétés au choix · Avec ma carte · Au prix habituel de 3,25 € à 6,89 € le pack",
+"nn": "Levoni Italiaanse charcuterie",
+"dn": "Naar keuze · Met mijn kaart · Normale prijs € 3,25 tot € 6,89 per pak"
 },
 {
-"r": "boissons",
+"r": "traiteur",
 "carte": 1,
+"img": "img/folder/1011/030.webp",
 "m": "1 + 1 gratis au choix",
-"n": "Maison Perrier Forever eau aromatisée",
-"d": "Jeudi 05/11 uniquement · En pack 6 x 50 cl ou 6 x 1 L · Variétés au choix · Au prix habituel de 6,45 € à 10,20 € le pack",
-"nn": "Maison Perrier Forever water met smaak",
-"dn": "Enkel donderdag 05/11 · Pak van 6 x 50 cl of 6 x 1 L · Naar keuze · Normale prijs € 6,45 tot € 10,20 per pak"
+"n": "Levoni charcuteries italiennes",
+"d": "Jeudi 12/11 uniquement · Variétés au choix · Avec ma carte · Au prix habituel de 3,25 € à 6,89 € le pack",
+"nn": "Levoni Italiaanse charcuterie",
+"dn": "Enkel donderdag 12/11 · Naar keuze · Met mijn kaart · Normale prijs € 3,25 tot € 6,89 per pak"
 },
 {
-"r": "boissons",
+"r": "traiteur",
+"img": "img/folder/1011/031.webp",
+"m": "2 pour 5 €",
+"n": "Saucissons secs",
+"d": "Variétés au choix · 120 g · Soit 20,84 €/kg",
+"p": "5,00 € les 2 x 120 g",
+"nn": "Droge worsten",
+"dn": "Naar keuze · 120 g · Of € 20,84/kg",
+"pn": "€ 5,00 voor 2 x 120 g"
+},
+{
+"r": "traiteur",
+"img": "img/folder/1011/032.webp",
+"m": "-35 %",
+"n": "Jambon à l'os supérieur",
+"d": "Au lieu de 2,20 € les 100 g · Soit 14,30 €/kg",
+"p": "1,43 € les 100 g",
+"nn": "Beenham superieur",
+"dn": "In plaats van € 2,20 per 100 g · Of € 14,30/kg",
+"pn": "€ 1,43 per 100 g"
+},
+{
+"r": "traiteur",
+"img": "img/folder/1011/043.webp",
+"m": "250 g + 250 g gratis in pack",
+"n": "Lardons fumés",
+"d": "500 g · Au lieu de 7,00 € · Soit 7,00 €/kg",
+"p": "3,50 € les 500 g",
+"nn": "Gerookte spekblokjes",
+"dn": "500 g · In plaats van € 7,00 · Of € 7,00/kg",
+"pn": "€ 3,50 per 500 g"
+},
+{
+"r": "traiteur",
+"img": "img/folder/1011/044.webp",
+"m": "Prix exceptionnel",
+"n": "Colis raclette",
+"d": "± 165 g de lard fumé, ± 165 g de rosette, ± 125 g de jambon de Savoie, ± 165 g de bacon fumé · Soit 16,00 €/kg · Disponible également en magasin : le colis raclette ± 400 g au prix promotionnel de 16,00 €/kg",
+"p": "9,92 € les 620 g",
+"nn": "Raclettepakket",
+"dn": "± 165 g gerookt spek, ± 165 g rosette, ± 125 g ham uit Savoie, ± 165 g gerookte bacon · Of € 16,00/kg · Ook in de winkel verkrijgbaar: raclettepakket van ± 400 g tegen de promoprijs van € 16,00/kg",
+"pn": "€ 9,92 per 620 g"
+},
+{
+"r": "traiteur",
+"img": "img/folder/1011/045.webp",
+"m": "Prix exceptionnel",
+"n": "Jambon de Bayonne",
+"d": "Soit 18,90 €/kg",
+"p": "1,89 € les 100 g",
+"nn": "Ham uit Bayonne",
+"dn": "Of € 18,90/kg",
+"pn": "€ 1,89 per 100 g"
+},
+{
+"r": "traiteur",
+"img": "img/folder/1011/046.webp",
+"m": "-30 %",
+"n": "Isali ou Delasia plats préparés asiatiques",
+"d": "Variétés au choix · Au prix habituel de 17,90 € à 26,50 € le kilo",
+"nn": "Isali of Delasia Aziatische bereide gerechten",
+"dn": "Naar keuze · Normale prijs € 17,90 tot € 26,50 per kilo"
+},
+{
+"r": "traiteur",
+"carte": 1,
+"img": "img/folder/1011/047.webp",
+"m": "3 pour 5 € au choix",
+"n": "Monique Ranou salades tartinables",
+"d": "Variétés au choix · De 150 g à 215 g · Au prix habituel de 1,75 € à 2,75 € le pack · Offre valable toute l'année · Le gain avec la carte ne double pas",
+"p": "5 € les 3",
+"x": "Avec ma carte",
+"nn": "Monique Ranou smeersalades",
+"dn": "Naar keuze · Van 150 g tot 215 g · Normale prijs € 1,75 tot € 2,75 per pak · Aanbieding het hele jaar geldig · Het voordeel met de kaart wordt niet verdubbeld",
+"pn": "€ 5 voor 3",
+"xn": "Met mijn kaart"
+},
+{
+"r": "traiteur",
+"img": "img/folder/1011/049.webp",
+"m": "-30 %",
+"n": "Peka gratin dauphinois",
+"d": "Au lieu de 0,75 € · Soit 5,20 €/kg · L'offre de -30 % est également valable sur le gratin dauphinois Peka à la truffe ou raclette",
+"p": "0,52 € les 100 g",
+"nn": "Peka gratin dauphinois",
+"dn": "In plaats van € 0,75 · Of € 5,20/kg · De korting van -30 % geldt ook voor Peka gratin dauphinois met truffel of raclette",
+"pn": "€ 0,52 per 100 g"
+},
+{
+"r": "fl",
+"img": "img/folder/1011/024.webp",
+"m": "Prix folder",
+"n": "Clémentines à feuilles",
+"d": "Cat. 1 · Cal. 1/2 · Espagne · En vrac",
+"p": "2,99 €/kg",
+"nn": "Clementines met blad",
+"dn": "Kl. 1 · Kal. 1/2 · Spanje · Los",
+"pn": "€ 2,99/kg"
+},
+{
+"r": "fl",
+"img": "img/folder/1011/025.webp",
+"m": "Prix folder",
+"n": "Zespri kiwi Green ou SunGold",
+"d": "Au choix · Cat. 1 · Cal. 33-36 · Nouvelle-Zélande",
+"p": "0,55 € la pièce",
+"nn": "Zespri kiwi Green of SunGold",
+"dn": "Naar keuze · Kl. 1 · Kal. 33-36 · Nieuw-Zeeland",
+"pn": "€ 0,55 per stuk"
+},
+{
+"r": "fl",
+"img": "img/folder/1011/026.webp",
+"m": "Prix folder",
+"n": "Poires Conférence ou Doyenné",
+"d": "Cat. 1 · Cal. 65/75 · Belgique · En vrac",
+"p": "1,69 €/kg",
+"nn": "Peren Conference of Doyenné",
+"dn": "Kl. 1 · Kal. 65/75 · België · Los",
+"pn": "€ 1,69/kg"
+},
+{
+"r": "fl",
+"img": "img/folder/1011/027.webp",
+"m": "Prix folder",
+"n": "Poireau",
+"d": "La botte de 1 kg · Cat. 1 · Belgique",
+"p": "1,99 € la botte",
+"nn": "Prei",
+"dn": "Bundel van 1 kg · Kl. 1 · België",
+"pn": "€ 1,99 per bundel"
+},
+{
+"r": "fl",
+"img": "img/folder/1011/028.webp",
+"m": "Prix folder",
+"n": "Concombre",
+"d": "Cat. 1 · Cal. 350/400 · Espagne",
+"p": "0,89 € la pièce",
+"nn": "Komkommer",
+"dn": "Kl. 1 · Kal. 350/400 · Spanje",
+"pn": "€ 0,89 per stuk"
+},
+{
+"r": "fl",
+"img": "img/folder/1011/029.webp",
+"m": "Prix folder",
+"n": "Scarole",
+"d": "Cat. 1 · Cal. 6 · Espagne/Italie",
+"p": "1,49 € la pièce",
+"nn": "Andijvie (scarola)",
+"dn": "Kl. 1 · Kal. 6 · Spanje/Italië",
+"pn": "€ 1,49 per stuk"
+},
+{
+"r": "boulangerie",
+"img": "img/folder/1011/048.webp",
+"m": "2 pour 1,80 €",
+"n": "Baguette",
+"d": "400 g · Cuit sur place plusieurs fois par jour · Au lieu de 2,38 € · Soit 0,90 € la pièce",
+"p": "1,80 € les 2 pièces",
+"nn": "Baguette",
+"dn": "400 g · Meermaals per dag ter plaatse gebakken · In plaats van € 2,38 · Of € 0,90 per stuk",
+"pn": "€ 1,80 voor 2 stuks"
+},
+{
+"r": "boulangerie",
+"img": "img/folder/1011/050.webp",
+"m": "3 + 1 gratis in pack",
+"n": "Boules de Berlin, éclairs ou cornets crème",
+"d": "4 pièces · De 300 g à 420 g",
+"p": "4,49 € le pack",
+"nn": "Berlinerbollen, eclairs of roomhoorntjes",
+"dn": "4 stuks · Van 300 g tot 420 g",
+"pn": "€ 4,49 per pak"
+},
+{
+"r": "boulangerie",
+"img": "img/folder/1011/051.webp",
+"m": "Prix folder",
+"n": "Colis boulangerie",
+"d": "4 sandwichs (45 g), 2 croissants (50 à 55 g), 2 pains au chocolat (60 g) · Cuits sur place · Au lieu de 4,56 € · Soit 0,44 € la pièce",
+"p": "3,50 € les 8 pièces",
+"nn": "Bakkerijpakket",
+"dn": "4 sandwiches (45 g), 2 croissants (50 tot 55 g), 2 chocoladebroodjes (60 g) · Ter plaatse gebakken · In plaats van € 4,56 · Of € 0,44 per stuk",
+"pn": "€ 3,50 voor 8 stuks"
+},
+{
+"r": "boulangerie",
+"img": "img/folder/1011/052.webp",
+"m": "4 pour 5 € au choix",
+"n": "Muffins fourrés",
+"d": "Variétés au choix · De 90 g à 112 g · Au lieu de 6,60 € · Soit 1,25 € la pièce",
+"p": "5,00 € les 4 pièces",
+"nn": "Gevulde muffins",
+"dn": "Naar keuze · Van 90 g tot 112 g · In plaats van € 6,60 · Of € 1,25 per stuk",
+"pn": "€ 5,00 voor 4 stuks"
+},
+{
+"r": "cremerie",
+"img": "img/folder/1011/001.webp",
+"m": "1 + 1 gratis au choix",
+"n": "EntreMont Fromage à raclette",
+"d": "Variétés au choix · De 250 g à 600 g · Au prix habituel de 6,99 € à 15,39 € le pack · Max. 3 offres par semaine par client",
+"nn": "EntreMont Raclettekaas",
+"dn": "Naar keuze · Van 250 g tot 600 g · Normale prijs € 6,99 tot € 15,39 per pak · Max. 3 aanbiedingen per week per klant"
+},
+{
+"r": "cremerie",
+"img": "img/folder/1011/007.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Nestlé Viennois",
+"d": "4 x 100 g · Variétés au choix · Au prix habituel de 3,55 € à 3,65 € le pack · Max. 3 offres par semaine par client",
+"nn": "Nestlé Viennois",
+"dn": "4 x 100 g · Naar keuze · Normale prijs € 3,55 tot € 3,65 per pak · Max. 3 aanbiedingen per week per klant"
+},
+{
+"r": "cremerie",
+"img": "img/folder/1011/011.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Danone Yaourts",
+"d": "Yaourt maigre 4 x 125 g, 8 x 125 g ou 12 x 125 g (excepté gamme Vitalinea) ou Yaourt entier panaché 8 x 125 g · Au prix habituel de 1,99 € à 4,95 € le pack",
+"nn": "Danone Yoghurts",
+"dn": "Magere yoghurt 4 x 125 g, 8 x 125 g of 12 x 125 g (behalve Vitalinea-gamma) of Volle yoghurt gemengd 8 x 125 g · Normale prijs € 1,99 tot € 4,95 per pak"
+},
+{
+"r": "cremerie",
+"img": "img/folder/1011/033.webp",
+"m": "2e à -50 % au choix",
+"n": "Rochefort beurre",
+"d": "Doux ou salé · 250 g · Au lieu de 8,78 € · Soit 13,16 €/kg",
+"p": "6,58 € les 2 x 250 g",
+"nn": "Rochefort boter",
+"dn": "Ongezouten of gezouten · 250 g · In plaats van € 8,78 · Of € 13,16/kg",
+"pn": "€ 6,58 voor 2 x 250 g"
+},
+{
+"r": "cremerie",
+"carte": 1,
+"img": "img/folder/1011/035.webp",
+"m": "2e à -50 % au choix",
+"n": "Pâturages lait",
+"d": "Entier, demi-écrémé ou demi-écrémé bio · 6 x 50 cl · Avec ma carte · Au prix habituel de 3,89 € à 5,99 € le pack",
+"nn": "Pâturages melk",
+"dn": "Volle, halfvolle of halfvolle bio · 6 x 50 cl · Met mijn kaart · Normale prijs € 3,89 tot € 5,99 per pak"
+},
+{
+"r": "cremerie",
+"carte": 1,
+"img": "img/folder/1011/035.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Pâturages lait",
+"d": "Jeudi 12/11 uniquement · Entier, demi-écrémé ou demi-écrémé bio · 6 x 50 cl · Avec ma carte · Au prix habituel de 3,89 € à 5,99 € le pack",
+"nn": "Pâturages melk",
+"dn": "Enkel donderdag 12/11 · Volle, halfvolle of halfvolle bio · 6 x 50 cl · Met mijn kaart · Normale prijs € 3,89 tot € 5,99 per pak"
+},
+{
+"r": "cremerie",
+"carte": 1,
+"img": "img/folder/1011/036.webp",
+"m": "2e à -50 % au choix",
+"n": "Philadelphia",
+"d": "Variétés au choix · De 145 g à 330 g · Avec ma carte · Au prix habituel de 1,99 € à 4,19 € le pack",
+"nn": "Philadelphia",
+"dn": "Naar keuze · Van 145 g tot 330 g · Met mijn kaart · Normale prijs € 1,99 tot € 4,19 per pak"
+},
+{
+"r": "cremerie",
+"carte": 1,
+"img": "img/folder/1011/036.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Philadelphia",
+"d": "Jeudi 12/11 uniquement · Variétés au choix · De 145 g à 330 g · Avec ma carte · Au prix habituel de 1,99 € à 4,19 € le pack",
+"nn": "Philadelphia",
+"dn": "Enkel donderdag 12/11 · Naar keuze · Van 145 g tot 330 g · Met mijn kaart · Normale prijs € 1,99 tot € 4,19 per pak"
+},
+{
+"r": "cremerie",
+"img": "img/folder/1011/037.webp",
+"m": "500 g + 500 g gratis in pack",
+"n": "Emmental râpé",
+"d": "1 kg (500 g + 500 g gratuits)",
+"p": "6,50 € le kg",
+"nn": "Geraspte emmentaler",
+"dn": "1 kg (500 g + 500 g gratis)",
+"pn": "€ 6,50 per kg"
+},
+{
+"r": "cremerie",
+"img": "img/folder/1011/038.webp",
+"m": "-20 %",
+"n": "Gouda HB mi-vieux",
+"d": "Découpé sur place · Au lieu de 1,30 € les 100 g · Soit 10,40 €/kg",
+"p": "1,04 € les 100 g",
+"nn": "Gouda HB belegen",
+"dn": "Ter plaatse gesneden · In plaats van € 1,30 per 100 g · Of € 10,40/kg",
+"pn": "€ 1,04 per 100 g"
+},
+{
+"r": "cremerie",
+"carte": 1,
+"img": "img/folder/1011/039.webp",
+"m": "2e à -50 % au choix",
+"n": "Beemster",
+"d": "Variétés au choix · De 180 g à 250 g · Avec ma carte · Au prix habituel de 3,89 € à 5,09 € le pack",
+"nn": "Beemster",
+"dn": "Naar keuze · Van 180 g tot 250 g · Met mijn kaart · Normale prijs € 3,89 tot € 5,09 per pak"
+},
+{
+"r": "cremerie",
+"carte": 1,
+"img": "img/folder/1011/039.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Beemster",
+"d": "Jeudi 12/11 uniquement · Variétés au choix · De 180 g à 250 g · Avec ma carte · Au prix habituel de 3,89 € à 5,09 € le pack",
+"nn": "Beemster",
+"dn": "Enkel donderdag 12/11 · Naar keuze · Van 180 g tot 250 g · Met mijn kaart · Normale prijs € 3,89 tot € 5,09 per pak"
+},
+{
+"r": "cremerie",
+"img": "img/folder/1011/040.webp",
+"m": "Jusqu'à -20 %",
+"n": "Fromage à raclette aromatisé",
+"d": "Variétés au choix (excepté fromage à la truffe et ail des ours) · Découpé sur place · Au lieu de 1,80 € à 1,90 € · Soit 14,90 €/kg",
+"p": "1,49 € les 100 g",
+"nn": "Gearomatiseerde raclettekaas",
+"dn": "Naar keuze (behalve kaas met truffel en daslook) · Ter plaatse gesneden · In plaats van € 1,80 tot € 1,90 · Of € 14,90/kg",
+"pn": "€ 1,49 per 100 g"
+},
+{
+"r": "cremerie",
+"img": "img/folder/1011/041.webp",
+"m": "Prix exceptionnel",
+"n": "Fromage à raclette nature",
+"d": "Découpé sur place · Au lieu de 1,10 € · Soit 9,40 €/kg",
+"p": "0,94 € les 100 g",
+"nn": "Raclettekaas natuur",
+"dn": "Ter plaatse gesneden · In plaats van € 1,10 · Of € 9,40/kg",
+"pn": "€ 0,94 per 100 g"
+},
+{
+"r": "cremerie",
+"img": "img/folder/1011/042.webp",
+"m": "-30 %",
+"n": "Val-Dieu fromage à raclette",
+"d": "Découpé sur place · Au lieu de 2,47 € · Soit 17,00 €/kg",
+"p": "1,70 € les 100 g",
+"nn": "Val-Dieu raclettekaas",
+"dn": "Ter plaatse gesneden · In plaats van € 2,47 · Of € 17,00/kg",
+"pn": "€ 1,70 per 100 g"
+},
+{
+"r": "cremerie",
+"img": "img/folder/1011/055.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Yaos yaourt à la grecque",
+"d": "Variétés au choix · 4 x 125 g · Au lieu de 7,96 € · Soit 3,98 €/kg",
+"p": "3,98 € les 2 x (4 x 125 g)",
+"nn": "Yaos Griekse yoghurt",
+"dn": "Naar keuze · 4 x 125 g · In plaats van € 7,96 · Of € 3,98/kg",
+"pn": "€ 3,98 voor 2 x (4 x 125 g)"
+},
+{
+"r": "cremerie",
+"carte": 1,
+"img": "img/folder/1011/056.webp",
+"m": "2e à -50 % au choix",
+"n": "Luxlait kéfir",
+"d": "500 ml · Variétés au choix · Au prix habituel de 1,15 € à 1,25 € le pack",
+"nn": "Luxlait kefir",
+"dn": "500 ml · Naar keuze · Normale prijs € 1,15 tot € 1,25 per pak"
+},
+{
+"r": "cremerie",
+"carte": 1,
+"img": "img/folder/1011/056.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Luxlait kéfir",
+"d": "Jeudi 12/11 uniquement · 500 ml · Variétés au choix · Au prix habituel de 1,15 € à 1,25 € le pack",
+"nn": "Luxlait kefir",
+"dn": "Enkel donderdag 12/11 · 500 ml · Naar keuze · Normale prijs € 1,15 tot € 1,25 per pak"
+},
+{
+"r": "epicerie",
+"carte": 1,
+"img": "img/folder/1011/002.webp",
+"m": "2 + 2 gratis au choix",
+"n": "Ivoria ou Les Créations Tablettes de chocolat",
+"d": "Variétés au choix · De 100 g à 400 g · Au prix habituel de 1,36 € à 3,29 € le pack · Max. 3 offres par semaine par porteur de la carte",
+"nn": "Ivoria of Les Créations Chocoladerepen",
+"dn": "Naar keuze · Van 100 g tot 400 g · Normale prijs € 1,36 tot € 3,29 per pak · Max. 3 aanbiedingen per week per kaarthouder"
+},
+{
+"r": "epicerie",
+"carte": 1,
+"img": "img/folder/1011/008.webp",
+"m": "2 + 2 gratis au choix",
+"n": "Nescafé Dolce Gusto Café en capsules",
+"d": "16 ou 18 capsules · Variétés au choix · Au prix habituel de 4,69 € à 5,99 € le pack · Max. 3 offres par semaine par porteur de la carte",
+"nn": "Nescafé Dolce Gusto Koffiecapsules",
+"dn": "16 of 18 capsules · Naar keuze · Normale prijs € 4,69 tot € 5,99 per pak · Max. 3 aanbiedingen per week per kaarthouder"
+},
+{
+"r": "epicerie",
+"img": "img/folder/1011/009.webp",
+"m": "3 + 3 gratis au choix",
+"n": "Soubry Pâtes",
+"d": "Variétés au choix · De 375 g à 500 g · Excepté pâtes intégrales 500 g et épeautre 375 g · Au prix habituel de 0,89 € à 2,35 € la pièce · Max. 3 offres par semaine par client",
+"nn": "Soubry Pasta",
+"dn": "Naar keuze · Van 375 g tot 500 g · Behalve volkoren pasta 500 g en spelt 375 g · Normale prijs € 0,89 tot € 2,35 per stuk · Max. 3 aanbiedingen per week per klant"
+},
+{
+"r": "epicerie",
+"img": "img/folder/1011/054.webp",
+"m": "2 + 2 gratis au choix",
+"n": "Jules Destrooper biscuits",
+"d": "De 100 g à 175 g · Variétés au choix · Au prix habituel de 2,79 € à 4,09 € le pack",
+"nn": "Jules Destrooper koekjes",
+"dn": "Van 100 g tot 175 g · Naar keuze · Normale prijs € 2,79 tot € 4,09 per pak"
+},
+{
+"r": "epicerie",
+"img": "img/folder/1011/068.webp",
+"m": "-25 % par 3 au choix",
+"n": "Lu Prince Biscuits",
+"d": "Variétés au choix · De 150 g à 900 g · Au prix habituel de 1,49 € à 4,45 € le pack · Max. 3 offres par semaine par client",
+"nn": "Lu Prince Koekjes",
+"dn": "Naar keuze · Van 150 g tot 900 g · Normale prijs € 1,49 tot € 4,45 per pak · Max. 3 aanbiedingen per week per klant"
+},
+{
+"r": "epicerie",
+"carte": 1,
+"img": "img/folder/1011/069.webp",
 "m": "2e à -40 % au choix",
-"n": "Capri-Sun",
-"d": "Limonade pour enfant, 10 x 20 cl · Variétés au choix · Au prix habituel de 4,59 € à 5,59 € le pack",
-"nn": "Capri-Sun",
-"dn": "Limonade voor kinderen, 10 x 20 cl · Naar keuze · Normale prijs € 4,59 tot € 5,59 per pak"
+"n": "Merci, Werther's, Toffifee ou Knoppers",
+"d": "Merci de 200 g à 400 g, Werther's de 42 g à 180 g, Toffifee 125 g ou Knoppers 5 ou 8 pièces · Variétés au choix · Au prix habituel de 1,73 € à 9,99 € le pack",
+"nn": "Merci, Werther's, Toffifee of Knoppers",
+"dn": "Merci van 200 g tot 400 g, Werther's van 42 g tot 180 g, Toffifee 125 g of Knoppers 5 of 8 stuks · Naar keuze · Normale prijs € 1,73 tot € 9,99 per pak"
 },
 {
-"r": "boissons",
-"m": "-25 % de remise immédiate",
-"n": "Coca-Cola Vanille, Lemon ou Cherry",
-"d": "6 x 33 cl, 6 x 50 cl ou 1 L · Variétés au choix · Au prix habituel de 2,29 € à 10,19 € la bouteille ou le pack",
-"nn": "Coca-Cola Vanille, Lemon of Cherry",
-"dn": "6 x 33 cl, 6 x 50 cl of 1 L · Naar keuze · Normale prijs € 2,29 tot € 10,19 per fles of pak"
+"r": "epicerie",
+"carte": 1,
+"img": "img/folder/1011/069.webp",
+"m": "2e à -80 % au choix",
+"n": "Merci, Werther's, Toffifee ou Knoppers",
+"d": "Jeudi 12/11 uniquement · Merci de 200 g à 400 g, Werther's de 42 g à 180 g, Toffifee 125 g ou Knoppers 5 ou 8 pièces · Variétés au choix · Au prix habituel de 1,73 € à 9,99 € le pack",
+"nn": "Merci, Werther's, Toffifee of Knoppers",
+"dn": "Enkel donderdag 12/11 · Merci van 200 g tot 400 g, Werther's van 42 g tot 180 g, Toffifee 125 g of Knoppers 5 of 8 stuks · Naar keuze · Normale prijs € 1,73 tot € 9,99 per pak"
 },
 {
-"r": "boissons",
-"m": "2 + 1 gratis au choix",
-"n": "Premix Havana Club, Jameson, Malibu, Absolut ou Ricard",
-"d": "Havana Club rhum & cola, Jameson whiskey & cola, Malibu Pina Colada ou Pineapple, Absolut Raspberry Lemon ou Passion Fruit Martini en canette de 25 cl, ou Ricard Premix en bouteille de 20 cl · Au lieu de 6,87 €",
-"p": "4,58 € les 3 pièces",
-"x": "Soit 1,53 € la canette de 25 cl ou la bouteille de 20 cl",
-"nn": "Premix Havana Club, Jameson, Malibu, Absolut of Ricard",
-"dn": "Havana Club rum & cola, Jameson whiskey & cola, Malibu Pina Colada of Pineapple, Absolut Raspberry Lemon of Passion Fruit Martini in blik van 25 cl, of Ricard Premix in fles van 20 cl · In plaats van € 6,87",
-"pn": "€ 4,58 voor 3 stuks",
-"xn": "Of € 1,53 per blik van 25 cl of fles van 20 cl"
+"r": "epicerie",
+"carte": 1,
+"img": "img/folder/1011/070.webp",
+"m": "2e à -40 % au choix",
+"n": "Bonne Maman Confiture Intense ou Pâte à tartiner",
+"d": "Variétés au choix · De 335 g à 580 g · Au prix habituel de 3,99 € à 6,75 € le pack",
+"nn": "Bonne Maman Confituur Intense of Smeerpasta",
+"dn": "Naar keuze · Van 335 g tot 580 g · Normale prijs € 3,99 tot € 6,75 per pak"
 },
 {
-"r": "boissons",
-"m": "1 + 1 gratis au choix",
-"n": "Lipton Ice Tea",
-"d": "En pack 4 x 50 cl · Variétés au choix · Au lieu de 12,18 €",
-"p": "6,09 € les 2 x (4 x 50 cl)",
-"x": "Soit 1,53 €/l",
-"nn": "Lipton Ice Tea",
-"dn": "Pak van 4 x 50 cl · Naar keuze · In plaats van € 12,18",
-"pn": "€ 6,09 voor 2 x (4 x 50 cl)",
-"xn": "Of € 1,53/l"
+"r": "epicerie",
+"carte": 1,
+"img": "img/folder/1011/070.webp",
+"m": "2e à -80 % au choix",
+"n": "Bonne Maman Confiture Intense ou Pâte à tartiner",
+"d": "Jeudi 12/11 uniquement · Variétés au choix · De 335 g à 580 g · Au prix habituel de 3,99 € à 6,75 € le pack",
+"nn": "Bonne Maman Confituur Intense of Smeerpasta",
+"dn": "Enkel donderdag 12/11 · Naar keuze · Van 335 g tot 580 g · Normale prijs € 3,99 tot € 6,75 per pak"
 },
 {
-"r": "boissons",
+"r": "epicerie",
+"img": "img/folder/1011/071.webp",
+"m": "35 + 15 gratis in pack",
+"n": "L'Or Café en capsules",
+"d": "Delizioso, Forza ou Ristretto · Variétés au choix · Au lieu de 17,49 € · Soit 0,24 €/pièce",
+"p": "12,25 € les 50 pièces",
+"nn": "L'Or Koffiecapsules",
+"dn": "Delizioso, Forza of Ristretto · Naar keuze · In plaats van € 17,49 · Of € 0,24 per stuk",
+"pn": "€ 12,25 voor 50 stuks"
+},
+{
+"r": "epicerie",
+"carte": 1,
+"img": "img/folder/1011/072.webp",
 "m": "2e à -50 % au choix",
-"n": "Leffe bière d'abbaye",
-"d": "Blonde, Brune ou Ruby en clip 8 x 33 cl ou Prestige en clip 6 x 33 cl · Hors vidanges · Au prix habituel de 8,99 € à 15,65 € le clip",
-"nn": "Leffe abdijbier",
-"dn": "Blond, Bruin of Ruby, clip 8 x 33 cl of Prestige, clip 6 x 33 cl · Exclusief leeggoed · Normale prijs € 8,99 tot € 15,65 per clip"
+"n": "Agromonte, Panealba ou Divella",
+"d": "Cuisine du monde · Agromonte Passata ou Salsa Pronta, Panealba Crostini ou mini grissini, Divella Pâtes · Variétés au choix · De 80 g à 520 g · Au prix habituel de 0,99 € à 3,99 € la pièce",
+"nn": "Agromonte, Panealba of Divella",
+"dn": "Wereldkeuken · Agromonte Passata of Salsa Pronta, Panealba Crostini of mini-grissini, Divella Pasta · Naar keuze · Van 80 g tot 520 g · Normale prijs € 0,99 tot € 3,99 per stuk"
 },
 {
-"r": "boissons",
-"m": "-2 € de remise immédiate",
-"n": "Provenance rosé IGP Méditerranée",
-"d": "75 cl · Un rosé du sud frais et délicat · Au lieu de 6,85 €",
-"p": "4,85 € la bouteille de 75 cl",
-"nn": "Provenance rosé IGP Méditerranée",
-"dn": "75 cl · Een frisse en delicate rosé uit het zuiden · In plaats van € 6,85",
-"pn": "€ 4,85 per fles van 75 cl"
+"r": "epicerie",
+"carte": 1,
+"img": "img/folder/1011/072.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Agromonte, Panealba ou Divella",
+"d": "Jeudi 12/11 uniquement · Cuisine du monde · Agromonte Passata ou Salsa Pronta, Panealba Crostini ou mini grissini, Divella Pâtes · Variétés au choix · De 80 g à 520 g · Au prix habituel de 0,99 € à 3,99 € la pièce",
+"nn": "Agromonte, Panealba of Divella",
+"dn": "Enkel donderdag 12/11 · Wereldkeuken · Agromonte Passata of Salsa Pronta, Panealba Crostini of mini-grissini, Divella Pasta · Naar keuze · Van 80 g tot 520 g · Normale prijs € 0,99 tot € 3,99 per stuk"
 },
 {
-"r": "boissons",
-"m": "1 verre gratis",
-"n": "Bush de Noël",
-"d": "Bière de Noël en clip, 4 x 33 cl (hors vidanges) · 1 verre Bush de Noël gratis à l'achat de 2 clips · Soit 5,75 €/l",
-"p": "15,18 € les 2 x (4 x 33 cl)",
-"nn": "Bush de Noël",
-"dn": "Kerstbier in clip, 4 x 33 cl (excl. leeggoed) · 1 Bush de Noël-glas gratis bij aankoop van 2 clips · Of € 5,75/l",
-"pn": "€ 15,18 voor 2 x (4 x 33 cl)"
+"r": "epicerie",
+"img": "img/folder/1011/073.webp",
+"m": "2 + 2 gratis au choix",
+"n": "Yum Yum Nouilles instantanées",
+"d": "Cuisine du monde · En sachet ou en cup · Variétés au choix · De 60 g à 100 g · Au prix habituel de 0,79 € à 1,99 € la pièce",
+"nn": "Yum Yum Instantnoedels",
+"dn": "Wereldkeuken · In zakje of cup · Naar keuze · Van 60 g tot 100 g · Normale prijs € 0,79 tot € 1,99 per stuk"
 },
 {
-"r": "boissons",
+"r": "epicerie",
+"img": "img/folder/1011/074.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Patak's ou Souq",
+"d": "Cuisine du monde · Patak's Produits indiens de 165 g à 450 g ou Souq Produits orientaux de 30 g à 500 g · Variétés au choix · Au prix habituel de 2,19 € à 4,09 € la pièce",
+"nn": "Patak's of Souq",
+"dn": "Wereldkeuken · Patak's Indiase producten van 165 g tot 450 g of Souq Oosterse producten van 30 g tot 500 g · Naar keuze · Normale prijs € 2,19 tot € 4,09 per stuk"
+},
+{
+"r": "epicerie",
+"carte": 1,
+"img": "img/folder/1011/075.webp",
+"m": "2e à -50 % au choix",
+"n": "Ayuko, Hello, Otoki, Ajumma, Shirataki ou Hikari",
+"d": "Cuisine du monde · Produits asiatiques · Variétés au choix · De 76 g à 500 g ou 150 ml · Au prix habituel de 0,99 € à 5,49 € la pièce",
+"nn": "Ayuko, Hello, Otoki, Ajumma, Shirataki of Hikari",
+"dn": "Wereldkeuken · Aziatische producten · Naar keuze · Van 76 g tot 500 g of 150 ml · Normale prijs € 0,99 tot € 5,49 per stuk"
+},
+{
+"r": "epicerie",
+"carte": 1,
+"img": "img/folder/1011/075.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Ayuko, Hello, Otoki, Ajumma, Shirataki ou Hikari",
+"d": "Jeudi 12/11 uniquement · Cuisine du monde · Produits asiatiques · Variétés au choix · De 76 g à 500 g ou 150 ml · Au prix habituel de 0,99 € à 5,49 € la pièce",
+"nn": "Ayuko, Hello, Otoki, Ajumma, Shirataki of Hikari",
+"dn": "Enkel donderdag 12/11 · Wereldkeuken · Aziatische producten · Naar keuze · Van 76 g tot 500 g of 150 ml · Normale prijs € 0,99 tot € 5,49 per stuk"
+},
+{
+"r": "epicerie",
+"img": "img/folder/1011/076.webp",
+"m": "2e à -50 % au choix",
+"n": "Pringles",
+"d": "Variétés au choix · De 150 g à 165 g · Au prix habituel de 1,69 € à 2,59 € la pièce",
+"nn": "Pringles",
+"dn": "Naar keuze · Van 150 g tot 165 g · Normale prijs € 1,69 tot € 2,59 per stuk"
+},
+{
+"r": "epicerie",
+"img": "img/folder/1011/077.webp",
 "m": "1 + 1 gratis",
-"n": "Maison Castel AOP Touraine Sauvignon",
-"d": "Vin blanc, 75 cl · Au lieu de 19,96 €",
-"p": "9,98 € les 2 x 75 cl",
-"x": "Soit 4,99 € la bouteille",
-"nn": "Maison Castel AOP Touraine Sauvignon",
-"dn": "Witte wijn, 75 cl · In plaats van € 19,96",
-"pn": "€ 9,98 voor 2 x 75 cl",
-"xn": "Of € 4,99 per fles"
-},
-{
-"r": "boissons",
-"m": "2 + 1 gratis au choix",
-"n": "Satellites de Saint-Émilion",
-"d": "Château La Croix de Berny, Vieux Moulin ou Château Haut-Guitard, 75 cl · Au lieu de 26,97 €",
-"p": "17,98 € les 3 x 75 cl",
+"n": "Cirio Cucina Delicata huile d'olive extra vierge",
+"d": "750 ml · Au lieu de 23,96 € · Soit 7,99 €/l",
+"p": "11,98 € les 2 x 750 ml",
 "x": "Soit 5,99 € la bouteille",
-"nn": "Satellites de Saint-Émilion",
-"dn": "Château La Croix de Berny, Vieux Moulin of Château Haut-Guitard, 75 cl · In plaats van € 26,97",
-"pn": "€ 17,98 voor 3 x 75 cl",
+"nn": "Cirio Cucina Delicata extra vierge olijfolie",
+"dn": "750 ml · In plaats van € 23,96 · Of € 7,99/l",
+"pn": "€ 11,98 voor 2 x 750 ml",
 "xn": "Of € 5,99 per fles"
 },
 {
-"r": "boissons",
+"r": "epicerie",
+"carte": 1,
+"img": "img/folder/1011/078.webp",
 "m": "2e à -50 % au choix",
-"n": "Théâtre du Soleil IGP Pays d'Oc",
-"d": "75 cl · Au lieu de 10,98 €",
-"p": "8,24 € les 2 x 75 cl",
-"x": "Soit 4,12 € la bouteille",
-"nn": "Théâtre du Soleil IGP Pays d'Oc",
-"dn": "75 cl · In plaats van € 10,98",
-"pn": "€ 8,24 voor 2 x 75 cl",
-"xn": "Of € 4,12 per fles"
+"n": "Cirio sauces et tomates",
+"d": "Sauce tomate pour pâtes au basilic ou napolitaine 420 g, ou tomates pelées, tomates cerises ou polpa 400 g · Au prix habituel de 1,59 € à 2,95 €",
+"nn": "Cirio sauzen en tomaten",
+"dn": "Tomatensaus voor pasta met basilicum of napolitana 420 g, of gepelde tomaten, kerstomaten of polpa 400 g · Normale prijs € 1,59 tot € 2,95"
 },
 {
-"r": "maison",
-"m": "-40 %",
-"n": "De'Longhi Magnifica S",
-"d": "Machine à expresso automatique · Twin-Shot (2 tasses à la fois), émulsionneur de lait manuel, arômes et quantité personnalisables · Au lieu de 399,00 € (prix conseillé fournisseur) · Stock limité",
-"p": "238,99 € la pièce",
-"nn": "De'Longhi Magnifica S",
-"dn": "Automatische espressomachine · Twin-Shot (2 kopjes tegelijk), manueel melkopschuimsysteem, aroma en hoeveelheid instelbaar · In plaats van € 399,00 (adviesprijs leverancier) · Beperkte voorraad",
-"pn": "€ 238,99 per stuk"
+"r": "epicerie",
+"carte": 1,
+"img": "img/folder/1011/078.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Cirio sauces et tomates",
+"d": "Jeudi 12/11 uniquement · Sauce tomate pour pâtes au basilic ou napolitaine 420 g, ou tomates pelées, tomates cerises ou polpa 400 g · Au prix habituel de 1,59 € à 2,95 €",
+"nn": "Cirio sauzen en tomaten",
+"dn": "Enkel donderdag 12/11 · Tomatensaus voor pasta met basilicum of napolitana 420 g, of gepelde tomaten, kerstomaten of polpa 400 g · Normale prijs € 1,59 tot € 2,95"
 },
 {
-"r": "maison",
+"r": "stnicolas",
+"img": "img/folder/1011/060.webp",
+"m": "Prix folder",
+"n": "Kinder Joy",
+"d": "3 pièces · Soit 59,84 €/kg",
+"p": "3,59 € les 3 x 20 g",
+"nn": "Kinder Joy",
+"dn": "3 stuks · Of € 59,84/kg",
+"pn": "€ 3,59 voor 3 x 20 g"
+},
+{
+"r": "stnicolas",
+"img": "img/folder/1011/061.webp",
+"m": "Prix folder",
+"n": "Kinder Bâtons de chocolat Saint-Nicolas",
+"d": "12 pièces · Soit 18,60 €/kg",
+"p": "2,79 € les 150 g",
+"nn": "Kinder Sinterklaas-chocoladerepen",
+"dn": "12 stuks · Of € 18,60/kg",
+"pn": "€ 2,79 per 150 g"
+},
+{
+"r": "stnicolas",
+"img": "img/folder/1011/062.webp",
+"m": "Prix folder",
+"n": "Lotus Biscoff Speculoos Saint-Nicolas",
+"d": "18 cm · 4 pièces · 143 g · Soit 9,03 €/kg",
+"p": "1,29 € le pack",
+"nn": "Lotus Biscoff Sinterklaasspeculoos",
+"dn": "18 cm · 4 stuks · 143 g · Of € 9,03/kg",
+"pn": "€ 1,29 per pak"
+},
+{
+"r": "stnicolas",
+"img": "img/folder/1011/063.webp",
+"m": "2 + 1 gratis au choix",
+"n": "Libeert Figurines en chocolat Sensations",
+"d": "150 g · Variétés au choix · Au lieu de 14,97 € · Soit 22,18 €/kg · L'offre 2 + 1 gratis est également valable sur les figurines Libeert de 38 g",
+"p": "9,98 € le pack",
+"x": "Prix pour 3 packs (2 + 1 gratis)",
+"nn": "Libeert Chocoladefiguren Sensations",
+"dn": "150 g · Naar keuze · In plaats van € 14,97 · Of € 22,18/kg · De actie 2 + 1 gratis geldt ook voor de Libeert-figuren van 38 g",
+"pn": "€ 9,98 per pak",
+"xn": "Prijs voor 3 pakken (2 + 1 gratis)"
+},
+{
+"r": "stnicolas",
+"img": "img/folder/1011/064.webp",
+"m": "Prix folder",
+"n": "Assiette Saint-Nicolas",
+"d": "504 g · Soit 17,76 €/kg",
+"p": "8,95 € les 504 g",
+"nn": "Sinterklaasbord",
+"dn": "504 g · Of € 17,76/kg",
+"pn": "€ 8,95 per 504 g"
+},
+{
+"r": "stnicolas",
+"img": "img/folder/1011/065.webp",
+"m": "Prix folder",
+"n": "M&M's Calendrier de l'Avent",
+"d": "361 g · Soit 38,76 €/kg",
+"p": "13,99 € les 361 g",
+"nn": "M&M's Adventskalender",
+"dn": "361 g · Of € 38,76/kg",
+"pn": "€ 13,99 per 361 g"
+},
+{
+"r": "stnicolas",
+"img": "img/folder/1011/066.webp",
+"m": "Prix folder",
+"n": "The Bofinos Nic nac sucré",
+"d": "500 g · Soit 5,38 €/kg",
+"p": "2,69 € les 500 g",
+"nn": "The Bofinos Gesuikerde nic nac",
+"dn": "500 g · Of € 5,38/kg",
+"pn": "€ 2,69 per 500 g"
+},
+{
+"r": "stnicolas",
+"img": "img/folder/1011/067.webp",
+"m": "Prix folder",
+"n": "Massepain",
+"d": "Variétés au choix · De 100 g à 250 g · Au prix habituel de 2,89 € à 6,19 € le pack",
+"nn": "Marsepein",
+"dn": "Naar keuze · Van 100 g tot 250 g · Normale prijs € 2,89 tot € 6,19 per pak"
+},
+{
+"r": "surgeles",
+"img": "img/folder/1011/006.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Iglo Fish sticks & filets de poisson",
+"d": "Fish sticks façon Fish & Chips 336 g ou 728 g, Filet de poisson façon Fish & Chips 240 g ou Fish & Fun 352 g · Variétés au choix · Au prix habituel de 5,19 € à 8,99 € le pack · Max. 3 offres par semaine par client",
+"nn": "Iglo Vissticks & visfilets",
+"dn": "Vissticks Fish & Chips-wijze 336 g of 728 g, Visfilet Fish & Chips-wijze 240 g of Fish & Fun 352 g · Naar keuze · Normale prijs € 5,19 tot € 8,99 per pak · Max. 3 aanbiedingen per week per klant"
+},
+{
+"r": "surgeles",
+"img": "img/folder/1011/053.webp",
+"m": "Prix folder",
+"n": "Snickers ou Mars barres glacées",
+"d": "12 pièces · Soit 0,59 € la barre",
+"p": "6,99 € le pack",
+"nn": "Snickers of Mars ijsrepen",
+"dn": "12 stuks · Of € 0,59 per reep",
+"pn": "€ 6,99 per pak"
+},
+{
+"r": "surgeles",
+"img": "img/folder/1011/057.webp",
 "m": "1 + 1 gratis",
-"n": "Nalys essuie-tout Love",
-"d": "9+3 rouleaux · Au lieu de 25,96 €",
-"p": "12,98 € les 2 x 12 rouleaux",
-"x": "Soit 0,55 € le rouleau",
-"nn": "Nalys keukenrol Love",
-"dn": "9+3 rollen · In plaats van € 25,96",
-"pn": "€ 12,98 voor 2 x 12 rollen",
-"xn": "Of € 0,55 per rol"
+"n": "McCain Air Fryer Crinky fries",
+"d": "600 g · Nouveau · Au lieu de 7,98 € · Soit 3,33 €/kg",
+"p": "3,99 € les 2 x 600 g",
+"nn": "McCain Air Fryer Crinky friet",
+"dn": "600 g · Nieuw · In plaats van € 7,98 · Of € 3,33/kg",
+"pn": "€ 3,99 voor 2 x 600 g"
 },
 {
-"r": "maison",
-"m": "32 + 8 gratis",
-"n": "Scottex papier toilette Complete Clean",
-"d": "Blanc, 40 rouleaux (8 gratis dans le pack)",
-"p": "17,99 € les 40 rouleaux",
-"x": "Soit 0,45 € le rouleau",
-"nn": "Scottex toiletpapier Complete Clean",
-"dn": "Wit, 40 rollen (8 gratis in de verpakking)",
-"pn": "€ 17,99 voor 40 rollen",
-"xn": "Of € 0,45 per rol"
-},
-{
-"r": "maison",
-"m": "2 + 2 gratis au choix",
-"n": "Tahiti ou Palmolive",
-"d": "Tahiti gel douche 250 ml ou Palmolive gel douche 250 ml ou savon mains 250 ml · Variétés au choix · Au prix habituel de 3,39 € à 4,05 € la pièce",
-"nn": "Tahiti of Palmolive",
-"dn": "Tahiti douchegel 250 ml of Palmolive douchegel 250 ml of handzeep 250 ml · Naar keuze · Normale prijs € 3,39 tot € 4,05 per stuk"
-},
-{
-"r": "maison",
-"m": "2 + 2 gratis au choix",
-"n": "Bref bloc WC",
-"d": "42 g, 50 g ou 2 x 50 g · Variétés au choix · Au prix habituel de 2,99 € à 6,99 € le pack",
-"nn": "Bref toiletblok",
-"dn": "42 g, 50 g of 2 x 50 g · Naar keuze · Normale prijs € 2,99 tot € 6,99 per pak"
-},
-{
-"r": "maison",
+"r": "surgeles",
+"img": "img/folder/1011/058.webp",
 "m": "1 + 1 gratis au choix",
-"n": "Dixan lessive",
-"d": "Liquide 32 doses ou caps 27 doses · Variétés au choix · Au prix habituel de 13,49 € à 14,99 € le pack",
-"nn": "Dixan wasmiddel",
-"dn": "Vloeibaar 32 dosissen of caps 27 dosissen · Naar keuze · Normale prijs € 13,49 tot € 14,99 per pak"
+"n": "Iglo Légumes préparés Veggie Love ou Garden Love",
+"d": "Variétés au choix · De 400 g à 750 g · Au prix habituel de 3,25 € à 6,95 € le pack",
+"nn": "Iglo Bereide groenten Veggie Love of Garden Love",
+"dn": "Naar keuze · Van 400 g tot 750 g · Normale prijs € 3,25 tot € 6,95 per pak"
 },
 {
-"r": "maison",
-"m": "1 + 1 gratis au choix",
-"n": "Finish tablettes lave-vaisselle",
-"d": "Quantum 31 ou 44 doses ou Ultimate 16, 27 ou 34 doses · Variétés au choix · Au prix habituel de 9,99 € à 20,99 € le pack",
-"nn": "Finish vaatwastabletten",
-"dn": "Quantum 31 of 44 dosissen of Ultimate 16, 27 of 34 dosissen · Naar keuze · Normale prijs € 9,99 tot € 20,99 per pak"
+"r": "surgeles",
+"img": "img/folder/1011/059.webp",
+"m": "Prix exceptionnel",
+"n": "Tipiak Coquilles Saint-Jacques",
+"d": "Variétés au choix · 4 pièces",
+"p": "7,49 € le pack de 4 x 90 g",
+"nn": "Tipiak Sint-Jakobsschelpen",
+"dn": "Naar keuze · 4 stuks",
+"pn": "€ 7,49 per pak van 4 x 90 g"
 },
 {
-"r": "maison",
-"m": "1 + 1 gratis au choix",
-"n": "Omino Bianco lessive liquide",
-"d": "25 ou 37 doses · Variétés au choix · Au prix habituel de 8,99 € à 12,59 € la pièce",
-"nn": "Omino Bianco vloeibaar wasmiddel",
-"dn": "25 of 37 dosissen · Naar keuze · Normale prijs € 8,99 tot € 12,59 per stuk"
+"r": "boissons",
+"img": "img/folder/1011/010.webp",
+"m": "1 + 1 gratis",
+"n": "Maison Castel AOP Côtes du Rhône rouge",
+"d": "Grenache - Syrah · 75 cl · Au lieu de 17,16 € · Max. 3 offres par semaine par client",
+"p": "8,58 € les 2 x 75 cl",
+"x": "Soit 4,29 € la bouteille",
+"nn": "Maison Castel AOP Côtes du Rhône rood",
+"dn": "Grenache - Syrah · 75 cl · In plaats van € 17,16 · Max. 3 aanbiedingen per week per klant",
+"pn": "€ 8,58 voor 2 x 75 cl",
+"xn": "Of € 4,29 per fles"
 },
 {
-"r": "maison",
-"m": "-50 %",
-"n": "Bouillotte Sherpa",
-"d": "2 l, avec pompons · Rose, gris, blanc ou brun · Prix conseillé fournisseur 9,99 € · Stock limité",
-"p": "4,99 € la pièce",
-"nn": "Sherpa-kruik",
-"dn": "2 l, met pompons · Roze, grijs, wit of bruin · Adviesprijs leverancier € 9,99 · Beperkte voorraad",
-"pn": "€ 4,99 per stuk"
+"r": "boissons",
+"img": "img/folder/1011/012.webp",
+"m": "14 + 10 gratis in pack",
+"n": "Maes Pils en casier",
+"d": "24 x 25 cl · Hors vidanges · Au lieu de 15,19 € · Soit 1,48 €/l · Offre également valable en 18 + 6 sur le casier Cristal 24 x 25 cl au prix promotionnel de 9,99 €",
+"p": "8,86 € le casier",
+"nn": "Maes Pils in bak",
+"dn": "24 x 25 cl · Exclusief leeggoed · In plaats van € 15,19 · Of € 1,48/l · Aanbieding ook geldig in 18 + 6 op de bak Cristal 24 x 25 cl aan de promoprijs van € 9,99",
+"pn": "€ 8,86 per bak"
 },
 {
-"r": "maison",
-"m": "2 + 1 gratis au choix",
-"n": "Nivea déodorant",
-"d": "Roll-on 50 ml ou spray 150 ml · Variétés au choix · Au prix habituel de 3,19 € à 5,69 € la pièce",
-"nn": "Nivea deodorant",
-"dn": "Roller 50 ml of spray 150 ml · Naar keuze · Normale prijs € 3,19 tot € 5,69 per stuk"
-},
-{
-"r": "maison",
-"m": "Prix folder",
-"n": "Whiskas Les poissons favoris",
-"d": "Pochons pour chat aux poissons en gelée, 40 x 85 g · Soit 5,00 €/kg",
-"p": "16,99 € les 40 x 85 g",
-"x": "Soit 0,43 € le pochon",
-"nn": "Whiskas Fish Favourites",
-"dn": "Kattenzakjes met vis in gelei, 40 x 85 g · Of € 5,00/kg",
-"pn": "€ 16,99 voor 40 x 85 g",
-"xn": "Of € 0,43 per zakje"
-},
-{
-"r": "maison",
-"m": "2e à -50 % au choix",
-"n": "Gourmet nourriture pour chat",
-"d": "Variétés au choix, de 228 g à 2,04 kg · Au prix habituel de 3,39 € à 20,25 € la pièce",
-"nn": "Gourmet kattenvoer",
-"dn": "Naar keuze, van 228 g tot 2,04 kg · Normale prijs € 3,39 tot € 20,25 per stuk"
-},
-{
-"r": "maison",
+"r": "boissons",
+"img": "img/folder/1011/034.webp",
 "m": "3 + 1 gratis au choix",
-"n": "Catisfactions, Whiskas ou Sheba snacks pour chat",
-"d": "Variétés au choix, de 18 g à 350 g · Au prix habituel de 1,79 € à 7,69 € le pack",
-"nn": "Catisfactions, Whiskas of Sheba kattensnacks",
-"dn": "Naar keuze, van 18 g tot 350 g · Normale prijs € 1,79 tot € 7,69 per pak"
+"n": "Chocomel lait aromatisé",
+"d": "Variétés au choix · 1 l · Au prix habituel de 1,29 € à 3,69 € la pièce",
+"nn": "Chocomel gearomatiseerde melk",
+"dn": "Naar keuze · 1 l · Normale prijs € 1,29 tot € 3,69 per stuk"
+},
+{
+"r": "boissons",
+"img": "img/folder/1011/079.webp",
+"m": "2 + 1 gratis",
+"n": "Volvic eau minérale naturelle",
+"d": "Bidon de 8 l · Au lieu de 20,55 € · Soit 0,58 €/l",
+"p": "13,70 € les 3 x 8 l",
+"nn": "Volvic natuurlijk mineraalwater",
+"dn": "Bidon van 8 l · In plaats van € 20,55 · Of € 0,58/l",
+"pn": "€ 13,70 voor 3 x 8 l"
+},
+{
+"r": "boissons",
+"img": "img/folder/1011/080.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Lipton Ice Tea",
+"d": "Regular, Zero, Pêche ou Green · Bouteilles 6 x 1 l · Au prix habituel de 10,98 € à 14,70 € le pack",
+"nn": "Lipton Ice Tea",
+"dn": "Regular, Zero, Perzik of Green · Flessen 6 x 1 l · Normale prijs € 10,98 tot € 14,70 per pak"
+},
+{
+"r": "boissons",
+"img": "img/folder/1011/081.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Coca-Cola Zéro sucre zéro caféine",
+"d": "Pack 6 x 50 cl ou 4 x 1 l · Au prix habituel de 9,88 € à 10,09 € le pack",
+"nn": "Coca-Cola Zero suiker zero cafeïne",
+"dn": "Pak 6 x 50 cl of 4 x 1 l · Normale prijs € 9,88 tot € 10,09 per pak"
+},
+{
+"r": "boissons",
+"img": "img/folder/1011/082.webp",
+"m": "1 + 2 gratis",
+"n": "Pepsi Zero Sugar + 2 Lay's Max offerts",
+"d": "À l'achat d'1 pack Pepsi Zero Sugar 4 x 1 l (au prix habituel de 7,00 € le pack), recevez 2 paquets de Lay's Max Naturel, Paprika ou Poivre et Sel 185 g (au prix habituel de 1,64 € à 1,99 € le paquet) · Max. 3 offres par semaine par client · Dans la limite des stocks disponibles",
+"nn": "Pepsi Zero Sugar + 2 Lay's Max gratis",
+"dn": "Bij aankoop van 1 pak Pepsi Zero Sugar 4 x 1 l (normale prijs € 7,00 per pak) ontvangt u 2 zakken Lay's Max Naturel, Paprika of Peper en Zout 185 g (normale prijs € 1,64 tot € 1,99 per zak) · Max. 3 aanbiedingen per week per klant · Zolang de voorraad strekt"
+},
+{
+"r": "boissons",
+"img": "img/folder/1011/083.webp",
+"m": "2 + 1 gratis au choix",
+"n": "Dr Pepper ou Canada Dry",
+"d": "Variétés au choix · Canettes 6 x 33 cl · Au prix habituel de 5,95 € à 6,29 € le pack",
+"nn": "Dr Pepper of Canada Dry",
+"dn": "Naar keuze · Blikjes 6 x 33 cl · Normale prijs € 5,95 tot € 6,29 per pak"
+},
+{
+"r": "boissons",
+"img": "img/folder/1011/084.webp",
+"m": "2e à -50 % au choix",
+"n": "Kasteel",
+"d": "Variétés au choix · Clip 4 x 33 cl (hors vidanges) · Au prix habituel de 6,79 € à 7,95 € le pack",
+"nn": "Kasteel",
+"dn": "Naar keuze · Clip 4 x 33 cl (exclusief leeggoed) · Normale prijs € 6,79 tot € 7,95 per pak"
+},
+{
+"r": "boissons",
+"img": "img/folder/1011/085.webp",
+"m": "3 + 1 gratis in pack",
+"n": "St Feuillien bière d'abbaye",
+"d": "Variétés au choix · Clip 4 x 33 cl (hors vidanges) · Au prix promotionnel de 4,64 € à 6,75 € le pack",
+"nn": "St Feuillien abdijbier",
+"dn": "Naar keuze · Clip 4 x 33 cl (exclusief leeggoed) · Promoprijs € 4,64 tot € 6,75 per pak"
+},
+{
+"r": "boissons",
+"img": "img/folder/1011/086.webp",
+"m": "1 verre Chimay gratis à l'achat de 2 clips au choix",
+"n": "Chimay bière trappiste",
+"d": "Variétés au choix · Clip 4 x 33 cl ou 6 x 33 cl (hors vidanges) · Au prix habituel de 8,89 € à 10,19 € le pack",
+"nn": "Chimay trappistenbier",
+"dn": "Naar keuze · Clip 4 x 33 cl of 6 x 33 cl (exclusief leeggoed) · Normale prijs € 8,89 tot € 10,19 per pak · 1 Chimay-glas gratis bij aankoop van 2 clips naar keuze"
+},
+{
+"r": "boissons",
+"img": "img/folder/1011/087.webp",
+"m": "1 + 1 gratis",
+"n": "Roberto Gauzi IGT Puglia",
+"d": "Rouge, blanc ou rosé · Cubi de 3 l · Au lieu de 39,96 €",
+"p": "19,98 € les 2 x 3 l",
+"x": "Soit 9,99 € le cubi",
+"nn": "Roberto Gauzi IGT Puglia",
+"dn": "Rood, wit of rosé · Bag-in-box van 3 l · In plaats van € 39,96",
+"pn": "€ 19,98 voor 2 x 3 l",
+"xn": "Of € 9,99 per bag-in-box"
+},
+{
+"r": "boissons",
+"img": "img/folder/1011/088.webp",
+"m": "2 + 1 gratis",
+"n": "La Marinière AOP Muscadet",
+"d": "Vin blanc · 75 cl · Au lieu de 19,31 €",
+"p": "12,87 € les 3 x 75 cl",
+"x": "Soit 4,29 € la bouteille",
+"nn": "La Marinière AOP Muscadet",
+"dn": "Witte wijn · 75 cl · In plaats van € 19,31",
+"pn": "€ 12,87 voor 3 x 75 cl",
+"xn": "Of € 4,29 per fles"
+},
+{
+"r": "boissons",
+"img": "img/folder/1011/089.webp",
+"m": "Remise immédiate",
+"n": "Johnnie Walker Blended Scotch Whisky",
+"d": "Red Label 40° 70 cl ou Black Label 40° 70 cl · Au prix habituel de 19,99 € à 36,99 € la bouteille de 70 cl",
+"nn": "Johnnie Walker Blended Scotch Whisky",
+"dn": "Red Label 40° 70 cl of Black Label 40° 70 cl · Normale prijs € 19,99 tot € 36,99 per fles van 70 cl"
+},
+{
+"r": "boissons",
+"carte": 1,
+"img": "img/folder/1011/090.webp",
+"m": "2e à -50 % au choix",
+"n": "Itinéraire de nos Régions Pineau des Charentes",
+"d": "Blanc ou Vieux · 17° · Au prix habituel de 9,99 € à 11,99 € la bouteille",
+"nn": "Itinéraire de nos Régions Pineau des Charentes",
+"dn": "Wit of Oud · 17° · Naar keuze · Normale prijs € 9,99 tot € 11,99 per fles"
+},
+{
+"r": "boissons",
+"img": "img/folder/1011/091.webp",
+"m": "2 + 1 gratis",
+"n": "Château Begadanet AOP Médoc Cru Bourgeois",
+"d": "3 x 75 cl · Au lieu de 26,96 €",
+"p": "17,97 € les 3 x 75 cl",
+"x": "Soit 5,99 € la bouteille",
+"nn": "Château Begadanet AOP Médoc Cru Bourgeois",
+"dn": "3 x 75 cl · In plaats van € 26,96",
+"pn": "€ 17,97 voor 3 x 75 cl",
+"xn": "Of € 5,99 per fles"
 },
 {
 "r": "maison",
-"m": "2 + 1 gratis au choix",
-"n": "Vitakraft snacks pour chat",
-"d": "Liquid Snack et Lick & Bite · Variétés au choix · Au prix habituel de 3,49 € à 8,99 € le pack",
-"nn": "Vitakraft kattensnacks",
-"dn": "Liquid Snack en Lick & Bite · Naar keuze · Normale prijs € 3,49 tot € 8,99 per pak"
+"img": "img/folder/1011/092.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Ultima Croquettes pour chat stérilisé",
+"d": "Au poulet ou au saumon · 3 kg · Au lieu de 39,96 € · Soit 3,33 €/kg",
+"p": "19,98 € les 2 x 3 kg",
+"x": "Soit 9,99 € le pack",
+"nn": "Ultima Kattenbrokjes gesteriliseerd",
+"dn": "Met kip of met zalm · 3 kg · Naar keuze · In plaats van € 39,96 · Of € 3,33/kg",
+"pn": "€ 19,98 voor 2 x 3 kg",
+"xn": "Of € 9,99 per pak"
 },
 {
-"r": "fleurs",
+"r": "maison",
+"img": "img/folder/1011/093.webp",
 "m": "Prix folder",
-"n": "Rose de Noël",
-"d": "Pot de 13 cm · Hauteur 35 cm · 5-7 têtes",
-"p": "2,99 € la plante",
-"nn": "Kerstster",
-"dn": "Pot van 13 cm · Hoogte 35 cm · 5-7 koppen",
-"pn": "€ 2,99 per plant"
+"n": "Purina One Sterilcat Pochons pour chat",
+"d": "Dinde et haricots verts, bœuf et carottes, saumon et carottes, poulet et haricots verts · 40 x 85 g · Soit 0,55 € le pochon · Soit 6,47 €/kg",
+"p": "21,99 € les 40 x 85 g",
+"nn": "Purina One Sterilcat Maaltijdzakjes voor katten",
+"dn": "Kalkoen en sperziebonen, rund en wortelen, zalm en wortelen, kip en sperziebonen · 40 x 85 g · Of € 0,55 per zakje · Of € 6,47/kg",
+"pn": "€ 21,99 voor 40 x 85 g"
+},
+{
+"r": "maison",
+"carte": 1,
+"img": "img/folder/1011/094.webp",
+"m": "2e à -50 % au choix",
+"n": "Canaillou Litière pour chat",
+"d": "Pro Fresh 10 l ou Performance 5 l · Au prix habituel de 6,89 € à 7,99 € la pièce",
+"nn": "Canaillou Kattenbakvulling",
+"dn": "Pro Fresh 10 l of Performance 5 l · Naar keuze · Normale prijs € 6,89 tot € 7,99 per stuk"
+},
+{
+"r": "maison",
+"carte": 1,
+"img": "img/folder/1011/094.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Canaillou Litière pour chat",
+"d": "Jeudi 12/11 uniquement · Pro Fresh 10 l ou Performance 5 l · Au prix habituel de 6,89 € à 7,99 € la pièce",
+"nn": "Canaillou Kattenbakvulling",
+"dn": "Enkel donderdag 12/11 · Pro Fresh 10 l of Performance 5 l · Naar keuze · Normale prijs € 6,89 tot € 7,99 per stuk"
+},
+{
+"r": "maison",
+"img": "img/folder/1011/095.webp",
+"m": "19 + 5 gratis in pack",
+"n": "Scottex Papier toilette Coussiné",
+"d": "24 rouleaux · Soit 0,50 € le rouleau",
+"p": "11,99 € les 24 rouleaux",
+"nn": "Scottex Toiletpapier Kussenzacht",
+"dn": "24 rollen · Of € 0,50 per rol",
+"pn": "€ 11,99 voor 24 rollen"
+},
+{
+"r": "maison",
+"img": "img/folder/1011/096.webp",
+"m": "1 + 1 gratis",
+"n": "Renova Essuie-tout Active Absorption",
+"d": "16 rouleaux · Au lieu de 37,96 € · Soit 0,60 € le rouleau",
+"p": "18,98 € les 2 x 16 rouleaux",
+"nn": "Renova Keukenpapier Active Absorption",
+"dn": "16 rollen · In plaats van € 37,96 · Of € 0,60 per rol",
+"pn": "€ 18,98 voor 2 x 16 rollen"
+},
+{
+"r": "maison",
+"img": "img/folder/1011/097.webp",
+"m": "Prix exceptionnel",
+"n": "Gentlemen Farmer Chaussettes",
+"d": "Lot de 7 paires · Stock limité",
+"p": "5,99 € le lot",
+"nn": "Gentlemen Farmer Sokken",
+"dn": "Set van 7 paar · Beperkte voorraad",
+"pn": "€ 5,99 per set"
+},
+{
+"r": "maison",
+"img": "img/folder/1011/098.webp",
+"m": "-40 %",
+"n": "Moulinex Airfryer 5 l",
+"d": "1500 W · Écran digital tactile · Thermostat 70-200 °C · Panier antiadhésif · Au lieu de 109,99 € (prix conseillé fournisseur)",
+"p": "64,99 € la pièce",
+"nn": "Moulinex Airfryer 5 l",
+"dn": "1500 W · Digitaal aanraakscherm · Thermostaat 70-200 °C · Antiaanbakmand · In plaats van € 109,99 (adviesprijs leverancier)",
+"pn": "€ 64,99 per stuk"
+},
+{
+"r": "maison",
+"img": "img/folder/1011/099.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Lenor Adoucissant",
+"d": "Liquide de 42 à 87 doses, Fresh Air 36 ou 50 doses ou Perles de parfum 240 g ou 495 g · Au prix habituel de 5,99 € à 18,99 € le pack",
+"nn": "Lenor Wasverzachter",
+"dn": "Vloeibaar van 42 tot 87 dosissen, Fresh Air 36 of 50 dosissen of geurparels 240 g of 495 g · Naar keuze · Normale prijs € 5,99 tot € 18,99 per pak"
+},
+{
+"r": "maison",
+"img": "img/folder/1011/100.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Dash Lessive",
+"d": "Liquide 30 ou 50 doses, pods 15 ou 26 doses ou poudre 40 doses · Variétés au choix · Au prix habituel de 11,99 € à 22,99 € le pack",
+"nn": "Dash Wasmiddel",
+"dn": "Vloeibaar 30 of 50 dosissen, pods 15 of 26 dosissen of poeder 40 dosissen · Naar keuze · Normale prijs € 11,99 tot € 22,99 per pak"
+},
+{
+"r": "maison",
+"img": "img/folder/1011/101.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Eau Ecarlate Lingettes",
+"d": "Décolor Stop 10, 12 ou 22 pièces ou Revive Color 18 pièces · Au prix habituel de 4,99 € à 7,19 € le pack",
+"nn": "Eau Ecarlate Doekjes",
+"dn": "Décolor Stop 10, 12 of 22 stuks of Revive Color 18 stuks · Naar keuze · Normale prijs € 4,99 tot € 7,19 per pak"
+},
+{
+"r": "maison",
+"img": "img/folder/1011/102.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Soupline Adoucissant Fraîcheur parfumée",
+"d": "60 doses · Variétés au choix · Au prix habituel de 7,49 € à 8,49 € le pack",
+"nn": "Soupline Wasverzachter Geparfumeerde frisheid",
+"dn": "60 dosissen · Naar keuze · Normale prijs € 7,49 tot € 8,49 per pak"
+},
+{
+"r": "maison",
+"img": "img/folder/1011/103.webp",
+"m": "2 + 1 gratis au choix",
+"n": "Listerine Bain de bouche ou Le Petit Marseillais Gel douche",
+"d": "Listerine 500 ml ou Le Petit Marseillais 250 ml · Variétés au choix · Au prix habituel de 3,05 € à 8,19 € le pack",
+"nn": "Listerine Mondspoeling of Le Petit Marseillais Douchegel",
+"dn": "Listerine 500 ml of Le Petit Marseillais 250 ml · Naar keuze · Normale prijs € 3,05 tot € 8,19 per pak"
+},
+{
+"r": "maison",
+"img": "img/folder/1011/104.webp",
+"m": "1 + 1 gratis au choix",
+"n": "Sanex Gel douche Skin Therapy",
+"d": "450 ml · Variétés au choix · Au prix habituel de 7,69 € à 7,75 € la pièce",
+"nn": "Sanex Douchegel Skin Therapy",
+"dn": "450 ml · Naar keuze · Normale prijs € 7,69 tot € 7,75 per stuk"
 }
 ]
 }
@@ -1546,8 +1579,8 @@ footer a{color:var(--ink)}
     <div class="colis">
       <div>
         <div class="eyebrow" data-t="colisEyebrow">Le samedi, sur réservation</div>
-        <h2 data-t="colisTitle">Le colis repas pour 4</h2>
-        <p data-t="colisText">Tout ce qu'il faut pour un repas complet en famille, préparé par nos équipes. Réservez en ligne jusqu'au jeudi 18 h, ou par téléphone, et retirez-le le samedi au comptoir boucherie dès 10 h.</p>
+        <h2 data-t="colisTitle">Le colis boucherie de 3 kg</h2>
+        <p data-t="colisText">Un assortiment de viandes de notre boucherie, composition différente chaque semaine. Réservez en ligne jusqu'au jeudi 18 h, ou par téléphone, et retirez-le le samedi au comptoir boucherie dès 10 h.</p>
       </div>
       <div class="callbox">
         <div class="phone" id="phone">061 61 45 75</div>
@@ -1631,7 +1664,7 @@ momentEyebrow:"Les promos du moment",momentTitle:"À ne pas manquer cette semain
 momentStock:"Offres valables dans la limite des stocks disponibles.",momentResa:"Réserver une promo boucherie",
 rayEyebrow:"Le frais",rayTitle:"Les rayons qui font la différence",ray1t:"Boucherie",ray1p:"Hachis, rôtis, volailles et grillades pour toute la famille, avec une offre spéciale presque chaque jour.",
 ray2t:"Boulangerie",ray2p:"Pain cuit sur place tout au long de la journée. Le mardi, le pain carré de 800 g à 1,99 €.",ray3t:"Fruits & légumes",ray3p:"Les produits de saison au meilleur prix.",
-colisEyebrow:"Le samedi, sur réservation",colisTitle:"Le colis repas pour 4",colisText:"Tout ce qu'il faut pour un repas complet en famille, préparé par nos équipes. Réservez en ligne jusqu'au jeudi 18 h, ou par téléphone, et retirez-le le samedi au comptoir boucherie dès 10 h.",
+colisEyebrow:"Le samedi, sur réservation",colisTitle:"Le colis boucherie de 3 kg",colisText:"Un assortiment de viandes de notre boucherie, composition différente chaque semaine. Réservez en ligne jusqu'au jeudi 18 h, ou par téléphone, et retirez-le le samedi au comptoir boucherie dès 10 h.",
 colisBtn:"Réserver en ligne",copyBtn:"Copier le numéro",copyMsg:"Numéro copié",
 hoursEyebrow:"Horaires",hoursTitle:"Quand passer ?",hoursNote:"Ouvert tous les jours, jours fériés compris.",
 infoEyebrow:"Nous trouver",infoTitle:"Infos pratiques",dtAddr:"Adresse",dtTel:"Téléphone",ddPark:"Gratuit, devant le magasin",dtRoute:"Itinéraire",ddRoute:"Ouvrir la carte",
@@ -1641,9 +1674,9 @@ promos:[
  {r:1,t:"Hachis 1+1 offert",p:"Au rayon boucherie."},
  {t:"Pain carré 800 g à 1,99 €",p:"À la boulangerie, toute la journée."},
  {t:"Formule lunch",p:"Sandwich maison + boisson + dessert."},
+ {t:"Cabas fruits & légumes de saison",p:"Une sélection de saison, différente chaque semaine."},
  {r:1,t:"Rôti spécial à 9,99 €/kg",p:"À la boucherie."},
- {r:1,t:"Rôti & volaille",p:"Le rôti ou la volaille du week-end en offre spéciale."},
- {r:1,t:"Colis repas pour 4",p:"Sur réservation, à retirer en magasin."},
+ {r:1,t:"Colis boucherie de 3 kg",p:"Composition différente chaque semaine. Sur réservation."},
  {r:1,t:"Poulet rôti, frites & compote",p:"Le repas du dimanche prêt à emporter, 8,49 €."}]},
 nl:{navPromos:"Promoties",navResa:"Reserveren",navMoment:"Actuele promoties",navInfos:"Openingsuren & ligging",
 heroEyebrow:"Intermarché Contact · Gedinne",heroTitle:"De dorpswinkel, <em>elke dag open.</em>",heroAlt:"De gevel van de Intermarché Contact in Gedinne bij zonsondergang",vilEyebrow:"Hier, in Gedinne",vilTitle:"Een dorpswinkel met alles wat u nodig hebt.",vilText:"De boodschappen voor de week, het brood van de ochtend, het gebraad voor het weekend of de kip op zondag: wij zorgen ervoor dat u vindt wat u zoekt, zonder kilometers te rijden. Liever dat wij alles klaarmaken? Reserveer online.",vilSign:"Het team van Intermarché Gedinne",f1t:"7 dagen op 7",f1p:"Van 8 tot 19 uur, ook op zon- en feestdagen.",f2t:"Wij maken alles klaar",f2p:"Reserveer online, haal af aan de slagerijtoonbank vanaf 10 uur en betaal aan de kassa.",f3t:"Welkom aan vakantiegangers",f3p:"De website en de reservaties zijn er ook in het Nederlands.",
@@ -1655,7 +1688,7 @@ momentEyebrow:"Actuele promoties",momentTitle:"Niet te missen deze week",momentN
 momentStock:"Zolang de voorraad strekt.",momentResa:"Een slagerijpromotie reserveren",
 rayEyebrow:"Vers",rayTitle:"De afdelingen die het verschil maken",ray1t:"Slagerij",ray1p:"Gehakt, gebraad, gevogelte en grillvlees voor het hele gezin, met bijna elke dag een speciale aanbieding.",
 ray2t:"Bakkerij",ray2p:"De hele dag door vers gebakken brood. Op dinsdag vierkant brood van 800 g aan € 1,99.",ray3t:"Groenten & fruit",ray3p:"Seizoensproducten aan de beste prijs.",
-colisEyebrow:"Op zaterdag, op reservatie",colisTitle:"Het maaltijdpakket voor 4",colisText:"Alles voor een volledige maaltijd met het gezin, klaargemaakt door ons team. Reserveer online tot donderdag 18 uur of telefonisch, en haal het zaterdag vanaf 10 uur af aan de slagerijtoonbank.",
+colisEyebrow:"Op zaterdag, op reservatie",colisTitle:"Het vleespakket van 3 kg",colisText:"Een assortiment vlees van onze slagerij, elke week anders samengesteld. Reserveer online tot donderdag 18 uur of telefonisch, en haal het zaterdag vanaf 10 uur af aan de slagerijtoonbank.",
 colisBtn:"Online reserveren",copyBtn:"Nummer kopiëren",copyMsg:"Nummer gekopieerd",
 hoursEyebrow:"Openingsuren",hoursTitle:"Wanneer langskomen?",hoursNote:"Elke dag open, ook op feestdagen.",
 infoEyebrow:"Ligging",infoTitle:"Praktische info",dtAddr:"Adres",dtTel:"Telefoon",ddPark:"Gratis, voor de winkel",dtRoute:"Route",ddRoute:"Kaart openen",
@@ -1665,9 +1698,9 @@ promos:[
  {r:1,t:"Gehakt 1+1 gratis",p:"Aan de slagerijtoonbank."},
  {t:"Vierkant brood 800 g aan € 1,99",p:"In de bakkerij, de hele dag."},
  {t:"Lunchformule",p:"Huisgemaakte sandwich + drankje + dessert."},
+ {t:"Seizoenstas groenten & fruit",p:"Een seizoensselectie, elke week anders."},
  {r:1,t:"Speciaal gebraad aan € 9,99/kg",p:"Aan de slagerij."},
- {r:1,t:"Gebraad & gevogelte",p:"Gebraad of gevogelte voor het weekend in promotie."},
- {r:1,t:"Maaltijdpakket voor 4",p:"Op reservatie, af te halen in de winkel."},
+ {r:1,t:"Vleespakket van 3 kg",p:"Elke week een andere samenstelling. Op reservatie."},
  {r:1,t:"Gebraden kip, frietjes & appelmoes",p:"De zondagsmaaltijd om mee te nemen, € 8,49."}]}
 };
 let folder={offres:[],temps:[]};
@@ -1677,7 +1710,7 @@ const LIST_KEY="liste-"+(folder.debut||"");
 let rayon="all",curLang="fr",liste=new Set();
 try{const v=JSON.parse(localStorage.getItem(LIST_KEY)||"[]");if(Array.isArray(v))liste=new Set(v)}catch(e){}
 function saveList(){try{localStorage.setItem(LIST_KEY,JSON.stringify([...liste]))}catch(e){}}
-function mecaNL(m){return m.replace("gratis au choix","gratis naar keuze").replace("Prix exceptionnel","Uitzonderlijke prijs").replace("Prix folder","Folderprijs").replace("Prix au kilo","Kiloprijs").replace("Moins cher","Goedkoper").replace("Prix imbattable","Onklopbare prijs").replace("Stock limité","Beperkte voorraad").replace("10 pour 5 €","10 voor € 5").replace("merguez offertes","merguez gratis").replace("au choix","naar keuze").replace("2e à ","2de aan ").replace("de remise immédiate","directe korting").replace("Jusqu'à ","Tot ").replace("verre gratis","glas gratis")}
+function mecaNL(m){return m.replace("gratis au choix","gratis naar keuze").replace("Prix exceptionnel","Uitzonderlijke prijs").replace("Prix folder","Folderprijs").replace("Prix au kilo","Kiloprijs").replace("Moins cher","Goedkoper").replace("Prix imbattable","Onklopbare prijs").replace("Stock limité","Beperkte voorraad").replace("10 pour 5 €","10 voor € 5").replace("merguez offertes","merguez gratis").replace("au choix","naar keuze").replace("2e à ","2de aan ").replace("de remise immédiate","directe korting").replace("Jusqu'à ","Tot ").replace("verre gratis","glas gratis").replace(/(\d+) pour ([\d,]+) €/,"$1 voor € $2").replace("par 3","per 3").replace("gratis in pack","gratis in pak").replace("Remise immédiate","Directe korting").replace("Tarif économique à partir de","Voordeeltarief vanaf").replace(/1 verre (\w+) gratis à l'achat de 2 clips/,"1 $1-glas gratis bij aankoop van 2 clips")}
 const idx=(new Date().getDay()+6)%7;
 const $=id=>document.getElementById(id);
 
@@ -1731,6 +1764,7 @@ function renderFolder(lang){
   const shown=o.map((x,i)=>[x,i]).filter(([x,i])=>rayon==="all"||(rayon==="mine"?liste.has(i):x.r===rayon));
   shown.forEach(([x,i])=>{
     const el=document.createElement("article");el.className="offer"+(liste.has(i)?" inlist":"");
+    if(x.img){const im=document.createElement("img");im.className="pic";im.src=x.img;im.alt=nl?x.nn:x.n;im.loading="lazy";im.decoding="async";im.width=300;im.height=225;el.appendChild(im)}
     const top=document.createElement("div");top.className="top";
     const m=document.createElement("span");m.className="meca";m.textContent=nl?mecaNL(x.m):x.m;top.appendChild(m);
     if(x.carte){const t=document.createElement("span");t.className="tag";t.textContent=L.fCarte;top.appendChild(t)}

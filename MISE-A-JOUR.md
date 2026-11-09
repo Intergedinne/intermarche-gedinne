@@ -30,11 +30,12 @@ Le reste de la page (ardoise, horaires, textes, formulaires) ne bouge pas.
 
 - `debut` / `fin` : dates de validité imprimées sur le folder (du mardi au dimanche).
 - `fr` / `nl` : liens vers le folder sur intermarche.be (même date que `debut`, format JJ-MM-AA).
-- `temps` : 0 à 3 temps forts de la semaine (ouverture spéciale, cadeau, bonus carte…). Peut être vide.
+- `temps` : 0 à 4 temps forts de la semaine (ouverture spéciale, cadeau, bonus carte…). Peut être vide.
 - `offres` : une entrée par offre du folder.
   - `r` (rayon) : `boucherie`, `traiteur`, `fl`, `boulangerie`, `cremerie`, `epicerie`, `stnicolas` (saisonnier), `surgeles`, `boissons`, `maison`, `fleurs`.
   - `resa: 1` pour toutes les offres de la boucherie (affiche le bouton Réserver).
   - `carte: 1` pour les offres « avec ma carte ».
+  - `img` (facultatif) : photo du produit recadrée depuis le folder, `img/folder/<JJMM du début>/NNN.webp` (WebP, 400 × 300 max, sans prix, badge, code-barres ni bon). Chaque lundi : créer le dossier de la semaine et supprimer celui de la semaine précédente dans le même commit.
   - `m` : la mécanique telle qu'imprimée (« 1 + 1 gratis », « 2 + 2 gratis au choix », « -50 % », « Prix exceptionnel »…), en français. La traduction NL est automatique.
   - `p`/`pn` et `x`/`xn` sont facultatifs, mais toujours par paire FR/NL.
   - Prix au format belge : `4,19 €/kg` en FR, `€ 4,19/kg` en NL.
